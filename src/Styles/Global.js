@@ -14,6 +14,15 @@ export default createGlobalStyle`
     --color-middleBluePurple:  #8d86c9;
     --color-lavenderGray:      #c4c4ce;
     --color-linen:             #f7ece1;
+
+    --h1-font-size: 18px;
+    --h2-font-size: 16px;
+    --h3-font-size: 14px;
+    --h4-font-size: 12px;
+
+    --p-font-size: 12px;
+    
+    --span-font-size: 10px;
 }
 
 body {
@@ -34,10 +43,9 @@ button{
 }
 `;
 
-
 //Variáveis que poderão ser usadas como props
-export const darkPurple          = '#24203b'
-export const stateBlue           = '#725ac1'
-export const middleBluePurple    = '#8d86c9'
-export const lavenderGray        = '#c4c4ce'
-export const linen               = '#f7ece1'
+export const darkPurple = "#24203b";
+export const stateBlue = "#725ac1";
+export const middleBluePurple = "#8d86c9";
+export const lavenderGray = "#c4c4ce";
+export const linen = "#f7ece1";
