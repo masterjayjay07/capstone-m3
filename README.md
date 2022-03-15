@@ -1,6 +1,6 @@
-# Nome do projeto
+# Bora Marcar?
 
-Projeto desenvolvido para gerenciar seus eventos informais, definindo as responsabilidades de forma simples e prática.
+O _Bora Marcar?_ foi desenvolvido para gerenciar seus eventos informais, definindo as responsabilidades de forma simples e prática.
 
 ### Problema a ser resolvido
 
@@ -19,6 +19,7 @@ Sempre quando vamos organizar ou participar de um evento enfrentamos o problema 
 - React.js
 - Trello
 - Figma
+- Notion
 
 ## Bibliotecas
 
@@ -43,11 +44,11 @@ Sempre quando vamos organizar ou participar de um evento enfrentamos o problema 
 
 ## Equipe
 
-[Anderson Pinto](https://github.com/andersonstpinto) -> _*P.O.*_
-[Victor Ramon](https://github.com/2victor2) -> _*T.L.*_
-[Johão Pedro Vargas](https://github.com/masterjayjay07) -> _*S.M*_
-[Marcelo Teixeira](https://github.com/mtmodesti) -> _*Q.A.*_
-[Yorran Rigatti](https://github.com/yorranrigatti) -> _*Q.A.*_
+[Anderson Pinto](https://github.com/andersonstpinto) -> _*P.O.*_ <br />
+[Victor Ramon](https://github.com/2victor2) -> _*T.L.*_ <br />
+[Johão Pedro Vargas](https://github.com/masterjayjay07) -> _*S.M*_ <br />
+[Marcelo Teixeira](https://github.com/mtmodesti) -> _*Q.A.*_ <br />
+[Yorran Rigatti](https://github.com/yorranrigatti) -> _*Q.A.*_ <br />
 
 ## Descrição geral
 
