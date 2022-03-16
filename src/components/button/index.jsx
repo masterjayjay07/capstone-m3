@@ -1,8 +1,10 @@
+import { buttonThemes } from "../../themes";
 import { Container } from "./styles";
 
-export const Button = ({ children, icon: Icon, ...rest }) => (
-  <Container {...rest}>
-    {Icon && <Icon />}
-    {children}
+const Button = ({ children, theme = buttonThemes.default, ...rest }) => (
+  <Container theme={theme} {...rest}>
+    {children}  
   </Container>
 );
+
+export default Button

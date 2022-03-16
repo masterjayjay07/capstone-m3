@@ -21,12 +21,12 @@ export default createGlobalStyle`
     --h4-font-size: 12px;
 
     --p-font-size: 12px;
-    
     --span-font-size: 10px;
+    --button-font-size: 14px;
 }
 
 body {
-    background-color: var(--color-linen);
+    background-color: var(--color-darkPurple);
     font-family: 'Nunito', sans-serif;  
 }
 
