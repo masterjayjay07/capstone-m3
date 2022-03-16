@@ -23,10 +23,12 @@ export default createGlobalStyle`
     --p-font-size: 12px;
     
     --span-font-size: 10px;
+
+    --button-font-size: 14px;
 }
 
 body {
-    background-color: var(--color-linen);
+    background-color: var(--color-darkPurple);
     font-family: 'Nunito', sans-serif;  
 }
 
@@ -36,6 +38,11 @@ font-family: 'Dancing Script', cursive;
 
 a, li, ol, ul{
     text-decoration: none;
+}
+
+a{
+    cursor: pointer;
+    color: var(--color-darkPurple)
 }
 
 button{
