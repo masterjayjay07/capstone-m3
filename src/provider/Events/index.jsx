@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import boraMarcarApi from "../../services/api";
 import { useAuth } from "../Auth";
 
@@ -16,16 +16,28 @@ export const EventProvider = ({ children }) => {
       .catch((error) => console.log(error));
   };
   const handleCreateEvent = (data) => {
-    boraMarcarApi.post(
-      "/events",
-      { ...data, userId },
-      { headers: { Authorization: `Bearer ${userToken}` } }
-    ).then(({data})=>{
-        setUserEvents([...userEvents, data])
-    })
+    boraMarcarApi
+      .post(
+        "/events",
+        { ...data, userId },
+        { headers: { Authorization: `Bearer ${userToken}` } }
+      )
+      .then(({ data }) => {
+        setUserEvents([...userEvents, data]);
+      });
   };
 
-  useEffect(()=>{
-      
-  })
+  useEffect(() => {
+    if (userId) {
+      getUserEvents();
+    }
+  }, [userId]);
+
+  return (
+    <EventContext.Provider value={{ userEvents, handleCreateEvent }}>
+      {children}
+    </EventContext.Provider>
+  );
 };
+
+export const useEvents = () => useContext(EventContext);
