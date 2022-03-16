@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import boraMarcarApi from "../../services/api";
 import { useAuth } from "../Auth";
+import { useItemsList } from "../ItemsList";
 
 export const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
   const { userToken, userId } = useAuth();
+  const { itemsList } = useItemsList();
 
   const [userEvents, setUserEvents] = useState([]);
 
@@ -16,10 +18,11 @@ export const EventProvider = ({ children }) => {
       .catch((error) => console.log(error));
   };
   const handleCreateEvent = (data) => {
+    const newEvent = { ...data, itemsList, userId };
     boraMarcarApi
       .post(
         "/events",
-        { ...data, userId },
+        newEvent,
         { headers: { Authorization: `Bearer ${userToken}` } }
       )
       .then(({ data }) => {
