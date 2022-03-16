@@ -7,28 +7,14 @@ export const Header = () => {
 
   return (
     <Container>
-      {/* <Link to="/"> */}
-      <a href="#">
+      <Link to="/">
         <img src="#" alt="Logo" />
-      </a>
-      {/* </Link> */}
+      </Link>
       <nav>
-        <Button
-        //   onClick={history.push("/events")}
-        >
-          Criar evento
-        </Button>
+        <Button onClick={history.push("/events")}>Criar evento</Button>
         <div>
-          <Button
-          //   onClick={history.push("/login")}
-          >
-            Entrar
-          </Button>
-          <Button
-          //   onClick={history.push("/signup")}
-          >
-            Cadastrar-se
-          </Button>
+          <Button onClick={history.push("/login")}>Entrar</Button>
+          <Button onClick={history.push("/signup")}>Cadastrar-se</Button>
         </div>
       </nav>
     </Container>
