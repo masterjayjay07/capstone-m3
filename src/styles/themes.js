@@ -21,8 +21,8 @@ const defaultButton = {
   fontSize: "var(--button-font-size)",
   color: "var(--color-linen)",
   transition: "0.3s",
-  padding: "5px",
-  borderRadius: "8%",
+  padding: "5px 20px",
+  borderRadius: "10px",
   fontWeight: "bold",
 
   hover: {
