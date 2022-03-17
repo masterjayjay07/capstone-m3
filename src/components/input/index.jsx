@@ -5,19 +5,21 @@ const Input = ({
   helperText,
   error,
   register,
-  registerMsg,
+  bgcolor,
+  color,
   name,
   ...rest
 }) => {
   return (
     <TextField
-      style={{ backgroundColor: "#CAC4CE", borderRadius: "10px" }}
+      style={{ backgroundColor: `${bgcolor}`, borderRadius: "10px", fontSize: '80px' }}
       id="filled-basic"
       variant="filled"
       label={label}
       helperText={helperText}
       error={error}
       {...rest}
+      
       size="small"
       // {...register(name)}
     ></TextField>
