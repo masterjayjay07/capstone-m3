@@ -7,8 +7,7 @@ import Button from "../../components/button";
 import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
 import boraMarcarApi from "../../services/api";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/Auth";
+import { AuthContext, useAuth } from "../../provider/Auth";
 
 const Login = () => {
   const history = useHistory();
@@ -26,20 +25,12 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const { setUserToken } = useContext(AuthContext);
+  const { userToken, handleLogin } = useAuth();
 
-  const onSubmitFunction = async (data) => {
-    const response = await boraMarcarApi
-      .post("/login", data)
-      .then((res) => {
-        console.log(res.accessToken);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    console.log(data);
+  const onSubmitFunction = (data) => {
+    handleLogin(data)
   };
-
+    
   return (
     <Container>
       <Link to="/">
@@ -49,14 +40,14 @@ const Login = () => {
         <h2>Login</h2>
         <Input
           label="Seu e-mail"
-          error={errors.email?.message}
+          error={!!errors.email?.message}
           helperText={errors.email?.message}
           name={"email"}
           register={register}
         />
         <Input
           label="Sua senha"
-          error={errors.password?.message}
+          error={!!errors.password?.message}
           helperText={errors.password?.message}
           name={"password"}
           register={register}
