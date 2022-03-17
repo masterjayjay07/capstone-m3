@@ -1,9 +1,11 @@
-import { Header } from "../../components/header";
+import Header from "../../components/header";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <>
       <Header />
     </>
   );
 };
+
+export default LandingPage

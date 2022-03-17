@@ -1,8 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "../button";
+import Button  from "../button";
 import { Container } from "./styles";
 
-export const Header = () => {
+const Header = () => {
   const history = useHistory();
 
   return (
@@ -11,12 +11,14 @@ export const Header = () => {
         <img src="#" alt="Logo" />
       </Link>
       <nav>
-        <Button onClick={history.push("/events")}>Criar evento</Button>
+        <Button onClick={() => history.push("/dashboard/events")}>Criar evento</Button>
         <div>
-          <Button onClick={history.push("/login")}>Entrar</Button>
-          <Button onClick={history.push("/signup")}>Cadastrar-se</Button>
+          <Button onClick={() => history.push("/login")}>Entrar</Button>
+          <Button onClick={() => history.push("/register")}>Cadastrar-se</Button>
         </div>
       </nav>
     </Container>
   );
 };
+
+export default Header

@@ -30,11 +30,13 @@ export const ItemsListProvider = ({ children }) => {
     setItemsList(itemsList.filter(({ id }) => id !== itemId));
   };
 
-  return(
-      <ItemsListContext.Provider value={{itemsList, handleNewItem, handleDeleteItem, handleEditItem}}>
-         {children}
-      </ItemsListContext.Provider>
-  )
+  return (
+    <ItemsListContext.Provider
+      value={{ itemsList, handleNewItem, handleDeleteItem, handleEditItem }}
+    >
+      {children}
+    </ItemsListContext.Provider>
+  );
 };
 
-export const useItemsList = () => useContext(ItemsListContext)
+export const useItemsList = () => useContext(ItemsListContext);
