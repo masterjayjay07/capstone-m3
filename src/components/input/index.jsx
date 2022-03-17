@@ -5,13 +5,20 @@ const Input = ({
   helperText,
   error,
   register,
-  registerMsg,
   name,
+  backGround,
+  color,
   ...rest
 }) => {
   return (
     <TextField
-      style={{ backgroundColor: "#CAC4CE", borderRadius: "10px" }}
+      style={{
+        backgroundColor: "#CAC4CE",
+        borderRadius: "10px",
+        margin: "2px",
+        backgroundColor: `${backGround}`,
+      }}
+      sx={{ input: { color: `${color}` } }}
       id="filled-basic"
       variant="filled"
       label={label}
