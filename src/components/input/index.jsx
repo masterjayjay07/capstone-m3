@@ -1,17 +1,17 @@
 import TextField from "@mui/material/TextField";
 
+
 const Input = ({
   label,
   helperText,
   error,
   register,
-  registerMsg,
   name,
   ...rest
 }) => {
   return (
     <TextField
-      style={{ backgroundColor: "#CAC4CE", borderRadius: "10px" }}
+      style={{ backgroundColor: "#CAC4CE", borderRadius: "10px", margin: '2px' }}
       id="filled-basic"
       variant="filled"
       label={label}
@@ -19,7 +19,7 @@ const Input = ({
       error={error}
       {...rest}
       size="small"
-      // {...register(name)}
+      {...register(name)}
     ></TextField>
   );
 };

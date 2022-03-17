@@ -1,11 +1,12 @@
 import GlobalStyle from "./styles/global";
-import Stack2 from "./components/stack2";
+import FormCadastro from "./components/formCadastro";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Stack2 />
+      <FormCadastro />
+      
     </>
   );
 };
