@@ -26,7 +26,7 @@ const Input = ({
       error={error}
       {...rest}
       size="small"
-      // {...register(name)}
+      {...register(name)}
     ></TextField>
   );
 };

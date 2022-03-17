@@ -11,6 +11,7 @@ export default createGlobalStyle`
 :root{
     --color-darkPurple:        #24203b;
     --color-stateBlue:         #725ac1;
+    --color-light-purple:      #9F96E9;
     --color-middleBluePurple:  #8d86c9;
     --color-lavenderGray:      #c4c4ce;
     --color-linen:             #f7ece1;
