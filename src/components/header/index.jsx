@@ -1,8 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "../button";
+import Button from "../button";
 import { Container } from "./styles";
 
-export const Header = () => {
+const Header = () => {
   const history = useHistory();
 
   return (
@@ -20,3 +20,5 @@ export const Header = () => {
     </Container>
   );
 };
+
+export default Header;
