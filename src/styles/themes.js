@@ -1,12 +1,7 @@
 const headerButton = {
   background: "transparent",
   border: "1px solid transparent",
-  fontSize: "var(--button-font-size)",
-  color: "var(--color-linen)",
-  transition: "0.3s",
   padding: "5px",
-  borderRadius: "8%",
-  fontWeight: "bold",
 
   hover: {
     background: "transparent",
@@ -18,12 +13,7 @@ const headerButton = {
 const defaultButton = {
   background: "var(--color-stateBlue)",
   border: "1px solid var(--color-stateBlue)",
-  fontSize: "var(--button-font-size)",
-  color: "var(--color-linen)",
-  transition: "0.3s",
-  padding: "5px",
-  borderRadius: "8%",
-  fontWeight: "bold",
+  padding: "5px 20px",
 
   hover: {
     background: "var(--color-darkPurple)",
@@ -35,12 +25,7 @@ const defaultButton = {
 const addButton = {
   background: "var(--color-darkPurple)",
   border: "1px solid var(--color-darkPurple)",
-  fontSize: "var(--button-font-size)",
-  color: "var(--color-linen)",
-  transition: "0.3s",
   padding: "5px 10px",
-  borderRadius: "8%",
-  fontWeight: "bold",
 
   hover: {
     background: "var(--color-stateBlue)",
@@ -54,4 +39,3 @@ export const buttonThemes = {
   default: defaultButton,
   add: addButton,
 };
-
