@@ -61,9 +61,11 @@ const FormCadastro = () => {
       email: data.email,
     };
     console.log(newPost);
-    //aqui vai enviar para a API o post
+    //aqui vai enviar para a API o post e enviar para o prox página
     //const {handleRegister} = useAuth()
     //handleRegister(newPost)
+    //history.push('COLOCAR AQUI O ENDEREÇO DA PÁGINA DE LOGIN')
+    
   };
 
   return (
