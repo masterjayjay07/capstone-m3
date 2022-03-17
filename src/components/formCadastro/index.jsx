@@ -4,9 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import Input from "../input";
 import { Form } from "./styles";
-import { Button } from "../button";
-import axios from "axios";
-import api from "../../services/api";
+import Button from "../button";
 
 const FormCadastro = () => {
   const history = useHistory();
