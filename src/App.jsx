@@ -1,11 +1,11 @@
 import GlobalStyle from "./styles/global";
-import FormCadastro from "./components/formCadastro";
+import Register from "./pages/register";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <FormCadastro />
+      <Register />
       
     </>
   );

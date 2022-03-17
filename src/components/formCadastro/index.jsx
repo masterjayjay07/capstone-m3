@@ -120,7 +120,9 @@ const FormCadastro = () => {
         type="password"
       />
 
-      <Button type="submit" children={"Cadastrar"} />
+      <Button type="submit" children={"Cadastrar"} 
+      
+      />
     </Form>
   );
 };
