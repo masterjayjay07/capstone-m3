@@ -28,9 +28,9 @@ const Login = () => {
   const { userToken, handleLogin } = useAuth();
 
   const onSubmitFunction = (data) => {
-    handleLogin(data)
+    handleLogin(data);
   };
-    
+
   return (
     <Container>
       <Link to="/">
@@ -55,7 +55,11 @@ const Login = () => {
         />
         <Button type="submit">Entrar</Button>
         <p>Não possui uma conta?</p>
-        <Button type="button" theme={buttonThemes.header}>
+        <Button
+          type="button"
+          theme={buttonThemes.header}
+          onClick={() => history.push("/register")}
+        >
           Cadastre-se
         </Button>
       </form>
