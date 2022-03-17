@@ -15,7 +15,6 @@ const Input = ({
     <TextField
       sx={{ input: { color: `${color}` } }}
       style={{ backgroundColor: `${bgcolor}`, borderRadius: "10px", fontSize: '80px' }}
-      id="filled-basic"
       variant="filled"
       label={label}
       helperText={helperText}

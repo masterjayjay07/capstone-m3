@@ -10,7 +10,6 @@ const Header = () => {
   const history = useHistory();
 
   const [open, setOpen] = useState(false);
-  console.log(open);
 
   return (
     <Container>
