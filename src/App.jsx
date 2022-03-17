@@ -1,4 +1,5 @@
 import { LandingPage } from "./pages/LandingPage";
+import { Toaster } from "react-hot-toast";
 import GlobalStyle from "./styles/global";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <LandingPage />
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };

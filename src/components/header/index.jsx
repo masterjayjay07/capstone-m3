@@ -1,9 +1,11 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from "../button";
 import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
+import { FiMenu } from "react-icons/fi";
 
-export const Header = () => {
+const Header = () => {
+
   const history = useHistory();
 
   return (
@@ -11,28 +13,23 @@ export const Header = () => {
       {/* <Link to="/"> */}
       <img src="" alt="Logo" />
       {/* </Link> */}
+        <FiMenu />
       <nav>
         <Button
           theme={buttonThemes.header}
-          // onClick={history.push("/events")}
+          // onClick={history.push("/login")}
         >
-          Criar evento
+          Entrar
         </Button>
-        <div>
-          <Button
-            theme={buttonThemes.header}
-            // onClick={history.push("/login")}
-          >
-            Entrar
-          </Button>
-          <Button
-            theme={buttonThemes.header}
-            // onClick={history.push("/signup")}
-          >
-            Cadastrar-se
-          </Button>
-        </div>
+        <Button
+          theme={buttonThemes.header}
+          // onClick={history.push("/signup")}
+        >
+          Cadastrar-se
+        </Button>
       </nav>
     </Container>
   );
 };
+
+export default Header

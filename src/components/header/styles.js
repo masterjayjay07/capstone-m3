@@ -3,18 +3,26 @@ import styled from "styled-components";
 export const Container = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 50px;
-  padding: 10px 150px;
+  width: 100%;
+  padding: 15px;
 
   nav {
-    width: 56%;
-    display: flex;
+    display: none;
     justify-content: space-between;
+  }
+  svg {
+    font-size: 25px;
+    color: var(--color-stateBlue);
+  }
 
-    div {
-      width: 160px;
+  @media (min-width: 425px) {
+    nav {
       display: flex;
-      justify-content: space-between;
+    }
+    svg {
+      display: none;
     }
   }
 `;

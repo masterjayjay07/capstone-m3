@@ -1,4 +1,4 @@
-import { Header } from "../../components/header";
+import Header from "../../components/header";
 import LpStack1 from "../../components/lpstack1";
 
 export const LandingPage = () => {
