@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   width: 300px;
   height: 296px;
   display: flex;
@@ -25,12 +25,11 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    input {
+    div {
       width: 48%;
     }
   }
   button {
-    background-color: var(--color-darkPurple);
     width: 80%;
     border-radius: 3px;
     color: var(--color-light-purple);

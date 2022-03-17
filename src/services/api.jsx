@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const api = axios.create({
+const boraMarcarApi = axios.create({
   baseURL: "https://bora-marcar-api.herokuapp.com/",
 });
 
-export default api;
+export default boraMarcarApi;
