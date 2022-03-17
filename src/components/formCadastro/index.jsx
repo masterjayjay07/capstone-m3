@@ -60,7 +60,7 @@ const FormCadastro = () => {
       age: data.age,
       email: data.email,
     };
-    console.log(newPost)
+    console.log(newPost);
     //aqui vai enviar para a API o post
     //const {handleRegister} = useAuth()
     //handleRegister(newPost)
@@ -120,9 +120,7 @@ const FormCadastro = () => {
         type="password"
       />
 
-      <Button type="submit" children={"Cadastrar"} 
-      
-      />
+      <Button type="submit" children={"Cadastrar"} />
     </Form>
   );
 };

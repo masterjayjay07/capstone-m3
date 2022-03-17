@@ -35,8 +35,7 @@ export const Container = styled.div`
     p {
       display: none;
     }
-    span{
-        
+    span {
     }
   }
 `;
