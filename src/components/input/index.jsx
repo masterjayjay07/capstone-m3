@@ -9,7 +9,6 @@ const Input = ({
   color,
   name,
   backGround,
-  color,
   ...rest
 }) => {
   return (
