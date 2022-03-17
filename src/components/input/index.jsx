@@ -7,6 +7,7 @@ const Input = ({
   register,
   registerMsg,
   name,
+  id,
   ...rest
 }) => {
   return (
@@ -19,7 +20,7 @@ const Input = ({
       error={error}
       {...rest}
       size="small"
-      // {...register(name)}
+      {...register(name)}
     ></TextField>
   );
 };
