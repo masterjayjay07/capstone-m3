@@ -6,6 +6,7 @@ import { useItemsList } from "../ItemsList";
 export const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
+  
   const { userToken, userId } = useAuth();
   const { itemsList } = useItemsList();
 
@@ -20,11 +21,9 @@ export const EventProvider = ({ children }) => {
   const handleCreateEvent = (data) => {
     const newEvent = { ...data, itemsList, userId };
     boraMarcarApi
-      .post(
-        "/events",
-        newEvent,
-        { headers: { Authorization: `Bearer ${userToken}` } }
-      )
+      .post("/events", newEvent, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
       });

@@ -1,7 +1,7 @@
 import Header from "../../components/header";
 import LpStack1 from "../../components/lpstack1";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <>
       <Header />
@@ -11,3 +11,5 @@ export const LandingPage = () => {
     </>
   );
 };
+
+export default LandingPage;
