@@ -1,6 +1,6 @@
 import { Container } from "./styles";
-import FormCadastro from "../../components/formCadastro";
 import { GiPartyFlags } from "react-icons/gi";
+import FormRegister from "../../components/registerForm";
 
 const Register = () => {
   return (
@@ -19,7 +19,7 @@ const Register = () => {
       </section>
 
       <div>
-        <FormCadastro />
+        <FormRegister />
       </div>
     </Container>
   );
