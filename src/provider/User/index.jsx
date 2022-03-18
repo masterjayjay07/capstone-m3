@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { userToken, userId } = useAuth();
-
+  console.log(userId)
   const [user, setUser] = useState({});
 
   const getUserData = () => {
