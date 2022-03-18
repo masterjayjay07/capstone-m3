@@ -11,9 +11,9 @@ export const UserProvider = ({ children }) => {
 
   const getUserData = () => {
     boraMarcarApi
-      .get(`/users?id=${userId}`)
+      .get(`/users/${userId}`)
       .then(({ data }) => {
-        setUser(data[0]);
+        setUser(data);
       })
       .catch((error) => console.log(error));
   };
