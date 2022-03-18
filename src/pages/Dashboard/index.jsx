@@ -8,6 +8,7 @@ import Modal from "@mui/material/Modal";
 import CardEvent from "../../components/cardEvent"; //esse card aqui é o do evento
 import FormAddEvent from "../../components/formAddEvent";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const handleClose = () => setOpen(false);
   const { userEvents } = useEvents(); //array de eventos do usuário
   //inserir o use Effect no userEvents
+  const history = useHistory();
 
   const style = {
     display: "flex",
@@ -23,7 +25,6 @@ const Dashboard = () => {
     width: "100vw",
     height: "100vh",
   };
-
   return (
     <Container>
       <Header>
@@ -38,15 +39,19 @@ const Dashboard = () => {
             <span>Você não possui eventos para visualizar</span>
           ) : (
             userEvents.map((item, index) => (
-              <CardEvent key={index} event={item} />
+              <CardEvent
+                key={index}
+                event={item}
+                onClick={() => history.push("/dashboard/events")}
+              />
             ))
           )}
         </CardsDiv>
-        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen}/>
+        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
       </SlotCard>
       <Modal open={open} onClose={handleClose} sx={style}>
         <>
-          <FormAddEvent handleClose={handleClose}/>
+          <FormAddEvent handleClose={handleClose} />
         </>
       </Modal>
     </Container>

@@ -6,12 +6,12 @@ export const Container = styled.div`
   margin-top: 10px;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 
   Button {
     align-self: flex-end;
   }
-
-`;  
+`;
 
 export const Header = styled.div`
   display: flex;
