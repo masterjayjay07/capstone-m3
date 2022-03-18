@@ -57,8 +57,8 @@ const Login = () => {
         <p>Não possui uma conta?</p>
         <Button
           type="button"
-          onClick={() => history.push("/register")}
           theme={buttonThemes.header}
+          onClick={() => history.push("/register")}
         >
           Cadastre-se
         </Button>
