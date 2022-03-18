@@ -14,13 +14,16 @@ const Input = ({
   return (
     <TextField
       sx={{ input: { color: `${color}` } }}
-      style={{ backgroundColor: `${bgcolor}`, borderRadius: "10px", fontSize: '80px' }}
+      style={{
+        backgroundColor: `${bgcolor}`,
+        borderRadius: "10px",
+        fontSize: "80px",
+      }}
       variant="filled"
       label={label}
       helperText={helperText}
       error={error}
       {...rest}
-      
       size="small"
       {...register(name)}
     ></TextField>

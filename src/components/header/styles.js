@@ -7,6 +7,7 @@ export const Container = styled.header`
   height: 50px;
   width: 100%;
   padding: 0 0 0 15px;
+  z-index: 1;
 
   nav {
     display: none;
