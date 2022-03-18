@@ -1,15 +1,13 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useHistory } from "react-router-dom";
 import Input from "../input";
 import { Form } from "./styles";
 import Button from "../button";
-import axios from "axios";
-import api from "../../services/api";
+import { useAuth } from "../../provider/Auth";
 
 const FormCadastro = () => {
-  const history = useHistory();
+  const { handleRegister } = useAuth();
 
   const formSchema = yup.object().shape({
     name: yup
@@ -34,11 +32,7 @@ const FormCadastro = () => {
       .oneOf([yup.ref("email")], "E-mails precisam coincidir"),
     password: yup
       .string()
-      .required("Senha obrigatória")
-      .matches(
-        "^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,15}$",
-        "Senha fraca"
-      ),
+      .required("Senha obrigatória"),
     confirmPassword: yup
       .string()
       .required("Confirmação de senha obrigatória")
@@ -60,12 +54,8 @@ const FormCadastro = () => {
       age: data.age,
       email: data.email,
     };
-    console.log(newPost);
-    //aqui vai enviar para a API o post e enviar para o prox página
-    //const {handleRegister} = useAuth()
-    //handleRegister(newPost)
-    //history.push('COLOCAR AQUI O ENDEREÇO DA PÁGINA DE LOGIN')
-    
+
+    handleRegister(newPost);
   };
 
   return (

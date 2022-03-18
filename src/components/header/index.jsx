@@ -10,10 +10,9 @@ import { useAuth } from "../../provider/Auth";
 
 const Header = () => {
   const history = useHistory();
-  const { userToken } = useAuth();
+  const { userToken, handleLogout } = useAuth();
 
   const [open, setOpen] = useState(false);
-  console.log(open);
 
   return (
     <Container>
@@ -25,7 +24,9 @@ const Header = () => {
       </BurguerButton>
       {userToken !== "" ? (
         <nav>
-          <Button theme={buttonThemes.header}>Logout</Button>
+          <Button theme={buttonThemes.header} onClick={handleLogout}>
+            Logout
+          </Button>
         </nav>
       ) : (
         <nav>

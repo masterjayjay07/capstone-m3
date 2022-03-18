@@ -5,7 +5,6 @@ import Stack2 from "../../components/stack2";
 const LandingPage = () => {
   return (
     <>
-      <Header />
       <main>
         <LpStack1 />
         <Stack2 />
