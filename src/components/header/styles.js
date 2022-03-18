@@ -7,16 +7,8 @@ export const Container = styled.header`
   height: 50px;
   width: 100%;
   padding: 0 0 0 15px;
-  z-index: 1;
-
   nav {
-    display: none;
-    background: var(--color-stateBlue);
-    padding: 0 10px 0 0;
-
-    button + button {
-      margin-left: 5px;
-    }
+    
   }
 
   @media (min-width: 425px) {
@@ -27,19 +19,5 @@ export const Container = styled.header`
       margin-top: 0;
       background: transparent;
     }
-    svg {
-      display: none;
-    }
-  }
-`;
-
-export const BurguerButton = styled.button`
-  background: transparent;
-  border: none;
-
-  svg {
-    font-size: 35px;
-    color: var(--color-stateBlue);
-    padding-right: 10px;
   }
 `;
