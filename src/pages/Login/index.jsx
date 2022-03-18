@@ -1,4 +1,4 @@
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,8 +6,8 @@ import Input from "../../components/input";
 import Button from "../../components/button";
 import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
-import boraMarcarApi from "../../services/api";
-import { AuthContext, useAuth } from "../../provider/Auth";
+import { useAuth } from "../../provider/Auth";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const history = useHistory();
@@ -25,12 +25,12 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const { userToken, handleLogin } = useAuth();
+  const { handleLogin } = useAuth();
 
   const onSubmitFunction = (data) => {
-    handleLogin(data)
+    handleLogin(data);
   };
-    
+
   return (
     <Container>
       <Link to="/">
@@ -55,7 +55,11 @@ const Login = () => {
         />
         <Button type="submit">Entrar</Button>
         <p>Não possui uma conta?</p>
-        <Button type="button" theme={buttonThemes.header}>
+        <Button
+          type="button"
+          onClick={() => history.push("/register")}
+          theme={buttonThemes.header}
+        >
           Cadastre-se
         </Button>
       </form>

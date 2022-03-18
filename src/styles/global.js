@@ -11,6 +11,7 @@ export default createGlobalStyle`
 :root{
     --color-darkPurple:        #24203b;
     --color-stateBlue:         #725ac1;
+    --color-light-purple:      #9F96E9;
     --color-middleBluePurple:  #8d86c9;
     --color-lavenderGray:      #c4c4ce;
     --color-linen:             #f7ece1;
@@ -34,8 +35,12 @@ h1, h2, h3, h4, h5, h6 {
 font-family: 'Dancing Script', cursive;
 }
 
-a, li, ol, ul{
+a{
     text-decoration: none;
+}
+li{
+    list-style-type: none;
+    color: var(--color-linen);
 }
 
 button{
