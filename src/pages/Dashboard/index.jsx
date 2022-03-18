@@ -28,11 +28,7 @@ const Dashboard = () => {
         </div>
         <Button children={"+"} theme={buttonThemes.add} />
       </div>
-      <button
-      onClick={() => {
-        console.log(userEvents)
-      }}
-      >eventos do user</button> 
+     
     </Container>
     
   );
