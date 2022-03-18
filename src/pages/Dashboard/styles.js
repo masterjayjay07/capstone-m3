@@ -1,42 +1,55 @@
 import styled from "styled-components";
 import Button from "../../components/button";
 
-
 export const Container = styled.div`
-display: flex;
-flex-direction: column;
-width: 100vw;
-height: 100vh;
-margin-top: 10px;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
 
-Button{
-    position: relative;
-}
-
-span{
-    color: var(--color-darkPurple);
-    font-family: 'Nunito', sans-serif;
-}
-
-div {
+  .header {
     display: flex;
-    margin-top: 10px;
-    background-color: var(--color-light-purple);
-    min-height: 60px;
-    width: 90%;
-    align-items: center;
     justify-content: space-around;
-}
+    align-items: center;
+    min-width: 300px;
+    width: 80%;
+    height: 50px;
+    background-color: var(--color-stateBlue);
+  }
 
-div + div{
+  .slotCards {
     display: flex;
     flex-direction: column;
-}
+    background-color: var(--color-stateBlue);
+    width: 80%;
+    align-items: center;
+    min-width: 300px;
+    min-height: 200px;
+    max-height: 540px;
+    overflow-y: auto;
+    justify-content: space-around;
+    text-align: center;
 
-section{
-    margin-right: -80%;
-}
+    span {
+      border-bottom: 1.5px solid var(--color-darkPurple);
+      font-family: "Nunito";
+      font-size: 18px;
+    }
+  }
 
-}
+  .cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  Button {
+    align-self: flex-end;
+  }
+
+  .spanTitle{
+  margin: 10px;
+ 
+  }
 `;
