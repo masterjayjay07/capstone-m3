@@ -11,6 +11,7 @@ export default createGlobalStyle`
 :root{
     --color-darkPurple:        #24203b;
     --color-stateBlue:         #725ac1;
+    --color-light-purple:      #9F96E9;
     --color-middleBluePurple:  #8d86c9;
     --color-lavenderGray:      #c4c4ce;
     --color-linen:             #f7ece1;
@@ -21,12 +22,12 @@ export default createGlobalStyle`
     --h4-font-size: 12px;
 
     --p-font-size: 12px;
-    
     --span-font-size: 10px;
+    --button-font-size: 14px;
 }
 
 body {
-    background-color: var(--color-linen);
+    background-color: var(--color-darkPurple);
     font-family: 'Nunito', sans-serif;  
 }
 

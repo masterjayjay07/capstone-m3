@@ -1,8 +1,7 @@
 import { Container } from "./styles";
-import FormCadastro from "../../components/formCadastro";
+import FormRegister from "../../components/registerForm";
 import { GiPartyFlags } from "react-icons/gi";
 
-//criar aqui a página do formulário de cadastro
 const Register = () => {
   return (
     <Container>
@@ -20,7 +19,7 @@ const Register = () => {
       </section>
 
       <div>
-        <FormCadastro />
+        <FormRegister />
       </div>
     </Container>
   );
