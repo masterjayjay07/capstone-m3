@@ -6,8 +6,8 @@ import { Form } from "./styles";
 import Button from "../button";
 import { useAuth } from "../../provider/Auth";
 
-const FormCadastro = () => {
-  const { handleRegister } = useAuth();
+const FormRegister = () => {
+ const {handleRegister} = useAuth()
 
   const formSchema = yup.object().shape({
     name: yup
@@ -115,4 +115,4 @@ const FormCadastro = () => {
   );
 };
 
-export default FormCadastro;
+export default FormRegister;
