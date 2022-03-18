@@ -6,11 +6,14 @@ import { useItemsList } from "../ItemsList";
 export const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
-  
   const { userToken, userId } = useAuth();
   const { itemsList } = useItemsList();
 
   const [userEvents, setUserEvents] = useState([]);
+  const [activeEvent, setActiveEvent] = useState(
+    JSON.parse(localStorage.getItem("@BoraMarcar:activeEvent")) || {}
+    );
+    //usuário setará primeira instancia desse estado ^ no onClick que leva para dashboard/event
 
   const getUserEvents = () => {
     boraMarcarApi
@@ -29,6 +32,17 @@ export const EventProvider = ({ children }) => {
       });
   };
 
+  const handleEditEvent = (data) => {
+      boraMarcarApi
+        .patch(`/events/${activeEvent.id}`, data, {
+          headers: { Authorization: `Bearer ${userToken}` },
+        })
+        .then(({ data }) => {
+          localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data))
+          setActiveEvent({...data})
+        });
+  };
+
   useEffect(() => {
     if (userId) {
       getUserEvents();
@@ -36,7 +50,9 @@ export const EventProvider = ({ children }) => {
   }, [userId]);
 
   return (
-    <EventContext.Provider value={{ userEvents, handleCreateEvent }}>
+    <EventContext.Provider
+      value={{ userEvents, activeEvent, handleCreateEvent, handleEditEvent }}
+    >
       {children}
     </EventContext.Provider>
   );
