@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const history = useHistory();
+  const [userName, setUserName] = useState("")
   const [userId, setUserId] = useState(0);
   const [userToken, setUserToken] = useState(
     JSON.parse(localStorage.getItem("@BoraMarcar:userToken")) || ""
@@ -32,6 +33,8 @@ export const AuthProvider = ({ children }) => {
         );
         setUserToken(data.accessToken);
         setUserId(data.user.id);
+        setUserName(data.user.name);
+        console.log(userName);
         history.push("/dashboard");
       })
       .catch(() => toast.error("Email ou senha incorretos!"));
@@ -45,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ userToken, userId, handleLogin, handleLogout, handleRegister }}
+      value={{ userToken, userId, userName, handleLogin, handleLogout, handleRegister }}
     >
       {children}
     </AuthContext.Provider>

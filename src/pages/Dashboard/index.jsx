@@ -2,16 +2,18 @@ import { Container, Header,SlotCard,CardsDiv } from "./styles";
 import { useEvents } from "../../provider/Events";
 import Button from "../../components/button";
 import { buttonThemes } from "../../styles/themes";
-
-import CardEvent from "../../components/cardEvent"; //esse card aqui é o do evento
+import CardEvent from "../../components/cardEvent";
+import { useAuth } from "../../provider/Auth"; 
 
 const Dashboard = () => {
-  const { userEvents } = useEvents(); //array de eventos do usuário
-  //inserir o use Effect no userEvents
+  
+  const { userEvents } = useEvents(); 
+  const {userName} = useAuth()
+ 
   return (
     <Container>
       <Header >
-        <span>Bem vindo {`user`}</span>
+        <span>Bem vindo {userName}</span>
         <span>Editar Perfil</span>
       </Header>
 
@@ -28,6 +30,7 @@ const Dashboard = () => {
         </CardsDiv>
         <Button children={"+"} theme={buttonThemes.add} />
       </SlotCard>
+     
     </Container>
   );
 };
