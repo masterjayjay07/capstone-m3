@@ -2,20 +2,19 @@ import { Container, Header, SlotCard, CardsDiv } from "./styles";
 import { useEvents } from "../../provider/Events";
 import Button from "../../components/button";
 import { buttonThemes } from "../../styles/themes";
-
 import Modal from "@mui/material/Modal";
-
-import CardEvent from "../../components/cardEvent"; //esse card aqui é o do evento
+import CardEvent from "../../components/cardEvent";
 import FormAddEvent from "../../components/formAddEvent";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useUser } from "../../provider/User";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { userEvents } = useEvents(); //array de eventos do usuário
-  //inserir o use Effect no userEvents
+  const { userEvents } = useEvents();
+  const { user } = useUser();
   const history = useHistory();
 
   const style = {
@@ -28,7 +27,7 @@ const Dashboard = () => {
   return (
     <Container>
       <Header>
-        <span>Bem vindo {`user`}</span>
+        <span>Bem vindo, {user.name}!</span>
         <span>Editar Perfil</span>
       </Header>
 

@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const history = useHistory();
+  const [userName, setUserName] = useState("")
   const [userId, setUserId] = useState(0);
   const [userToken, setUserToken] = useState(
     JSON.parse(localStorage.getItem("@BoraMarcar:userToken")) || ""

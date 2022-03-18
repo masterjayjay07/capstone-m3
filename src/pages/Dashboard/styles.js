@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   Button {
     align-self: flex-end;
+    margin: 5px;
   }
 `;
 
