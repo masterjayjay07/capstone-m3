@@ -127,4 +127,4 @@ const FormRegister = () => {
   );
 };
 
-export default FormCadastro;
+export default FormRegister;
