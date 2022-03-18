@@ -8,8 +8,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEvents } from "../../provider/Events";
 
-const FormAddEvent = () => {
-  const { getUserEvents, handleCreateEvent } = useEvents();
+
+const FormAddEvent = ({handleClose}) => {
+    const { getUserEvents, handleCreateEvent } = useEvents();
 
   const Schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -22,9 +23,8 @@ const FormAddEvent = () => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = async (data) => {
-    await handleCreateEvent(data)
-      .then((_) => getUserEvents)
-      .catch((err) => console.log(err));
+      await handleCreateEvent(data);
+      handleClose()
   };
 
   return (
