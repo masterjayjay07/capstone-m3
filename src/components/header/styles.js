@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "../../assets/Logo.svg";
 
 export const Container = styled.header`
   display: flex;
@@ -8,7 +9,6 @@ export const Container = styled.header`
   width: 100%;
   padding: 0 0 0 15px;
   nav {
-    
   }
 
   @media (min-width: 425px) {
@@ -20,4 +20,11 @@ export const Container = styled.header`
       background: transparent;
     }
   }
+`;
+
+export const LogoContainer = styled.div`
+  background-image: url(${Logo});
+  background-size: cover;
+  width: 116px;
+  height: 41px;
 `;

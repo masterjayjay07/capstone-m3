@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { Container } from "./styles";
+import { Link, useHistory } from "react-router-dom";
+import { Container, LogoContainer } from "./styles";
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 import { MobileNav } from "../mobileNav";
@@ -8,15 +8,22 @@ import DeskNav from "../deskNav";
 
 const Header = () => {
   const { userToken, handleLogout } = useAuth();
+  const history = useHistory();
 
   return (
     <Container>
       <Link to="/">
-        <img src="" alt="Logo" />
+        <LogoContainer />
       </Link>
 
       {userToken !== "" ? (
         <nav>
+          <Button
+            theme={buttonThemes.header}
+            onClick={() => history.push("/dashboard")}
+          >
+            Voltar
+          </Button>
           <Button theme={buttonThemes.header} onClick={handleLogout}>
             Logout
           </Button>
