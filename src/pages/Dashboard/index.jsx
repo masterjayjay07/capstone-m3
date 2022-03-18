@@ -1,4 +1,4 @@
-import { Container, ContainerEvent, ContainerAll } from "./styles";
+import { Container, Header,SlotCard,CardsDiv } from "./styles";
 import { useEvents } from "../../provider/Events";
 import Button from "../../components/button";
 import { buttonThemes } from "../../styles/themes";
@@ -7,17 +7,17 @@ import CardEvent from "../../components/cardEvent"; //esse card aqui é o do eve
 
 const Dashboard = () => {
   const { userEvents } = useEvents(); //array de eventos do usuário
-
+  //inserir o use Effect no userEvents
   return (
     <Container>
-      <div className="header">
+      <Header >
         <span>Bem vindo {`user`}</span>
         <span>Editar Perfil</span>
-      </div>
+      </Header>
 
-      <div className="slotCards">
+      <SlotCard >
         <span className="spanTitle">Meus eventos</span>
-        <div className="cards">
+        <CardsDiv>
           {userEvents.length === 0 ? (
             <span>Você não possui eventos para visualizar</span>
           ) : (
@@ -25,16 +25,11 @@ const Dashboard = () => {
               <CardEvent key={index} event={item} />
             ))
           )}
-        </div>
+        </CardsDiv>
         <Button children={"+"} theme={buttonThemes.add} />
-      </div>
-     
+      </SlotCard>
     </Container>
-    
   );
 };
 
 export default Dashboard;
-
-//se for o dono, a linha muda de cor
-/*  */
