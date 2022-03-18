@@ -30,9 +30,7 @@ const FormCadastro = () => {
       .string()
       .required("Confirmação de e-mail obrigatória")
       .oneOf([yup.ref("email")], "E-mails precisam coincidir"),
-    password: yup
-      .string()
-      .required("Senha obrigatória"),
+    password: yup.string().required("Senha obrigatória"),
     confirmPassword: yup
       .string()
       .required("Confirmação de senha obrigatória")
