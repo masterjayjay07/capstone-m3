@@ -21,6 +21,7 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => setUserEvents(data))
       .catch((error) => console.log(error));
   };
+
   const handleCreateEvent = (data) => {
     const newEvent = { ...data, itemsList, userId };
     boraMarcarApi
@@ -30,6 +31,7 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
       });
+      console.log(newEvent);
   };
 
   const handleEditEvent = (data) => {
