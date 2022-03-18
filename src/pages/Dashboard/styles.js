@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "../../components/button";
 
 export const Container = styled.div`
   display: flex;
@@ -7,49 +6,45 @@ export const Container = styled.div`
   margin-top: 10px;
   align-items: center;
   gap: 10px;
-
-  .header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-width: 300px;
-    width: 80%;
-    height: 50px;
-    background-color: var(--color-stateBlue);
-  }
-
-  .slotCards {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-stateBlue);
-    width: 80%;
-    align-items: center;
-    min-width: 300px;
-    min-height: 200px;
-    max-height: 540px;
-    overflow-y: auto;
-    justify-content: space-around;
-    text-align: center;
-
-    span {
-      border-bottom: 1.5px solid var(--color-darkPurple);
-      font-family: "Nunito";
-      font-size: 18px;
-    }
-  }
-
-  .cards{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+  cursor: pointer;
 
   Button {
     align-self: flex-end;
   }
+`;
 
-  .spanTitle{
-  margin: 10px;
- 
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 300px;
+  width: 80%;
+  height: 50px;
+  background-color: var(--color-stateBlue);
+`;
+
+export const SlotCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-stateBlue);
+  width: 80%;
+  align-items: center;
+  min-width: 300px;
+  min-height: 200px;
+  max-height: 540px;
+  overflow-y: auto;
+  justify-content: space-around;
+  text-align: center;
+  span {
+    border-bottom: 1.5px solid var(--color-darkPurple);
+    font-family: "Nunito";
+    font-size: 18px;
+    margin: 10px;
   }
+`;
+
+export const CardsDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 `;

@@ -1,6 +1,6 @@
 import { Container } from "./styles";
-import FormRegister from "../../components/registerForm";
 import { GiPartyFlags } from "react-icons/gi";
+import FormRegister from "../../components/registerForm";
 
 const Register = () => {
   return (

@@ -17,12 +17,8 @@ export const Container = styled.form`
     width: 80%;
     text-align: center;
   }
-  > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  > input {
     width: 80%;
-    gap: 8px;
   }
   button {
     width: 80%;

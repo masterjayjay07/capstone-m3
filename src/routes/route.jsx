@@ -17,4 +17,4 @@ const Route = ({ isPrivate = false, component: Component, ...rest }) => {
   );
 };
 
-export default Route
+export default Route;

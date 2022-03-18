@@ -6,15 +6,23 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { userToken, userId } = useAuth();
-
   const [user, setUser] = useState({});
 
   const getUserData = () => {
     boraMarcarApi
-      .get(`/users?id=${userId}`)
+      .get(`/users/${userId}`)
       .then(({ data }) => {
-        setUser(data[0]);
+        setUser(data);
       })
+      .catch((error) => console.log(error));
+  };
+
+  const handleEditProfile = (data) => {
+    boraMarcarApi
+      .patch(`/users/${userId}`, data, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+      .then(({ data }) => setUser(data))
       .catch((error) => console.log(error));
   };
 
@@ -25,7 +33,9 @@ export const UserProvider = ({ children }) => {
   }, [userToken]);
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, handleEditProfile }}>
+      {children}
+    </UserContext.Provider>
   );
 };
 

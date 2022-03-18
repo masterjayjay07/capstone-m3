@@ -7,7 +7,7 @@ import Button from "../button";
 import { useAuth } from "../../provider/Auth";
 
 const FormRegister = () => {
- const {handleRegister} = useAuth()
+  const { handleRegister } = useAuth();
 
   const formSchema = yup.object().shape({
     name: yup
@@ -30,9 +30,7 @@ const FormRegister = () => {
       .string()
       .required("Confirmação de e-mail obrigatória")
       .oneOf([yup.ref("email")], "E-mails precisam coincidir"),
-    password: yup
-      .string()
-      .required("Senha obrigatória"),
+    password: yup.string().required("Senha obrigatória"),
     confirmPassword: yup
       .string()
       .required("Confirmação de senha obrigatória")

@@ -30,8 +30,8 @@ export const AuthProvider = ({ children }) => {
           "@BoraMarcar:userToken",
           JSON.stringify(data.accessToken)
         );
-        setUserToken(data.accessToken);
         setUserId(data.user.id);
+        setUserToken(data.accessToken);
         history.push("/dashboard");
       })
       .catch(() => toast.error("Email ou senha incorretos!"));

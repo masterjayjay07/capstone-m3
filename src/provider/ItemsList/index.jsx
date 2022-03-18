@@ -23,6 +23,7 @@ export const ItemsListProvider = ({ children }) => {
     if (!!newValue !== false) {
       const item = itemsList.find(({ id }) => id === itemId);
       return (item[key] = newValue);
+                    //  ^ funciona com state?
     }
   };
 
