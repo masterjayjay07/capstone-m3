@@ -8,7 +8,7 @@ import { Button } from "../button";
 import axios from "axios";
 import api from "../../services/api";
 
-const FormCadastro = () => {
+const FormRegister = () => {
   const history = useHistory();
 
   const formSchema = yup.object().shape({
