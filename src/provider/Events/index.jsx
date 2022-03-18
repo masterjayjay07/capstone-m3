@@ -12,8 +12,8 @@ export const EventProvider = ({ children }) => {
   const [userEvents, setUserEvents] = useState([]);
   const [activeEvent, setActiveEvent] = useState(
     JSON.parse(localStorage.getItem("@BoraMarcar:activeEvent")) || {}
-    );
-    //usuário setará primeira instancia desse estado ^ no onClick que leva para dashboard/event
+  );
+  //usuário setará primeira instancia desse estado ^ no onClick que leva para dashboard/event
 
   const getUserEvents = () => {
     boraMarcarApi
@@ -33,14 +33,15 @@ export const EventProvider = ({ children }) => {
   };
 
   const handleEditEvent = (data) => {
-      boraMarcarApi
-        .patch(`/events/${activeEvent.id}`, data, {
-          headers: { Authorization: `Bearer ${userToken}` },
-        })
-        .then(({ data }) => {
-          localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data))
-          setActiveEvent({...data})
-        });
+    boraMarcarApi
+      .patch(`/events/${activeEvent.id}`, data, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+      .then(({ data }) => {
+        localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
+        setActiveEvent({ ...data });
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {

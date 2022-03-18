@@ -18,6 +18,15 @@ export const UserProvider = ({ children }) => {
       .catch((error) => console.log(error));
   };
 
+  const handleEditProfile = (data) => {
+    boraMarcarApi
+      .patch(`/users/${userId}`, data, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+      .then(({ data }) => setUser(data))
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     if (userToken) {
       getUserData();
@@ -25,7 +34,9 @@ export const UserProvider = ({ children }) => {
   }, [userToken]);
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, handleEditProfile }}>
+      {children}
+    </UserContext.Provider>
   );
 };
 
