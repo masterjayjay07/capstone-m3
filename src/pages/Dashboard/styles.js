@@ -25,6 +25,9 @@ export const Header = styled.div`
   width: 80%;
   height: 50px;
   background-color: var(--color-stateBlue);
+.userName{
+  color: var(#9F96E9);
+}
 `;
 
 export const SlotCard = styled.div`

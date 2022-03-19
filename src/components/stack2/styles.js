@@ -26,7 +26,7 @@ const Container = styled.div`
     svg {
       color: var(--color-linen);
       font-size: 50px;
-      margin: 5px;
+      margin: 10px;
     }
     span {
       display: flex;
@@ -34,7 +34,7 @@ const Container = styled.div`
       margin: 5px;
       font-size: 1rem;
       width: 45%;
-      text-align: center;
+      text-align: start;
       align-items: center;
       font-weight: 800;
     }
