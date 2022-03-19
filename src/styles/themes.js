@@ -1,11 +1,10 @@
 const headerButton = {
   background: "transparent",
   border: "1px solid transparent",
-  padding: "8px",
+  padding: "8px 12px",
 
   hover: {
     background: "transparent",
-    color: "var(--color-lavenderGray)",
     border: "1px solid var(--color-lavenderGray)",
   },
 };
