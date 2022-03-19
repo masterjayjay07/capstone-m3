@@ -1,8 +1,9 @@
-// import { useItemsList } from "../../provider/ItemsList";
+import { useItemsList } from "../../provider/ItemsList";
 import NewItemButton from "../newItemButton";
 
 const ProductList = ({ handleOpen }) => {
-  // const { itemsList } = useItemsList();
+  const { itemsList } = useItemsList();
+  console.log(itemsList);
   // mock array
   const mockItemsList = [
     { name: "Carne", price: 60.42, quantity: 3 },

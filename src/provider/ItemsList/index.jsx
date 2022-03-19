@@ -23,7 +23,7 @@ export const ItemsListProvider = ({ children }) => {
     if (!!newValue !== false) {
       const item = itemsList.find(({ id }) => id === itemId);
       return (item[key] = newValue);
-                    //  ^ funciona com state?
+      //  ^ funciona com state?
     }
   };
 
@@ -33,7 +33,13 @@ export const ItemsListProvider = ({ children }) => {
 
   return (
     <ItemsListContext.Provider
-      value={{ itemsList, handleNewItem, handleDeleteItem, handleEditItem }}
+      value={{
+        itemsList,
+        setItemsList,
+        handleNewItem,
+        handleDeleteItem,
+        handleEditItem,
+      }}
     >
       {children}
     </ItemsListContext.Provider>

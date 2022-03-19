@@ -16,6 +16,7 @@ import GuestList from "../../components/guestList";
 import Modal from "@mui/material/Modal";
 import FormAddItem from "../../components/formAddItem";
 import FormAddGuest from "../../components/formAddGuest";
+import { useEvents } from "../../provider/Events";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -26,6 +27,7 @@ const DashboardEvents = () => {
   const [openFormGuest, setOpenFormGuest] = useState(false);
   const handleOpenFormGuest = () => setOpenFormGuest(true);
   const handleCloseFormGuest = () => setOpenFormGuest(false);
+  const { activeEvent } = useEvents();
 
   const style = {
     display: "flex",
@@ -49,7 +51,7 @@ const DashboardEvents = () => {
           </p>
         </TabButton>
       </ContainerHeader>
-      <EventTitle children={"Casamento do Yorran"} />
+      <EventTitle children={activeEvent.name} />
       <Content
         children={
           productsTab ? (
