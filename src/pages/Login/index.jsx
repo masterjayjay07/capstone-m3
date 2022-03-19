@@ -33,9 +33,6 @@ const Login = () => {
 
   return (
     <Container>
-      <Link to="/">
-        <img src="" alt="Logo" />
-      </Link>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input

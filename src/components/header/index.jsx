@@ -5,6 +5,7 @@ import { buttonThemes } from "../../styles/themes";
 import { MobileNav } from "../mobileNav";
 import { useAuth } from "../../provider/Auth";
 import DeskNav from "../deskNav";
+import LogoHeader from "../../assets/Logos/Logo-Header.svg"
 
 const Header = () => {
   const { userToken, handleLogout } = useAuth();
@@ -12,7 +13,7 @@ const Header = () => {
   return (
     <Container>
       <Link to="/">
-        <img src="" alt="Logo" />
+        <img src={LogoHeader} alt="Logo" />
       </Link>
 
       {userToken !== "" ? (

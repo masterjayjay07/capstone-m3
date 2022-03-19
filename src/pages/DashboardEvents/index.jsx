@@ -16,6 +16,7 @@ import GuestList from "../../components/guestList";
 import Modal from "@mui/material/Modal";
 import FormAddItem from "../../components/formAddItem";
 import FormAddGuest from "../../components/formAddGuest";
+import LogoHeader from "../../assets/Logos/Logo-Header.svg"
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -61,7 +62,7 @@ const DashboardEvents = () => {
       />
       <MainButton
         onClick={() => console.log("modal da divisao")}
-        children={"Marcar!"}
+        children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
       />
       <Modal open={open} onClose={handleClose} sx={style}>
         <>
