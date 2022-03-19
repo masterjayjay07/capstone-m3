@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <Container>
       <Header >
-        <span>Bem vindo {userName}</span>
+        <span>Bem vindo {userName} </span>
         <span>Editar Perfil</span>
       </Header>
 
