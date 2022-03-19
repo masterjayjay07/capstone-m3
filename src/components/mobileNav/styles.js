@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  width: 150px;
-  height: 120px;
-
+  margin: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   ul {
-    width: 100%;
+    width: 100px;
+    position: absolute;
+    top: 40px;
+    right: -5px;
 
     li {
       width: 100%;
@@ -30,13 +35,10 @@ export const BurguerButton = styled.button`
   background: transparent;
   border: none;
   width: 35px;
-  padding-top: 45px;
-  margin-left: 116px;
 
   svg {
     font-size: 35px;
     color: var(--color-stateBlue);
-    padding-right: 10px;
   }
 
   @media (min-width: 425px) {

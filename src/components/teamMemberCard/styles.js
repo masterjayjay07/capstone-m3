@@ -11,8 +11,12 @@ border-radius: 4px;
 flex-direction: column;
 align-items: center;
 a{
+    color: var(--color-darkPurple);
     text-decoration: none;
     margin: 5px;
+    :visited{
+        color: var(--color-darkPurple);
+    }
 }
 p{
     margin: 5px;
