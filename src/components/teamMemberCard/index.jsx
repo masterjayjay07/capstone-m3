@@ -14,7 +14,7 @@ const TeamMember = ({ member }) => {
         {member.role}
       </p>
       <p>
-        <BsLinkedin /> <AiOutlineInstagram />{" "}
+       <a href="url" > <BsLinkedin />  </a> <a href="url"> <AiOutlineInstagram /> </a>{" "}
       </p>
     </Container>
   );

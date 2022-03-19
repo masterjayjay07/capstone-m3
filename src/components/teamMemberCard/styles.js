@@ -10,7 +10,10 @@ text-align: left;
 border-radius: 4px;
 flex-direction: column;
 align-items: center;
-
+a{
+    text-decoration: none;
+    margin: 5px;
+}
 p{
     margin: 5px;
 }
