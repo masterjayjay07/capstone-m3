@@ -1,7 +1,7 @@
 const headerButton = {
   background: "transparent",
   border: "1px solid transparent",
-  padding: "5px",
+  padding: "8px",
 
   hover: {
     background: "transparent",
@@ -13,7 +13,7 @@ const headerButton = {
 const defaultButton = {
   background: "var(--color-stateBlue)",
   border: "1px solid var(--color-stateBlue)",
-  padding: "5px 20px",
+  padding: "8px 22px",
 
   hover: {
     background: "var(--color-darkPurple)",
