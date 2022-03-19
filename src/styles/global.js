@@ -45,6 +45,11 @@ li{
 button{
     cursor: pointer;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
+    box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
+}
 `;
 
 //Variáveis que poderão ser usadas como props
