@@ -7,9 +7,9 @@ export const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--color-light-purple);
+  background-color: var(--color-middleBluePurple);
   border: 3px solid var(--color-darkPurple);
-  border-radius: 3px;
+  border-radius: 4px;
   h2 {
     font-size: 1.3rem;
     font-family: "Nunito", sans-serif;
@@ -22,7 +22,13 @@ export const Container = styled.form`
   }
   button {
     width: 80%;
-    border-radius: 3px;
-    color: var(--color-light-purple);
+    border-radius: 4px;
+    padding: 8px 0;
+    color: var(--color-linen);
+
+    :hover {
+      background-color: var(--color-stateBlue);
+      border-color: var(--color-stateBlue);
+    }
   }
 `;

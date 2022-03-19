@@ -10,8 +10,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const FormAddItem = () => {
   const Schema = yup.object().shape({
     itemName: yup.string().required("Campo Obrigatório"),
-    quantity: yup.string().required("Campo Obrigatório"),
-    price: yup.string().required("Campo Obrigatório"),
+    quantity: yup
+      .string()
+      .required("Obrigatório")
+      .matches(
+        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
+        "Só números"
+      ),
+    price: yup
+      .string()
+      .required("Obrigatório")
+      .matches(
+        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
+        "Só números"
+      ),
   });
 
   const {
@@ -20,7 +32,7 @@ const FormAddItem = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = (data) => {};
+  const onSubmitFunction = data => {};
 
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
@@ -37,7 +49,7 @@ const FormAddItem = () => {
           label="Quantidade"
           register={register}
           name="quantity"
-          type="number"
+          type="text"
           error={!!errors.quantity?.message}
           helperText={errors.quantity?.message}
         />
@@ -45,7 +57,7 @@ const FormAddItem = () => {
           label="Preço"
           register={register}
           name="price"
-          type="number"
+          type="text"
           error={!!errors.price?.message}
           helperText={errors.price?.message}
         />

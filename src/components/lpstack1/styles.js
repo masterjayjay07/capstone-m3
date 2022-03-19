@@ -21,6 +21,11 @@ export const Container = styled.div`
   svg {
     color: var(--color-stateBlue);
     font-size: 30px;
+    cursor: pointer;
+  }
+
+  button {
+    padding: 12px 64px;
   }
 
   @media (min-width: 768px) {

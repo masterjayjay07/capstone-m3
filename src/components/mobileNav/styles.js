@@ -7,11 +7,11 @@ export const Container = styled.nav`
   flex-direction: column;
   align-items: flex-end;
   ul {
-    width: 100px;
+    width: 110px;
     position: absolute;
     top: 40px;
     right: -5px;
-
+    background-color: var(--color-darkPurple);
     li {
       width: 100%;
       border-bottom: 1px solid var(--color-stateBlue);
