@@ -31,7 +31,7 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
       });
-      console.log(newEvent);
+    console.log(newEvent);
   };
 
   const handleEditEvent = (data) => {
@@ -54,7 +54,13 @@ export const EventProvider = ({ children }) => {
 
   return (
     <EventContext.Provider
-      value={{ userEvents, activeEvent, handleCreateEvent, handleEditEvent }}
+      value={{
+        userEvents,
+        activeEvent,
+        setActiveEvent,
+        handleCreateEvent,
+        handleEditEvent,
+      }}
     >
       {children}
     </EventContext.Provider>

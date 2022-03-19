@@ -8,6 +8,7 @@ import FormAddEvent from "../../components/formAddEvent";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUser } from "../../provider/User";
+import { useItemsList } from "../../provider/ItemsList";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,7 @@ const Dashboard = () => {
   const { userEvents } = useEvents();
   const { user } = useUser();
   const history = useHistory();
+  const { setItemsList } = useItemsList();
 
   const style = {
     display: "flex",
@@ -24,6 +26,19 @@ const Dashboard = () => {
     width: "100vw",
     height: "100vh",
   };
+
+  const handleActiveEvent = (eventId) => {
+    const currentEvent = userEvents.find(
+      (element) => element.id === eventId
+    );
+    localStorage.setItem(
+      "@BoraMarcar:activeEvent",
+      JSON.stringify(currentEvent)
+    );
+    setItemsList(currentEvent.itemsList);
+    history.push("/dashboard/events");
+  };
+
   return (
     <Container>
       <h2>Bem vindo, {user.name}!</h2>
@@ -42,7 +57,8 @@ const Dashboard = () => {
               <CardEvent
                 key={index}
                 event={item}
-                onClick={() => history.push("/dashboard/events")}
+                id={item.id}
+                onClick={()=> handleActiveEvent(item.id)}
               />
             ))
           )}
