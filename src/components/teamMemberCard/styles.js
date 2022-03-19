@@ -19,8 +19,8 @@ p{
 }
 
 img{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     margin: 20px;
 }
