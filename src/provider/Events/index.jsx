@@ -13,7 +13,6 @@ export const EventProvider = ({ children }) => {
   const [activeEvent, setActiveEvent] = useState(
     JSON.parse(localStorage.getItem("@BoraMarcar:activeEvent")) || {}
   );
-  //usuário setará primeira instancia desse estado ^ no onClick que leva para dashboard/event
 
   const getUserEvents = () => {
     boraMarcarApi

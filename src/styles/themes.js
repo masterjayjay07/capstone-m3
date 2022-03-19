@@ -34,8 +34,21 @@ const addButton = {
   },
 };
 
+const declineButton = {
+  background: "var(--color-linen)",
+  border: "1px solid var(--color-darkPurple)",
+  padding: "5px 10px",
+
+  hover: {
+    background: "var(--color-stateBlue)",
+    color: "var(--color-linen)",
+    border: "1px solid var(--color-darkPurple)",
+  },
+};
+
 export const buttonThemes = {
   header: headerButton,
   default: defaultButton,
   add: addButton,
+  decline: declineButton,
 };

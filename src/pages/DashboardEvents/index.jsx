@@ -16,7 +16,8 @@ import GuestList from "../../components/guestList";
 import Modal from "@mui/material/Modal";
 import FormAddItem from "../../components/formAddItem";
 import FormAddGuest from "../../components/formAddGuest";
-import LogoHeader from "../../assets/Logos/Logo-Header.svg"
+import ModalConfirmEvent from "../../components/modalConfirmEvent";
+import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useEvents } from "../../provider/Events";
 
 const DashboardEvents = () => {
@@ -28,6 +29,9 @@ const DashboardEvents = () => {
   const [openFormGuest, setOpenFormGuest] = useState(false);
   const handleOpenFormGuest = () => setOpenFormGuest(true);
   const handleCloseFormGuest = () => setOpenFormGuest(false);
+  const [openModalConfirm, setOpenModalConfirm] = useState(false);
+  const handleOpenModalConfirm = () => setOpenModalConfirm(true);
+  const handleCloseModalConfirm = () => setOpenModalConfirm(false);
   const { activeEvent } = useEvents();
 
   const style = {
@@ -63,7 +67,7 @@ const DashboardEvents = () => {
         }
       />
       <MainButton
-        onClick={() => console.log("modal da divisao")}
+        onClick={handleOpenModalConfirm}
         children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
       />
       <Modal open={open} onClose={handleClose} sx={style}>
@@ -74,6 +78,15 @@ const DashboardEvents = () => {
       <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
         <>
           <FormAddGuest />
+        </>
+      </Modal>
+      <Modal
+        open={openModalConfirm}
+        onClose={handleCloseModalConfirm}
+        sx={style}
+      >
+        <>
+          <ModalConfirmEvent />
         </>
       </Modal>
     </Container>

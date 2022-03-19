@@ -24,7 +24,7 @@ const ProductList = ({ handleOpen }) => {
       <ul>
         {itemsList.map((item, idx) => (
           <li key={idx} info={item} onClick={() => console.log(item)}>
-            <p>{item.name}</p>
+            <p>{item.itemName}</p>
             <span>R$ {treatNumbers(item.price * item.quantity)}</span>
           </li>
         ))}

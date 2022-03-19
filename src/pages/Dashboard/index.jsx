@@ -14,7 +14,7 @@ const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { userEvents } = useEvents();
+  const { userEvents, setActiveEvent } = useEvents();
   const { user } = useUser();
   const history = useHistory();
   const { setItemsList } = useItemsList();
@@ -28,13 +28,12 @@ const Dashboard = () => {
   };
 
   const handleActiveEvent = (eventId) => {
-    const currentEvent = userEvents.find(
-      (element) => element.id === eventId
-    );
+    const currentEvent = userEvents.find((element) => element.id === eventId);
     localStorage.setItem(
       "@BoraMarcar:activeEvent",
       JSON.stringify(currentEvent)
     );
+    setActiveEvent(currentEvent);
     setItemsList(currentEvent.itemsList);
     history.push("/dashboard/events");
   };
@@ -58,7 +57,7 @@ const Dashboard = () => {
                 key={index}
                 event={item}
                 id={item.id}
-                onClick={()=> handleActiveEvent(item.id)}
+                onClick={() => handleActiveEvent(item.id)}
               />
             ))
           )}
