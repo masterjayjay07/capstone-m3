@@ -7,23 +7,23 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-const FormAddItem = () => {
+import { useItemsList } from "../../provider/ItemsList";
+
+const FormAddItem = ({ handleClose }) => {
+  const { handleNewItem } = useItemsList();
+
   const Schema = yup.object().shape({
     itemName: yup.string().required("Campo Obrigatório"),
-    quantity: yup
-      .string()
-      .required("Obrigatório")
-      .matches(
-        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-        "Só números"
-      ),
-    price: yup
-      .string()
-      .required("Obrigatório")
-      .matches(
-        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-        "Só números"
-      ),
+    quantity: yup.string().required("Obrigatório"),
+    // .matches(
+    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
+    //   "Só números"
+    // ),
+    price: yup.string().required("Obrigatório"),
+    // .matches(
+    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
+    //   "Só números"
+    // ),
   });
 
   const {
@@ -32,7 +32,10 @@ const FormAddItem = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = data => {};
+  const onSubmitFunction = (data) => {
+    handleNewItem(data);
+    handleClose();
+  };
 
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>

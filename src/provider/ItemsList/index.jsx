@@ -8,7 +8,7 @@ export const ItemsListProvider = ({ children }) => {
   const genItemId = () => {
     let maxId = 0;
     itemsList.forEach((item) => {
-      if (item.id > maxId) maxId = item.id;
+      if (item.itemId > maxId) maxId = item.itemId;
     });
     return maxId + 1;
   };

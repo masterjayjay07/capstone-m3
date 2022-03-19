@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import CreateEventLogo from "../../assets/Logos/Create-Event-Logo.svg";
-import DeclineEventLogo from "../../assets/Logos/Decline-Event-Logo.svg";
 
 export const Container = styled.div`
   display: flex;
