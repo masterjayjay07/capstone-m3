@@ -24,7 +24,13 @@ const FormAddGuest = () => {
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Convidado</h2>
-      <Input label="Nome" register={register} name="name" />
+      <Input
+        label="Nome"
+        register={register}
+        name="name"
+        error={!!errors.name?.message}
+        helperText={errors.name?.message}
+      />
       <Button theme={buttonThemes.add} children="Adicionar" type="submit" />
     </Container>
   );

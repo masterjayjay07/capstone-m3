@@ -20,22 +20,35 @@ const FormAddItem = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = (data) => {
-    
-  };
+  const onSubmitFunction = (data) => {};
 
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Produto</h2>
-      <Input label="Nome" register={register} name="itemName" />
+      <Input
+        label="Nome"
+        register={register}
+        name="itemName"
+        error={!!errors.itemName?.message}
+        helperText={errors.itemName?.message}
+      />
       <div>
         <Input
           label="Quantidade"
           register={register}
           name="quantity"
           type="number"
+          error={!!errors.quantity?.message}
+          helperText={errors.quantity?.message}
         />
-        <Input label="Preço" register={register} name="price" type="number" />
+        <Input
+          label="Preço"
+          register={register}
+          name="price"
+          type="number"
+          error={!!errors.price?.message}
+          helperText={errors.price?.message}
+        />
       </div>
       <Button theme={buttonThemes.add} children="Adicionar" type="submit" />
     </Container>

@@ -26,13 +26,14 @@ const Dashboard = () => {
   };
   return (
     <Container>
+      <h2>Bem vindo, {user.name}!</h2>
       <Header>
-        <span>Bem vindo, {user.name}!</span>
         <span>Editar Perfil</span>
+        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
       </Header>
 
       <SlotCard>
-        <span className="spanTitle">Meus eventos</span>
+        <span>Meus eventos</span>
         <CardsDiv>
           {userEvents.length === 0 ? (
             <span>Você não possui eventos para visualizar</span>
@@ -46,7 +47,6 @@ const Dashboard = () => {
             ))
           )}
         </CardsDiv>
-        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
       </SlotCard>
       <Modal open={open} onClose={handleClose} sx={style}>
         <>
