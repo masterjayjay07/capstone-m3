@@ -34,7 +34,12 @@ const DashboardEvents = () => {
   const handleOpenModalConfirm = () => setOpenModalConfirm(true);
   const handleCloseModalConfirm = () => setOpenModalConfirm(false);
   const { activeEvent } = useEvents();
-  const { itemsList, guestList } = useItemsList();
+  const { handleLetsMake } = useItemsList();
+
+  const handleClickLetsMake = ()=>{
+    handleLetsMake()
+    handleOpenModalConfirm()
+  }
 
   const style = {
     display: "flex",
@@ -69,7 +74,7 @@ const DashboardEvents = () => {
         }
       />
       <MainButton
-        onClick={handleOpenModalConfirm}
+        onClick={() => handleClickLetsMake()}
         children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
       />
       <Modal open={open} onClose={handleClose} sx={style}>
@@ -79,7 +84,7 @@ const DashboardEvents = () => {
       </Modal>
       <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
         <>
-          <FormAddGuest />
+          <FormAddGuest handleCloseFormGuest={handleCloseFormGuest} />
         </>
       </Modal>
       <Modal

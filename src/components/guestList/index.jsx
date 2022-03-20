@@ -1,22 +1,20 @@
-import { useItemsList } from "../../provider/ItemsList";
+import { useGuests } from "../../provider/Guests";
 import NewItemButton from "../newItemButton";
 
 const GuestList = ({ handleOpenFormGuest }) => {
-  const { itemsList, guestList } = useItemsList();
-  // const guestList = itemsList.map(({ whoTakes }) => whoTakes);
-  const totalGuests = (array) => array.length;
-  console.log(guestList)
+  const { guests } = useGuests();
+
   return (
     <>
       <div>
         <p>Total de Convidados</p>
-        <span>{totalGuests(guestList)}</span>
+        <span>{guests ? guests.length : 0}</span>
         <NewItemButton onClick={() => handleOpenFormGuest()} />
       </div>
       <ul>
-        {guestList.map((item, idx) => (
+        {guests.map((item, idx) => (
           <li key={idx} info={item} onClick={() => console.log(item)}>
-            <p>{item}</p>
+            <p>{item.name}</p>
           </li>
         ))}
       </ul>

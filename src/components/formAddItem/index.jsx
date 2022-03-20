@@ -8,9 +8,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useItemsList } from "../../provider/ItemsList";
+import { useEvents } from "../../provider/Events";
 
 const FormAddItem = ({ handleClose }) => {
-  const { handleNewItem } = useItemsList();
+  const { handleNewItem, itemsList } = useItemsList();
+  const { activeEvent, setActiveEvent } = useEvents();
 
   const Schema = yup.object().shape({
     itemName: yup.string().required("Campo Obrigatório"),
@@ -33,6 +35,7 @@ const FormAddItem = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
+    setActiveEvent({ ...activeEvent, itemsList: [...itemsList, data] });
     handleNewItem(data);
     handleClose();
   };

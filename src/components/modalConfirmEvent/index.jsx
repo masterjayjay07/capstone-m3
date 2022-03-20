@@ -25,9 +25,9 @@ const ModalConfirmEvent = () => {
         <span>R$ {totalPrice(itemsList)}</span>
       </div>
       <ul>
-        {itemsList.map((item, idx) => (
-          <li key={idx} info={item}>
-            <p>{item.whoTakes}</p>
+        {itemsList.map((item) => (
+          <li key={item.id} info={item}>
+            <p>{item.whoTakes.name}</p>
             <div>
               <p>{item.itemName}</p>
               <span>R$ {treatNumbers(item.price * item.quantity)}</span>

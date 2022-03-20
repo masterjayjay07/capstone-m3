@@ -1,5 +1,5 @@
-import { useItemsList } from "../../provider/ItemsList";
 import NewItemButton from "../newItemButton";
+import { useItemsList } from "../../provider/ItemsList";
 
 const ProductList = ({ handleOpen }) => {
   const { itemsList } = useItemsList();
@@ -22,8 +22,8 @@ const ProductList = ({ handleOpen }) => {
         <NewItemButton onClick={() => handleOpen()} />
       </div>
       <ul>
-        {itemsList.map((item, idx) => (
-          <li key={idx} info={item} onClick={() => console.log(item)}>
+        {itemsList.map((item) => (
+          <li key={item.id} info={item} onClick={() => console.log(item)}>
             <p>{item.itemName}</p>
             <span>R$ {treatNumbers(item.price * item.quantity)}</span>
           </li>

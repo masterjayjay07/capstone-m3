@@ -1,24 +1,17 @@
 import { createContext, useContext, useState } from "react";
+import { useGuests } from "../Guests";
 
 export const ItemsListContext = createContext();
 
 export const ItemsListProvider = ({ children }) => {
   const [itemsList, setItemsList] = useState(JSON.parse(localStorage.getItem("@BoraMarcar:activeEvent"))?.itemsList || []);
-  const [guestList, setGuestList] = useState(
-    itemsList.map(({ whoTakes }) => whoTakes) || []
-  );
+  const { randomGuest, genId } = useGuests()
 
-  const genItemId = () => {
-    let maxId = 0;
-    itemsList.forEach((item) => {
-      if (item.itemId > maxId) maxId = item.itemId;
-    });
-    return maxId + 1;
-  };
+  
 
   const handleNewItem = (data) => {
-    const itemId = genItemId();
-    const item = { ...data, itemId };
+    const id = genId(itemsList);
+    const item = { ...data, id };
     setItemsList([...itemsList, item]);
   };
 
@@ -34,10 +27,7 @@ export const ItemsListProvider = ({ children }) => {
     setItemsList(itemsList.filter(({ id }) => id !== itemId));
   };
 
-  const handleAddGuest = (newGuest) => setGuestList([...guestList, newGuest]);
-  const handleRemoveGuest = (guestName) =>
-    setGuestList(guestList.filter((guest) => guest !== guestName));
-  const randomGuest = () => guestList[Math.floor(Math.random() * (guestList.length - 0)) + 0]
+  
   const handleLetsMake = () => {
     const unifiedList = itemsList.map((item) => ({
       ...item, whoTakes: randomGuest()
@@ -49,13 +39,10 @@ export const ItemsListProvider = ({ children }) => {
     <ItemsListContext.Provider
       value={{
         itemsList,
-        guestList,
         setItemsList,
         handleNewItem,
         handleDeleteItem,
         handleEditItem,
-        handleAddGuest,
-        handleRemoveGuest,
         handleLetsMake
       }}
     >

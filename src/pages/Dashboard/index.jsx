@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUser } from "../../provider/User";
 import { useItemsList } from "../../provider/ItemsList";
+import { useGuests } from "../../provider/Guests";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -18,6 +19,7 @@ const Dashboard = () => {
   const { user } = useUser();
   const history = useHistory();
   const { setItemsList } = useItemsList();
+  const { setGuests } = useGuests();
 
   const style = {
     display: "flex",
@@ -35,6 +37,7 @@ const Dashboard = () => {
     );
     setActiveEvent(currentEvent);
     setItemsList(currentEvent.itemsList);
+    setGuests(currentEvent.guests);
     history.push("/dashboard/events");
   };
 
