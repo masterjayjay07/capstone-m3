@@ -19,6 +19,7 @@ import FormAddGuest from "../../components/formAddGuest";
 import ModalConfirmEvent from "../../components/modalConfirmEvent";
 import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useEvents } from "../../provider/Events";
+import { useItemsList } from "../../provider/ItemsList";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -33,6 +34,7 @@ const DashboardEvents = () => {
   const handleOpenModalConfirm = () => setOpenModalConfirm(true);
   const handleCloseModalConfirm = () => setOpenModalConfirm(false);
   const { activeEvent } = useEvents();
+  const { itemsList, guestList } = useItemsList();
 
   const style = {
     display: "flex",

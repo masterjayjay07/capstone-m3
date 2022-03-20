@@ -2,11 +2,10 @@ import { useItemsList } from "../../provider/ItemsList";
 import NewItemButton from "../newItemButton";
 
 const GuestList = ({ handleOpenFormGuest }) => {
-  // mock array
-  const { itemsList } = useItemsList();
-  const guestList = itemsList.map(({ whoTakes }) => whoTakes);
+  const { itemsList, guestList } = useItemsList();
+  // const guestList = itemsList.map(({ whoTakes }) => whoTakes);
   const totalGuests = (array) => array.length;
-
+  console.log(guestList)
   return (
     <>
       <div>

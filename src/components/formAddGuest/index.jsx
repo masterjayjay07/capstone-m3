@@ -5,8 +5,10 @@ import { buttonThemes } from "../../styles/themes";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useItemsList } from "../../provider/ItemsList";
 
 const FormAddGuest = () => {
+  const { handleAddGuest } = useItemsList()
   const Schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
   });
@@ -18,7 +20,7 @@ const FormAddGuest = () => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    console.log(data)
   };
 
   return (
