@@ -77,7 +77,7 @@ const DashboardEvents = () => {
       </Modal>
       <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
         <>
-          <FormAddGuest />
+          <FormAddGuest handleCloseFormGuest={handleCloseFormGuest} />
         </>
       </Modal>
       <Modal

@@ -1,5 +1,5 @@
-import { useItemsList } from "../../provider/ItemsList";
 import NewItemButton from "../newItemButton";
+import { useItemsList } from "../../provider/ItemsList";
 
 const ProductList = ({ handleOpen }) => {
   const { itemsList } = useItemsList();
