@@ -7,7 +7,10 @@ import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = () => {
   const { itemsList } = useItemsList();
-  const treatNumbers = (num) => num.toFixed(2).toString().replace(".", ",");
+  const treatNumbers = (num) => Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(num);
 
   const totalPrice = (itemsArray) => {
     const totalSum = itemsArray.reduce(
@@ -22,7 +25,7 @@ const ModalConfirmEvent = () => {
     <Container>
       <div>
         <p>Total Produtos</p>
-        <span>R$ {totalPrice(itemsList)}</span>
+        <span>{totalPrice(itemsList)}</span>
       </div>
       <ul>
         {itemsList.map((item) => (
@@ -30,7 +33,7 @@ const ModalConfirmEvent = () => {
             <p>{item.whoTakes.name}</p>
             <div>
               <p>{item.itemName}</p>
-              <span>R$ {treatNumbers(item.price * item.quantity)}</span>
+              <span>{treatNumbers(item.price * item.quantity)}</span>
             </div>
           </li>
         ))}

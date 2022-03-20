@@ -24,13 +24,11 @@ const FormAddGuest = ({ handleCloseFormGuest }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data)
     handleNewGuest(data);
     setActiveEvent({ ...activeEvent, guests: [...guests] });
     handleCloseFormGuest();
   };
-  console.log(guests);
-  console.log(activeEvent);
+  
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Convidado</h2>
