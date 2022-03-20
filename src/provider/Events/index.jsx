@@ -31,7 +31,6 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
       });
-    console.log(newEvent);
   };
 
   const handleEditEvent = (data) => {
