@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 
   section {
     gap: 10%;
@@ -17,19 +17,19 @@ export const Container = styled.div`
     flex-wrap: wrap;
     text-align: center;
 
-    svg {
-      font-size: 150px;
-    }
-
     p {
       color: var(--color-lavenderGray);
       font-size: 50px;
+    }
+    img {
+      height: 180px;
+      width: 180px;
     }
   }
 
   @media screen and (max-width: 580px) {
     justify-content: center;
-    svg {
+    img {
       display: none;
     }
     p {

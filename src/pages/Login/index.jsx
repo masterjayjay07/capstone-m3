@@ -8,6 +8,7 @@ import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
 import { useAuth } from "../../provider/Auth";
 import { useHistory } from "react-router-dom";
+import Logo from "../../assets/images/registerImg.png"
 
 const Login = () => {
   const history = useHistory();
@@ -33,6 +34,9 @@ const Login = () => {
 
   return (
     <Container>
+      <Link to="/">
+        <img src={Logo} alt="Logo" />
+      </Link>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input
