@@ -24,12 +24,10 @@ const FormAddEvent = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     handleCreateEvent(data);
     handleClose();
   };
 
-  console.log(userEvents);
 
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
@@ -47,14 +45,14 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.date?.message}
         helperText={errors.date?.message}
         type="date"
-        sx={{ width: "225px" }}
+        sx={{ width: "235px" }}
       />
       <Input
-        label="Endereço"
+        label="Onde?"
         register={register}
-        name="address"
-        error={!!errors.address?.message}
-        helperText={errors.address?.message}
+        name="location"
+        error={!!errors.location?.message}
+        helperText={errors.location?.message}
       />
       <Button theme={buttonThemes.add} children="Adicionar" type="submit" />
     </Container>

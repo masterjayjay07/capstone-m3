@@ -19,7 +19,7 @@ export const Container = styled.div`
       width: 100px ;
       height: 5px;
       background-color: var(--color-stateBlue);
-      border: transparent;
+      border: 1px solid var(--color-darkPurple);
       border-radius: 50px;
     }
 
@@ -28,20 +28,16 @@ export const Container = styled.div`
     box-shadow: 3px 3px 3px black;
     padding-left: 5px;
     color: var(--color-middleBluePurple);
-    border: 1px solid var(--color-linen);
+    border: 1px solid var(--color-darkPurple);
     opacity: 0.9;
     
 
     hr{
-      border: 1px solid var(--color-darkPurple);
-      background-color: var(--color-linen);
-      width: 200px ;
-
+      border: none;
     }
     p{
       color: var(--color-linen);
       font-weight: 800;
-      font-size: 25px;
        opacity: 1;
 
     }

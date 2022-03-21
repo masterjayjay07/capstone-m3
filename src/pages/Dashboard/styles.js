@@ -11,8 +11,10 @@ export const Container = styled.div`
     color: var(--color-linen);
   }
   Button {
-    align-self: flex-end;
     margin: 5px;
+    :hover{
+      border: 1px solid var(--color-middleBluePurple);
+    }
   }
 `;
 
@@ -21,7 +23,7 @@ export const Header = styled.div`
   justify-content: space-around;
   align-items: center;
   min-width: 300px;
-  width: 80%;
+  width: 85%;
   height: 50px;
   background-color: var(--color-middleBluePurple);
   
@@ -43,12 +45,12 @@ export const SlotCard = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--color-middleBluePurple);
-  width: 80%;
+  width: 85%;
   align-items: center;
   min-width: 300px;
   height: 400px;
   overflow-y: auto;
-  justify-content: space-around;
+  justify-content: flex-start;
   text-align: center;
   
   > span {
@@ -61,9 +63,10 @@ export const SlotCard = styled.div`
 
 export const CardsDiv = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   overflow-y: auto;
+  margin-top: 20px;
   background-color: var(--color-middleBluePurple);
   
   span {
@@ -71,5 +74,8 @@ export const CardsDiv = styled.div`
     font-family: "Nunito";
     font-size: 18px;
     margin: 10px;
+  }
+  @media screen and (max-width: 580px){
+    justify-content: center
   }
 `;
