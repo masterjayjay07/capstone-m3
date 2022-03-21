@@ -17,7 +17,7 @@ export const Container = styled.header`
     }
   }
 
-  @media (min-width: 520px) {
+  @media (min-width: 580px) {
     padding: 15px 60px 0 60px;
     nav {
       display: flex;

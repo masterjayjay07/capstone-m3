@@ -47,6 +47,7 @@ const Container = styled.div`
     div {
       display: flex;
       flex-direction: column;
+      flex-wrap: nowrap;
       span {
         width: auto;
       }
