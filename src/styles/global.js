@@ -51,7 +51,7 @@ input:-webkit-autofill {
     box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
 }
 
- ::-webkit-scrollbar{
+::-webkit-scrollbar{
   background-color: var(--color-stateBlue);
   width: 8px;
   height: 8px;
@@ -59,14 +59,12 @@ input:-webkit-autofill {
   border: 1px solid var(--color-stateBlue);  
 }
 
-  ::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
   background-color: var(--color-darkPurple);
   border-radius: 50px;
 }
 `;
 
-
-//Variáveis que poderão ser usadas como props
 export const darkPurple = "#24203b";
 export const stateBlue = "#725ac1";
 export const middleBluePurple = "#9F96E9";
