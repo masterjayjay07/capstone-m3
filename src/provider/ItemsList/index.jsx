@@ -4,10 +4,8 @@ import { useGuests } from "../Guests";
 export const ItemsListContext = createContext();
 
 export const ItemsListProvider = ({ children }) => {
-  const [itemsList, setItemsList] = useState(JSON.parse(localStorage.getItem("@BoraMarcar:activeEvent"))?.itemsList || []);
-  const { randomGuest, genId } = useGuests()
-
-  
+  const [itemsList, setItemsList] = useState([]);
+  const { randomGuest, genId } = useGuests();
 
   const handleNewItem = (data) => {
     const id = genId(itemsList);
@@ -27,12 +25,12 @@ export const ItemsListProvider = ({ children }) => {
     setItemsList(itemsList.filter(({ id }) => id !== itemId));
   };
 
-  
   const handleLetsMake = () => {
     const unifiedList = itemsList.map((item) => ({
-      ...item, whoTakes: randomGuest()
+      ...item,
+      whoTakes: randomGuest(),
     }));
-    setItemsList([...unifiedList])
+    setItemsList([...unifiedList]);
   };
 
   return (
@@ -43,7 +41,7 @@ export const ItemsListProvider = ({ children }) => {
         handleNewItem,
         handleDeleteItem,
         handleEditItem,
-        handleLetsMake
+        handleLetsMake,
       }}
     >
       {children}

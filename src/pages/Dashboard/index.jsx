@@ -30,6 +30,7 @@ const Dashboard = () => {
   };
 
   const handleActiveEvent = (eventId) => {
+    console.log(eventId);
     const currentEvent = userEvents.find((element) => element.id === eventId);
     localStorage.setItem(
       "@BoraMarcar:activeEvent",

@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEvents } from "../../provider/Events";
 
 const FormAddEvent = ({ handleClose }) => {
-  const { handleCreateEvent } = useEvents();
+  const { handleCreateEvent, userEvents } = useEvents();
 
   const Schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -21,10 +21,13 @@ const FormAddEvent = ({ handleClose }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = async (data) => {
-    await handleCreateEvent(data);
+  const onSubmitFunction = (data) => {
+    console.log(data);
+    handleCreateEvent(data);
     handleClose();
   };
+
+  console.log(userEvents);
 
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
