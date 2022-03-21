@@ -23,7 +23,8 @@ export const Header = styled.div`
   min-width: 300px;
   width: 80%;
   height: 50px;
-  background-color: var(--color-stateBlue);
+  background-color: var(--color-middleBluePurple);
+  
 
 span{
   cursor: pointer;
@@ -41,7 +42,7 @@ span{
 export const SlotCard = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--color-stateBlue);
+  background-color: var(--color-middleBluePurple);
   width: 80%;
   align-items: center;
   min-width: 300px;
@@ -64,6 +65,7 @@ export const CardsDiv = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: auto;
+  background-color: var(--color-middleBluePurple);
   
   span {
     border-bottom: 1.5px solid var(--color-lavenderGray);
