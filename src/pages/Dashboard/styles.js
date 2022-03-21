@@ -70,15 +70,16 @@ export const CardsDiv = styled.div`
   width: 10px;
   border-radius: 50px;
   border: 1px solid var(--color-linen);
-  ::-webkit-scrollbar-thumb  {
-    background-color: red;
 }
 
-
+::-webkit-scrollbar-thumb{
+  background-color: var(--color-lavenderGray);
+  border-radius: 50px;
 }
+
   
   span {
-    border-bottom: 1.5px solid var(--color-darkPurple);
+    border-bottom: 1.5px solid var(--color-lavenderGray);
     font-family: "Nunito";
     font-size: 18px;
     margin: 10px;

@@ -7,17 +7,16 @@ export const Container = styled.header`
   height: 50px;
   width: 100%;
   padding: 15px 0 0 0;
-  a{
+  a {
     margin: 15px;
   }
-  img{
+  img {
     transition: 1.5s;
-    :hover{
-      
+    :hover {
       transform: scale(1.3);
     }
   }
-  
+
   @media (min-width: 520px) {
     padding: 15px 60px 0 60px;
     nav {
