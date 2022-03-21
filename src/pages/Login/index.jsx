@@ -1,4 +1,4 @@
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,8 +6,8 @@ import Input from "../../components/input";
 import Button from "../../components/button";
 import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
-import boraMarcarApi from "../../services/api";
-import { AuthContext, useAuth } from "../../provider/Auth";
+import { useAuth } from "../../provider/Auth";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const history = useHistory();
@@ -25,17 +25,14 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const { userToken, handleLogin } = useAuth();
+  const { handleLogin } = useAuth();
 
-  const onSubmitFunction = (data) => {
-    handleLogin(data)
+  const onSubmitFunction = data => {
+    handleLogin(data);
   };
-    
+
   return (
     <Container>
-      <Link to="/">
-        <img src="" alt="Logo" />
-      </Link>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input
@@ -53,9 +50,15 @@ const Login = () => {
           register={register}
           type="password"
         />
-        <Button type="submit">Entrar</Button>
+        <Button type="submit" theme={buttonThemes.default}>
+          Entrar
+        </Button>
         <p>Não possui uma conta?</p>
-        <Button type="button" theme={buttonThemes.header}>
+        <Button
+          type="button"
+          theme={buttonThemes.header}
+          onClick={() => history.push("/register")}
+        >
           Cadastre-se
         </Button>
       </form>

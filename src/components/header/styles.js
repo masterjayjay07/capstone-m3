@@ -6,19 +6,13 @@ export const Container = styled.header`
   align-items: center;
   height: 50px;
   width: 100%;
-  padding: 0 0 0 15px;
-
-  nav {
-    display: none;
-    background: var(--color-stateBlue);
-    padding: 0 10px 0 0;
-
-    button + button {
-      margin-left: 5px;
-    }
+  padding: 15px 0 0 0;
+  a{
+    margin: 15px;
   }
-
-  @media (min-width: 425px) {
+  
+  @media (min-width: 520px) {
+    padding: 15px 60px 0 60px;
     nav {
       display: flex;
       justify-content: space-between;
@@ -26,19 +20,5 @@ export const Container = styled.header`
       margin-top: 0;
       background: transparent;
     }
-    svg {
-      display: none;
-    }
-  }
-`;
-
-export const BurguerButton = styled.button`
-  background: transparent;
-  border: none;
-
-  svg {
-    font-size: 35px;
-    color: var(--color-stateBlue);
-    padding-right: 10px;
   }
 `;

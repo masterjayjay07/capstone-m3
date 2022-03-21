@@ -2,7 +2,7 @@ import Container from "./styles";
 import { AiFillWechat } from "react-icons/ai";
 import { GiMeat } from "react-icons/gi";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { MdGpsFixed } from "react-icons/md";
+import { RiChatSmile3Line } from "react-icons/ri";
 
 const Stack2 = () => {
   return (
@@ -19,7 +19,8 @@ const Stack2 = () => {
           <FaRegMoneyBillAlt /> Todos os valores são exibidos publicamente.
         </span>
         <span>
-          <MdGpsFixed /> O nosso GPS te mostra o local exato do evento.
+          {" "}
+          <RiChatSmile3Line /> Organize seus eventos de forma prática e rápida.
         </span>
       </div>
     </Container>

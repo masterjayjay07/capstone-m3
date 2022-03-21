@@ -7,10 +7,9 @@ const TeamMember = ({ member }) => {
     <Container>
       <img src={`${member.img}`} alt="perfil"></img>
       <p>
-        <strong>Nome</strong>: {member.name}
+        {member.name}
       </p>
       <p>
-        <strong> Cargo: </strong>
         {member.role}
       </p>
       <p>

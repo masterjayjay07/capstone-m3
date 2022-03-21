@@ -7,7 +7,7 @@ import Button from "../button";
 import { useAuth } from "../../provider/Auth";
 
 const FormRegister = () => {
- const {handleRegister} = useAuth()
+  const { handleRegister } = useAuth();
 
   const formSchema = yup.object().shape({
     name: yup
@@ -30,9 +30,7 @@ const FormRegister = () => {
       .string()
       .required("Confirmação de e-mail obrigatória")
       .oneOf([yup.ref("email")], "E-mails precisam coincidir"),
-    password: yup
-      .string()
-      .required("Senha obrigatória"),
+    password: yup.string().required("Senha obrigatória"),
     confirmPassword: yup
       .string()
       .required("Confirmação de senha obrigatória")
@@ -62,7 +60,7 @@ const FormRegister = () => {
     <Form onSubmit={handleSubmit(onHandleSubmit)}>
       <h2>Cadastro</h2>
       <Input
-        label={"Seu nome completo"}
+        label={"Nome"}
         error={!!errors.name?.message}
         register={register}
         helperText={errors.name?.message}
@@ -70,7 +68,7 @@ const FormRegister = () => {
       />
 
       <Input
-        label={"Sua idade"}
+        label={"Idade"}
         error={!!errors.age?.message}
         register={register}
         helperText={errors.age?.message}
@@ -78,7 +76,7 @@ const FormRegister = () => {
       />
 
       <Input
-        label={"Seu melhor e-mail"}
+        label={"E-mail"}
         error={!!errors.email?.message}
         register={register}
         helperText={errors.email?.message}
@@ -94,7 +92,7 @@ const FormRegister = () => {
       />
 
       <Input
-        label={"Uma senha bem segura"}
+        label={"Senha"}
         error={!!errors.password?.message}
         register={register}
         helperText={errors.password?.message}
@@ -104,7 +102,7 @@ const FormRegister = () => {
       />
 
       <Input
-        label={"Confirmação de senha"}
+        label={"Confirme sua senha"}
         error={!!errors.confirmPassword?.message}
         register={register}
         helperText={errors.confirmPassword?.message}

@@ -2,17 +2,21 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 display: flex;
-width: 300px;
+min-width: 200px;
 flex-wrap: wrap;
 background-color: var(--color-middleBluePurple);
-margin: 5px;
+margin: 10px;
 text-align: left;
 border-radius: 4px;
 flex-direction: column;
 align-items: center;
 a{
+    color: var(--color-darkPurple);
     text-decoration: none;
     margin: 5px;
+    :visited{
+        color: var(--color-darkPurple);
+    }
 }
 p{
     margin: 5px;

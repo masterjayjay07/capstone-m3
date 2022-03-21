@@ -5,7 +5,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import DashboardEvents from "../pages/DashboardEvents";
-import DashboardUser from "../pages/DashboardUser";
 import Route from "./route";
 
 const Routes = () => {
@@ -16,7 +15,6 @@ const Routes = () => {
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route isPrivate exact path="/dashboard" component={Dashboard} />
-                <Route isPrivate exact path="/dashboard/user" component={DashboardUser} />
                 <Route isPrivate exact path="/dashboard/events" component={DashboardEvents} />
             </Switch>
         </AnimatePresence>

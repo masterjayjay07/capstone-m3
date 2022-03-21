@@ -6,11 +6,18 @@ import { Container } from "./styles";
 
 const LpStack1 = () => {
   const history = useHistory();
+
+  const scrollToStack2 = () => {
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Container>
       <p>
-        Bem vindo(a)s ao <span>Bora Marcar!</span>. Insira aqui o slogan do seu
-        negócio
+        Facilite os encontros da galera, <span>Bora Marcar!</span>
       </p>
       <Button
         theme={buttonThemes.default}
@@ -18,7 +25,7 @@ const LpStack1 = () => {
       >
         Criar evento
       </Button>
-      <HiOutlineArrowNarrowDown />
+      <HiOutlineArrowNarrowDown onClick={() => scrollToStack2()} />
     </Container>
   );
 };

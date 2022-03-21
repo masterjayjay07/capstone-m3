@@ -11,8 +11,7 @@ export default createGlobalStyle`
 :root{
     --color-darkPurple:        #24203b;
     --color-stateBlue:         #725ac1;
-    --color-light-purple:      #9F96E9;
-    --color-middleBluePurple:  #8d86c9;
+    --color-middleBluePurple:  #9F96E9;
     --color-lavenderGray:      #c4c4ce;
     --color-linen:             #f7ece1;
 
@@ -35,18 +34,27 @@ h1, h2, h3, h4, h5, h6 {
 font-family: 'Dancing Script', cursive;
 }
 
-a, li, ol, ul{
+a{
     text-decoration: none;
+}
+li{
+    list-style-type: none;
+    color: var(--color-linen);
 }
 
 button{
     cursor: pointer;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
+    box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
 }
 `;
 
 //Variáveis que poderão ser usadas como props
 export const darkPurple = "#24203b";
 export const stateBlue = "#725ac1";
-export const middleBluePurple = "#8d86c9";
+export const middleBluePurple = "#9F96E9";
 export const lavenderGray = "#c4c4ce";
 export const linen = "#f7ece1";

@@ -13,13 +13,13 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 290px;
-    border-radius: 20px;
-    padding: 15px;
+    width: 280px;
+    border-radius: 4px;
+    padding: 20px 10px;
     gap: 10px;
 
     h2 {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
   }
 `;

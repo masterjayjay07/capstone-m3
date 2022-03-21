@@ -1,4 +1,5 @@
 import TextField from "@mui/material/TextField";
+import { InputContainer } from "./styles";
 
 const Input = ({
   label,
@@ -12,18 +13,23 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <TextField
-      sx={{ input: { color: `${color}` } }}
-      style={{ backgroundColor: `${bgcolor}`, borderRadius: "10px", fontSize: '80px' }}
-      variant="filled"
-      label={label}
-      helperText={helperText}
-      error={error}
-      {...rest}
-      
-      size="small"
-      {...register(name)}
-    ></TextField>
+    <InputContainer>
+      <TextField
+        sx={{ input: { color: `${color}` } }}
+        style={{
+          backgroundColor: `${bgcolor}`,
+          borderRadius: "80px",
+          fontSize: "80px",
+        }}
+        variant="outlined"
+        label={label}
+        helperText={helperText}
+        error={error}
+        {...rest}
+        size="small"
+        {...register(name)}
+      />
+    </InputContainer>
   );
 };
 
