@@ -47,6 +47,7 @@ const FormAddEvent = ({ handleClose }) => {
         sx={{ width: "225px" }}
       />
       <Input
+        label="Endereço"
         register={register}
         name="address"
         error={!!errors.address?.message}
