@@ -10,6 +10,7 @@ export const Container = styled.form`
   background-color: var(--color-middleBluePurple);
   border: 3px solid var(--color-darkPurple);
   border-radius: 4px;
+
   h2 {
     font-size: 1.3rem;
     font-family: "Nunito", sans-serif;
