@@ -8,6 +8,10 @@ export const Container = styled.main`
   a {
     margin-bottom: 15px;
   }
+  img {
+    width: 180px;
+    height: 180px;
+  }
   form {
     background: var(--color-middleBluePurple);
     display: flex;

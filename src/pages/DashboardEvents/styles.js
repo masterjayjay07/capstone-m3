@@ -106,20 +106,6 @@ export const Content = styled.div`
     margin-bottom: 15px;
     overflow: auto;
 
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      border-radius: 4px;
-      background: var(--color-stateBlue);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--color-darkPurple);
-    }
-
     li {
       line-height: 25px;
       display: flex;
