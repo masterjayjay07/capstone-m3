@@ -21,6 +21,7 @@ import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useEvents } from "../../provider/Events";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
+import FormEditItem from "../../components/formEditItem";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -34,9 +35,13 @@ const DashboardEvents = () => {
   const [openModalConfirm, setOpenModalConfirm] = useState(false);
   const handleOpenModalConfirm = () => setOpenModalConfirm(true);
   const handleCloseModalConfirm = () => setOpenModalConfirm(false);
+  const [openEditForm, setOpenEditForm] = useState(false);
+  const handleOpenEditForm = () => setOpenEditForm(true);
+  const handleCloseEditForm = () => setOpenEditForm(false);
   const { activeEvent } = useEvents();
   const { handleLetsMake, itemsList } = useItemsList();
   const { guests } = useGuests();
+  const [itemID, setItemID] = useState(0)
 
   const handleClickLetsMake = () => {
     if (itemsList.length > 0 && guests.length > 0) {
@@ -54,53 +59,64 @@ const DashboardEvents = () => {
   };
 
   return (
-    <Container>
-      <ContainerHeader>
-        <TabButton active={productsTab} onClick={() => switchTabs()}>
-          <p>
-            <FaClipboardList />
-          </p>
-        </TabButton>
-        <TabButton active={!productsTab} onClick={() => switchTabs()}>
-          <p>
-            <FaUserFriends />
-          </p>
-        </TabButton>
-      </ContainerHeader>
-      <EventTitle children={activeEvent.name} />
-      <Content
-        children={
-          productsTab ? (
-            <ProductList handleOpen={handleOpen} />
-          ) : (
-            <GuestList handleOpenFormGuest={handleOpenFormGuest} />
-          )
-        }
-      />
-      <MainButton
-        onClick={() => handleClickLetsMake()}
-        children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
-      />
-      <Modal open={open} onClose={handleClose} sx={style}>
-        <>
-          <FormAddItem handleClose={handleClose} />
-        </>
-      </Modal>
-      <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
-        <>
-          <FormAddGuest handleCloseFormGuest={handleCloseFormGuest} />
-        </>
-      </Modal>
-      <Modal
-        open={openModalConfirm}
-        onClose={handleCloseModalConfirm}
-        sx={style}
-      >
-        <>
-          <ModalConfirmEvent />
-        </>
-      </Modal>
-    </Container>
+    <>
+      <Container>
+        <ContainerHeader>
+          <TabButton active={productsTab} onClick={() => switchTabs()}>
+            <p>
+              <FaClipboardList />
+            </p>
+          </TabButton>
+          <TabButton active={!productsTab} onClick={() => switchTabs()}>
+            <p>
+              <FaUserFriends />
+            </p>
+          </TabButton>
+        </ContainerHeader>
+        <EventTitle children={activeEvent.name} />
+        <Content
+          children={
+            productsTab ? (
+              <ProductList
+                handleOpen={handleOpen}
+                handleOpenEditForm={handleOpenEditForm}
+                setItemID={setItemID}
+              />
+            ) : (
+              <GuestList handleOpenFormGuest={handleOpenFormGuest} />
+            )
+          }
+        />
+        <MainButton
+          onClick={() => handleClickLetsMake()}
+          children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
+        />
+        <Modal open={open} onClose={handleClose} sx={style}>
+          <>
+            <FormAddItem handleClose={handleClose} />
+          </>
+        </Modal>
+        <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
+          <>
+            <FormAddGuest handleCloseFormGuest={handleCloseFormGuest} />
+          </>
+        </Modal>
+        <Modal
+          open={openModalConfirm}
+          onClose={handleCloseModalConfirm}
+          sx={style}
+        >
+          <>
+            <ModalConfirmEvent />
+          </>
+        </Modal>
+        <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>
+          <>
+            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID}/>
+          </>
+        </Modal>
+      </Container>
+    </>
   );
 };
 
