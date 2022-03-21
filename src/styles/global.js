@@ -50,7 +50,20 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
     box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
 }
+
+ div::-webkit-scrollbar{
+  background-color: var(--color-darkPurple);
+  width: 8px;
+  border-radius: 50px;
+  border: 1px solid var(--color-linen);  
+}
+
+  div::-webkit-scrollbar-thumb{
+  background-color: var(--color-lavenderGray);
+  border-radius: 50px;
+}
 `;
+
 
 //Variáveis que poderão ser usadas como props
 export const darkPurple = "#24203b";

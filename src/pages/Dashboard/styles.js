@@ -65,18 +65,6 @@ export const CardsDiv = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: auto;
-  ::-webkit-scrollbar {
-  background-color: var(--color-darkPurple);
-  width: 10px;
-  border-radius: 50px;
-  border: 1px solid var(--color-linen);
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: var(--color-lavenderGray);
-  border-radius: 50px;
-}
-
   
   span {
     border-bottom: 1.5px solid var(--color-lavenderGray);
