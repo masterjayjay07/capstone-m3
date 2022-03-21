@@ -46,7 +46,7 @@ const Dashboard = () => {
       <h2>Bem vindo, {user.name}!</h2>
       <Header>
         <span>Editar Perfil</span>
-        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
+        <Button children={"Adicionar"} theme={buttonThemes.add} onClick={handleOpen} />
       </Header>
 
       <SlotCard>

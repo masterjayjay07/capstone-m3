@@ -5,7 +5,7 @@ const CardEvent = ({ event, ...rest }) => {
     <>
     <hr />
     <p>{event.name}       </p>
-    
+    {console.log(event)}
     </>
     } </Container>
 };

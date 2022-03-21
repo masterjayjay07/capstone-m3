@@ -4,7 +4,7 @@ export const Container = styled.div`
   background-color: var(--color-darkPurple);
   color: var(--color-linen);
   min-width: 250px;
-  max-width: 250px;
+  max-width: 260px;
   height: 150px;
   border: none; 
   border-radius: 10px;
@@ -26,12 +26,22 @@ export const Container = styled.div`
 
 
   &:hover {
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 5px 5px var(--color-linen);
     padding-left: 5px;
     color: var(--color-middleBluePurple);
     border: 1px solid var(--color-linen);
+    background-color: var(--color-middleBluePurple);
+
     hr{
-      border: 1px solid var(--color-middleBluePurple);
+      border: 1px solid var(--color-darkPurple);
+      background-color: var(--color-darkPurple);
+      width: 200px ;
+
+    }
+    p{
+      color: var(--color-darkPurple);
+      font-weight: 800;
+      font-size: 25px;
     }
     
   }
