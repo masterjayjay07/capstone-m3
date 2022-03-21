@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  
   height: 100vh;
   background-color: var(--color-middleBluePurple);
   display: flex;
@@ -26,15 +25,15 @@ const Container = styled.div`
     svg {
       color: var(--color-linen);
       font-size: 50px;
-      margin: 5px;
+      margin: 10px;
     }
     span {
       display: flex;
       color: var(--color-darkPurple);
-      margin: 5px;
+      margin: 2px;
       font-size: 1rem;
       width: 45%;
-      text-align: center;
+      text-align: start;
       align-items: center;
       font-weight: 800;
     }

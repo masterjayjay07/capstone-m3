@@ -1,22 +1,42 @@
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "../button";
 import { Container } from "./styles";
+import Button from "../button";
+import { buttonThemes } from "../../styles/themes";
+import { MobileNav } from "../mobileNav";
+import { useAuth } from "../../provider/Auth";
+import DeskNav from "../deskNav";
+import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 
-export const Header = () => {
+const Header = () => {
+  const { userToken, handleLogout } = useAuth();
   const history = useHistory();
 
   return (
     <Container>
       <Link to="/">
-        <img src="#" alt="Logo" />
+        <img src={LogoHeader} alt="Logo" />
       </Link>
-      <nav>
-        <Button onClick={history.push("/events")}>Criar evento</Button>
-        <div>
-          <Button onClick={history.push("/login")}>Entrar</Button>
-          <Button onClick={history.push("/signup")}>Cadastrar-se</Button>
-        </div>
-      </nav>
+
+      {userToken !== "" ? (
+        <nav>
+          <Button
+            theme={buttonThemes.header}
+            onClick={() => history.push("/dashboard")}
+          >
+            Voltar
+          </Button>
+          <Button theme={buttonThemes.header} onClick={handleLogout}>
+            Logout
+          </Button>
+        </nav>
+      ) : (
+        <>
+          <MobileNav />
+          <DeskNav />
+        </>
+      )}
     </Container>
   );
 };
+
+export default Header;

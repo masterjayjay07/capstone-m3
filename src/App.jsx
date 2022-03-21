@@ -1,11 +1,15 @@
+import { Toaster } from "react-hot-toast";
+import Header from "./components/header";
+import Routes from "./routes";
 import GlobalStyle from "./styles/global";
-import Stack2 from "./components/stack2";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Stack2 />
+      <Toaster position="top-right" reverseOrder={false} />
+      <Header />
+      <Routes />
     </>
   );
 };

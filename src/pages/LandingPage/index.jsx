@@ -1,9 +1,17 @@
-import { Header } from "../../components/header";
+import Footer from "../../components/footerLandingPage";
+import LpStack1 from "../../components/lpstack1";
+import Stack2 from "../../components/stack2";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <>
-      <Header />
+      <main>
+        <LpStack1 />
+        <Stack2 />
+        <Footer />
+      </main>
     </>
   );
 };
+
+export default LandingPage;

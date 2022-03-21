@@ -1,26 +1,35 @@
 import TextField from "@mui/material/TextField";
+import { InputContainer } from "./styles";
 
 const Input = ({
   label,
   helperText,
   error,
   register,
-  registerMsg,
+  bgcolor,
+  color,
   name,
+  backGround,
   ...rest
 }) => {
   return (
-    <TextField
-      style={{ backgroundColor: "#CAC4CE", borderRadius: "10px" }}
-      id="filled-basic"
-      variant="filled"
-      label={label}
-      helperText={helperText}
-      error={error}
-      {...rest}
-      size="small"
-      // {...register(name)}
-    ></TextField>
+    <InputContainer>
+      <TextField
+        sx={{ input: { color: `${color}` } }}
+        style={{
+          backgroundColor: `${bgcolor}`,
+          borderRadius: "80px",
+          fontSize: "80px",
+        }}
+        variant="outlined"
+        label={label}
+        helperText={helperText}
+        error={error}
+        {...rest}
+        size="small"
+        {...register(name)}
+      />
+    </InputContainer>
   );
 };
 
