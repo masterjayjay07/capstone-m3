@@ -50,7 +50,9 @@ const Dashboard = () => {
       </Header>
 
       <SlotCard>
+      
         <span>Meus eventos</span>
+        
         <CardsDiv>
           {userEvents.length === 0 ? (
             <span>Você não possui eventos para visualizar</span>

@@ -7,7 +7,6 @@ export const Container = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
   > h2 {
     color: var(--color-linen);
   }
@@ -25,6 +24,15 @@ export const Header = styled.div`
   width: 80%;
   height: 50px;
   background-color: var(--color-stateBlue);
+
+span{
+  cursor: pointer;
+  transition: 0.5s;
+  :hover{
+    color: var(--color-linen);
+  }
+}
+
 .userName{
   color: var(#9F96E9);
 }
@@ -37,11 +45,13 @@ export const SlotCard = styled.div`
   width: 80%;
   align-items: center;
   min-width: 300px;
-  min-height: 200px;
-  max-height: 540px;
+  height: 400px;
+  overflow-y: scroll;
   overflow-y: auto;
   justify-content: space-around;
   text-align: center;
+  
+  
   > span {
     border-bottom: 1.5px solid var(--color-darkPurple);
     font-family: "Nunito";
@@ -55,6 +65,18 @@ export const CardsDiv = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: auto;
+  ::-webkit-scrollbar {
+  background-color: var(--color-darkPurple);
+  width: 10px;
+  border-radius: 50px;
+  border: 1px solid var(--color-linen);
+  ::-webkit-scrollbar-thumb  {
+    background-color: red;
+}
+
+
+}
+  
   span {
     border-bottom: 1.5px solid var(--color-darkPurple);
     font-family: "Nunito";

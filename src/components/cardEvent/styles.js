@@ -12,6 +12,19 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   margin: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 10px 5px 5px black;
+    padding-left: 5px;
+    color: var(--color-middleBluePurple);
+    p{
+    border-top: 2px solid var(--color-linen);
+    }
+  }
+
+ 
+
   
   p {
     border-top: 2px solid var(--color-stateBlue);
