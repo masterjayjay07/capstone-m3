@@ -51,15 +51,16 @@ input:-webkit-autofill {
     box-shadow: 0 0 0 30px var(--color-middleBluePurple) inset;
 }
 
- div::-webkit-scrollbar{
-  background-color: var(--color-darkPurple);
+ ::-webkit-scrollbar{
+  background-color: var(--color-stateBlue);
   width: 8px;
+  height: 8px;
   border-radius: 50px;
-  border: 1px solid var(--color-linen);  
+  border: 1px solid var(--color-stateBlue);  
 }
 
-  div::-webkit-scrollbar-thumb{
-  background-color: var(--color-lavenderGray);
+  ::-webkit-scrollbar-thumb{
+  background-color: var(--color-darkPurple);
   border-radius: 50px;
 }
 `;
