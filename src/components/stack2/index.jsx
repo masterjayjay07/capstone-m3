@@ -3,6 +3,7 @@ import { AiFillWechat } from "react-icons/ai";
 import { GiMeat } from "react-icons/gi";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { MdGpsFixed } from "react-icons/md";
+import {FaExchangeAlt} from 'react-icons/fa'
 
 const Stack2 = () => {
   return (
@@ -22,7 +23,7 @@ const Stack2 = () => {
         </span>
         <span>
           {" "}
-          <MdGpsFixed /> O nosso GPS te mostra o local exato do evento.
+          <FaExchangeAlt /> Eventos podem ser alterados sempre que necessário.
         </span>
       </div>
     </Container>
