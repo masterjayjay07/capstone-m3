@@ -13,7 +13,7 @@ const TeamMember = ({ member }) => {
         {member.role}
       </p>
       <p>
-        <a href={`${member.linkedin}`}>
+        <a href={`${member.linkedin}`   }>
           <BsLinkedin />
         </a>
         <a href={`${member.insta}`}>
