@@ -51,7 +51,6 @@ export const SlotCard = styled.div`
   justify-content: space-around;
   text-align: center;
   
-  
   > span {
     border-bottom: 1.5px solid var(--color-darkPurple);
     font-family: "Nunito";
