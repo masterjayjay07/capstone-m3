@@ -1,19 +1,20 @@
 import NewItemButton from "../newItemButton";
 import { useItemsList } from "../../provider/ItemsList";
 
-const ProductList = ({ handleOpen }) => {
+const ProductList = ({ handleOpen, handleOpenEditForm, setItemID }) => {
   const { itemsList } = useItemsList();
-  const treatNumbers = (num) => Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(num);
+  const treatNumbers = (num) =>
+    Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(num);
 
   const totalPrice = (itemsArray) => {
     const totalSum = itemsArray.reduce(
       (sum, currentItem) => (sum += currentItem.price * currentItem.quantity),
       0
     );
-  
+
     return treatNumbers(totalSum);
   };
 
@@ -26,7 +27,14 @@ const ProductList = ({ handleOpen }) => {
       </div>
       <ul>
         {itemsList.map((item) => (
-          <li key={item.id} info={item} onClick={() => console.log(item)}>
+          <li
+            key={item.id}
+            info={item}
+            onClick={() => {
+              handleOpenEditForm();
+              setItemID(item.id);
+            }}
+          >
             <p>{item.itemName}</p>
             <span>{treatNumbers(item.price * item.quantity)}</span>
           </li>
