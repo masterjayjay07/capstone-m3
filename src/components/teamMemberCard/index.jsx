@@ -13,10 +13,10 @@ const TeamMember = ({ member }) => {
         {member.role}
       </p>
       <p>
-        <a href={`${member.linkedin}`   }>
+        <a href={`${member.linkedin}`} target= "_blank" rel="noreferrer noopener"  >
           <BsLinkedin />
         </a>
-        <a href={`${member.insta}`}>
+        <a href={`${member.insta}`} target= "_blank" rel="noreferrer noopener"  >
           <AiOutlineInstagram />
         </a>
       </p>
