@@ -7,6 +7,7 @@ export const Container = styled.div`
   max-width: 420px;
   height: 540px;
   margin: auto;
+  margin-top: 35px;
   border-radius: 4px;
   background-color: var(--color-middleBluePurple);
 `;
