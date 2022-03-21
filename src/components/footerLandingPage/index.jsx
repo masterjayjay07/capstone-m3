@@ -37,7 +37,7 @@ const Footer = () => {
       role: "Q.A.",
       img: "https://ca.slack-edge.com/TQZR39SET-U02FF0WK5QS-ef659f201956-512",
       insta: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/yorranrigatti/",
     },
   ]);
 
