@@ -8,6 +8,7 @@ import DeskNav from "../deskNav";
 import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const { userToken, handleLogout } = useAuth();
@@ -19,6 +20,8 @@ const Header = () => {
     setGuests([]);
     history.push("/dashboard");
   };
+  const location = useLocation();
+  const currentLocation = location.pathname;
 
   return (
     <Container>
@@ -27,14 +30,17 @@ const Header = () => {
       </Link>
 
       {userToken !== "" ? (
-        <nav>
+        currentLocation === "/dashboard" ? (
+          <nav>
+            <Button theme={buttonThemes.header} onClick={handleLogout}>
+              Logout
+            </Button>
+          </nav>
+        ) : (
           <Button theme={buttonThemes.header} onClick={handleBack}>
             Voltar
           </Button>
-          <Button theme={buttonThemes.header} onClick={handleLogout}>
-            Logout
-          </Button>
-        </nav>
+        )
       ) : (
         <>
           <MobileNav />
