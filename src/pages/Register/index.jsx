@@ -8,9 +8,7 @@ const Register = () => {
     <Container>
       <section>
         <p>Insira os dados e crie a sua conta.</p>
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
+        <img src={Logo} alt="Logo" />
       </section>
 
       <div>

@@ -7,7 +7,6 @@ export const Container = styled.div`
   height: 90vh;
 
   section {
-    gap: 10%;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -19,7 +18,7 @@ export const Container = styled.div`
 
     p {
       color: var(--color-lavenderGray);
-      font-size: 50px;
+      font-size: 40px;
     }
     img {
       height: 180px;
