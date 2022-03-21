@@ -29,9 +29,8 @@ const Dashboard = () => {
     height: "100vh",
   };
 
-  const handleActiveEvent = (eventId) => {
-    console.log(eventId);
-    const currentEvent = userEvents.find((element) => element.id === eventId);
+  const handleActiveEvent = eventId => {
+    const currentEvent = userEvents.find(element => element.id === eventId);
     localStorage.setItem(
       "@BoraMarcar:activeEvent",
       JSON.stringify(currentEvent)
