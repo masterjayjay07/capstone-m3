@@ -143,9 +143,11 @@ export const MainButton = styled.button`
   border: none;
   background-color: var(--color-darkPurple);
   color: var(--color-middleBluePurple);
-  transition: 300ms all ease-in;
-
+  transition: 1s all ease-in;
   :hover {
     font-size: 20px;
+    background-color: var(--color-stateBlue);
+    border: 1px solid var(--color-darkPurple);
+    transform: scale(1.1);
   }
 `;

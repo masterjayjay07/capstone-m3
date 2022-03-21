@@ -29,8 +29,21 @@ export const Container = styled.div`
     padding-left: 5px;
     color: var(--color-middleBluePurple);
     border: 1px solid var(--color-linen);
+    opacity: 0.9;
+    
+
     hr{
-      border: 1px solid var(--color-middleBluePurple);
+      border: 1px solid var(--color-darkPurple);
+      background-color: var(--color-linen);
+      width: 200px ;
+
+    }
+    p{
+      color: var(--color-linen);
+      font-weight: 800;
+      font-size: 25px;
+       opacity: 1;
+
     }
     
   }

@@ -29,6 +29,8 @@ export const Container = styled.form`
     :hover {
       background-color: var(--color-stateBlue);
       border-color: var(--color-stateBlue);
+      border: 1px solid var(--color-darkPurple);
+
     }
   }
 `;
