@@ -10,6 +10,13 @@ export const Container = styled.header`
   a{
     margin: 15px;
   }
+  img{
+    transition: 1.5s;
+    :hover{
+      
+      transform: scale(1.3);
+    }
+  }
   
   @media (min-width: 520px) {
     padding: 15px 60px 0 60px;
