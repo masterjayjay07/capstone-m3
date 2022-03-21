@@ -68,6 +68,10 @@ export const EventTitle = styled.h2`
   width: 100%;
   height: 52px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
 `;
 
 export const Content = styled.div`
