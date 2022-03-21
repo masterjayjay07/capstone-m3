@@ -7,12 +7,14 @@ import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = () => {
   const { itemsList } = useItemsList();
-  const treatNumbers = (num) => Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(num);
+  const treatNumbers = num =>
+    Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(num);
 
-  const totalPrice = (itemsArray) => {
+  const totalPrice = itemsArray => {
+    console.log(itemsArray);
     const totalSum = itemsArray.reduce(
       (sum, currentItem) => (sum += currentItem.price * currentItem.quantity),
       0
@@ -28,15 +30,17 @@ const ModalConfirmEvent = () => {
         <span>{totalPrice(itemsList)}</span>
       </div>
       <ul>
-        {itemsList.map((item) => (
-          <li key={item.id} info={item}>
-            <p>{item.whoTakes.name}</p>
-            <div>
-              <p>{item.itemName}</p>
-              <span>{treatNumbers(item.price * item.quantity)}</span>
-            </div>
-          </li>
-        ))}
+        {itemsList
+          .sort((a, b) => a.whoTakes.id - b.whoTakes.id)
+          .map(item => (
+            <li key={item.id} info={item}>
+              <p>{item.whoTakes.name}</p>
+              <div>
+                <p>{item.itemName}</p>
+                <span>{treatNumbers(item.price * item.quantity)}</span>
+              </div>
+            </li>
+          ))}
       </ul>
       <ContainerButtons>
         <Button children="Deu Ruim!" theme={buttonThemes.decline} />
