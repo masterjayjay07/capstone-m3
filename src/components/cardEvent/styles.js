@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: var(--color-darkPurple);
   color: var(--color-linen);
-  min-width: 250px;
-  max-width: 250px;
+  width: 250px;
   height: 150px;
   border: none; 
   border-radius: 10px;
@@ -26,7 +25,7 @@ export const Container = styled.div`
 
 
   &:hover {
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 3px 3px 3px black;
     padding-left: 5px;
     color: var(--color-middleBluePurple);
     border: 1px solid var(--color-linen);

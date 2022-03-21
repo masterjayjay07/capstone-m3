@@ -4,13 +4,12 @@ export const Container = styled.main`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 30px;
   height: 90vh;
   img {
     width: 270px;
     height: 270px;
-    margin: auto;
   }
   @media screen and (max-width: 580px) {
     flex-direction: column;

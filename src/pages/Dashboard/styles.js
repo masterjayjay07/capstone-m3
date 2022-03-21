@@ -46,7 +46,6 @@ export const SlotCard = styled.div`
   align-items: center;
   min-width: 300px;
   height: 400px;
-  overflow-y: scroll;
   overflow-y: auto;
   justify-content: space-around;
   text-align: center;
