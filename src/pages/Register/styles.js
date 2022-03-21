@@ -5,6 +5,7 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 90vh;
+  padding: 15px;
 
   section {
     height: 80%;
@@ -15,14 +16,13 @@ export const Container = styled.div`
     max-width: 500px;
     flex-wrap: wrap;
     text-align: center;
-
     p {
       color: var(--color-lavenderGray);
       font-size: 40px;
     }
     img {
-      height: 180px;
-      width: 180px;
+      height: 220px;
+      width: 220px;
     }
   }
 

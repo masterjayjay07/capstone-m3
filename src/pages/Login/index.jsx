@@ -34,9 +34,7 @@ const Login = () => {
 
   return (
     <Container>
-      <Link to="/">
-        <img src={Logo} alt="Logo" />
-      </Link>
+      <img src={Logo} alt="Logo" />
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input

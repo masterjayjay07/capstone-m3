@@ -21,6 +21,11 @@ export const Container = styled.nav`
         background: transparent;
         border: none;
         color: var(--color-linen);
+        :hover {
+          background: var(--color-stateBlue);
+          border-radius: 0;
+          border: none;
+        }
       }
     }
   }

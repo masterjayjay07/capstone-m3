@@ -2,15 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
+  justify-content: space-between;
   padding: 30px;
-  a {
-    margin-bottom: 15px;
-  }
+  height: 90vh;
   img {
-    width: 180px;
-    height: 180px;
+    width: 270px;
+    height: 270px;
+    margin: auto;
+  }
+  @media screen and (max-width: 580px) {
+    flex-direction: column;
+    justify-content: center;
+    img {
+      display: none;
+    }
   }
   form {
     background: var(--color-middleBluePurple);

@@ -8,7 +8,6 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
   background: var(--color-middleBluePurple);
-  margin-bottom: 6px;
   padding: 20px 10px;
   button {
     margin: 5px 0;
