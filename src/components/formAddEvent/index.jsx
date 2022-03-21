@@ -13,7 +13,8 @@ const FormAddEvent = ({ handleClose }) => {
 
   const Schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
-    date: yup.string().required("Data Obrigatória")
+    date: yup.string().required("Data Obrigatória"),
+    address: yup.string().required("Local Obrigatório"),
   });
 
   const {
@@ -37,22 +38,20 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.name?.message}
         helperText={errors.name?.message}
       />
-
-<Input
-        
+      <Input
         register={register}
         name="date"
         error={!!errors.date?.message}
         helperText={errors.date?.message}
-        type='date'
-        sx={{width: '225px'}}
-
+        type="date"
+        sx={{ width: "225px" }}
       />
-
-      {/* 
-     AINDA FALTA INSERIR O INPUT DO ENDEREÇO DO EVENTO E ADICIONÁ-LO NO FORMULÁRIO DO YUP 
-
-      */}
+      <Input
+        register={register}
+        name="address"
+        error={!!errors.address?.message}
+        helperText={errors.address?.message}
+      />
       <Button theme={buttonThemes.add} children="Adicionar" type="submit" />
     </Container>
   );
