@@ -8,14 +8,18 @@ import FormAddEvent from "../../components/formAddEvent";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useUser } from "../../provider/User";
+import { useItemsList } from "../../provider/ItemsList";
+import { useGuests } from "../../provider/Guests";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { userEvents } = useEvents();
+  const { userEvents, setActiveEvent } = useEvents();
   const { user } = useUser();
   const history = useHistory();
+  const { setItemsList } = useItemsList();
+  const { setGuests } = useGuests();
 
   const style = {
     display: "flex",
@@ -24,15 +28,30 @@ const Dashboard = () => {
     width: "100vw",
     height: "100vh",
   };
+
+  const handleActiveEvent = (eventId) => {
+    console.log(eventId);
+    const currentEvent = userEvents.find((element) => element.id === eventId);
+    localStorage.setItem(
+      "@BoraMarcar:activeEvent",
+      JSON.stringify(currentEvent)
+    );
+    setActiveEvent(currentEvent);
+    setItemsList(currentEvent.itemsList);
+    setGuests(currentEvent.guests);
+    history.push("/dashboard/events");
+  };
+
   return (
     <Container>
+      <h2>Bem vindo, {user.name}!</h2>
       <Header>
-        <span>Bem vindo, {user.name}!</span>
         <span>Editar Perfil</span>
+        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
       </Header>
 
       <SlotCard>
-        <span className="spanTitle">Meus eventos</span>
+        <span>Meus eventos</span>
         <CardsDiv>
           {userEvents.length === 0 ? (
             <span>Você não possui eventos para visualizar</span>
@@ -41,12 +60,12 @@ const Dashboard = () => {
               <CardEvent
                 key={index}
                 event={item}
-                onClick={() => history.push("/dashboard/events")}
+                id={item.id}
+                onClick={() => handleActiveEvent(item.id)}
               />
             ))
           )}
         </CardsDiv>
-        <Button children={"+"} theme={buttonThemes.add} onClick={handleOpen} />
       </SlotCard>
       <Modal open={open} onClose={handleClose} sx={style}>
         <>

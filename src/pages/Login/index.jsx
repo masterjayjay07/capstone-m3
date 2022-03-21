@@ -27,15 +27,12 @@ const Login = () => {
 
   const { handleLogin } = useAuth();
 
-  const onSubmitFunction = (data) => {
+  const onSubmitFunction = data => {
     handleLogin(data);
   };
 
   return (
     <Container>
-      <Link to="/">
-        <img src="" alt="Logo" />
-      </Link>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input
@@ -53,7 +50,9 @@ const Login = () => {
           register={register}
           type="password"
         />
-        <Button type="submit">Entrar</Button>
+        <Button type="submit" theme={buttonThemes.default}>
+          Entrar
+        </Button>
         <p>Não possui uma conta?</p>
         <Button
           type="button"

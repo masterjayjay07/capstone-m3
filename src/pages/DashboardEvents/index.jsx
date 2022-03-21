@@ -16,6 +16,11 @@ import GuestList from "../../components/guestList";
 import Modal from "@mui/material/Modal";
 import FormAddItem from "../../components/formAddItem";
 import FormAddGuest from "../../components/formAddGuest";
+import ModalConfirmEvent from "../../components/modalConfirmEvent";
+import LogoHeader from "../../assets/Logos/Logo-Header.svg";
+import { useEvents } from "../../provider/Events";
+import { useItemsList } from "../../provider/ItemsList";
+import { useGuests } from "../../provider/Guests";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -26,6 +31,19 @@ const DashboardEvents = () => {
   const [openFormGuest, setOpenFormGuest] = useState(false);
   const handleOpenFormGuest = () => setOpenFormGuest(true);
   const handleCloseFormGuest = () => setOpenFormGuest(false);
+  const [openModalConfirm, setOpenModalConfirm] = useState(false);
+  const handleOpenModalConfirm = () => setOpenModalConfirm(true);
+  const handleCloseModalConfirm = () => setOpenModalConfirm(false);
+  const { activeEvent } = useEvents();
+  const { handleLetsMake, itemsList } = useItemsList();
+  const { guests } = useGuests();
+
+  const handleClickLetsMake = () => {
+    if (itemsList.length > 0 && guests.length > 0) {
+      handleLetsMake();
+      handleOpenModalConfirm();
+    }
+  };
 
   const style = {
     display: "flex",
@@ -49,7 +67,7 @@ const DashboardEvents = () => {
           </p>
         </TabButton>
       </ContainerHeader>
-      <EventTitle children={"Casamento do Yorran"} />
+      <EventTitle children={activeEvent.name} />
       <Content
         children={
           productsTab ? (
@@ -60,17 +78,26 @@ const DashboardEvents = () => {
         }
       />
       <MainButton
-        onClick={() => console.log("modal da divisao")}
-        children={"Marcar!"}
+        onClick={() => handleClickLetsMake()}
+        children={<img src={LogoHeader} alt="Bora Marcar?"></img>}
       />
       <Modal open={open} onClose={handleClose} sx={style}>
         <>
-          <FormAddItem />
+          <FormAddItem handleClose={handleClose} />
         </>
       </Modal>
       <Modal open={openFormGuest} onClose={handleCloseFormGuest} sx={style}>
         <>
-          <FormAddGuest />
+          <FormAddGuest handleCloseFormGuest={handleCloseFormGuest} />
+        </>
+      </Modal>
+      <Modal
+        open={openModalConfirm}
+        onClose={handleCloseModalConfirm}
+        sx={style}
+      >
+        <>
+          <ModalConfirmEvent />
         </>
       </Modal>
     </Container>

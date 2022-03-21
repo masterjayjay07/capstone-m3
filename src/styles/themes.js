@@ -1,11 +1,10 @@
 const headerButton = {
   background: "transparent",
   border: "1px solid transparent",
-  padding: "5px",
+  padding: "8px 12px",
 
   hover: {
     background: "transparent",
-    color: "var(--color-lavenderGray)",
     border: "1px solid var(--color-lavenderGray)",
   },
 };
@@ -13,7 +12,7 @@ const headerButton = {
 const defaultButton = {
   background: "var(--color-stateBlue)",
   border: "1px solid var(--color-stateBlue)",
-  padding: "5px 20px",
+  padding: "8px 22px",
 
   hover: {
     background: "var(--color-darkPurple)",
@@ -34,8 +33,21 @@ const addButton = {
   },
 };
 
+const declineButton = {
+  background: "var(--color-linen)",
+  border: "1px solid var(--color-darkPurple)",
+  padding: "5px 10px",
+
+  hover: {
+    background: "var(--color-stateBlue)",
+    color: "var(--color-linen)",
+    border: "1px solid var(--color-darkPurple)",
+  },
+};
+
 export const buttonThemes = {
   header: headerButton,
   default: defaultButton,
   add: addButton,
+  decline: declineButton,
 };

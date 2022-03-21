@@ -1,22 +1,20 @@
+import { useGuests } from "../../provider/Guests";
 import NewItemButton from "../newItemButton";
 
 const GuestList = ({ handleOpenFormGuest }) => {
-  // mock array
-  const mockGuestList = ["Johão", "Victor", "Marcelo", "Yorran", "Anderson"];
-
-  const totalGuests = (array) => array.length;
+  const { guests } = useGuests();
 
   return (
     <>
       <div>
         <p>Total de Convidados</p>
-        <span>{totalGuests(mockGuestList)}</span>
+        <span>{guests ? guests.length : 0}</span>
         <NewItemButton onClick={() => handleOpenFormGuest()} />
       </div>
       <ul>
-        {mockGuestList.map((item, idx) => (
+        {guests.map((item, idx) => (
           <li key={idx} info={item} onClick={() => console.log(item)}>
-            <p>{item}</p>
+            <p>{item.name}</p>
           </li>
         ))}
       </ul>

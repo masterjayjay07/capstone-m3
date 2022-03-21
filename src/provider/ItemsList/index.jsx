@@ -1,29 +1,23 @@
 import { createContext, useContext, useState } from "react";
+import { useGuests } from "../Guests";
 
 export const ItemsListContext = createContext();
 
 export const ItemsListProvider = ({ children }) => {
   const [itemsList, setItemsList] = useState([]);
-
-  const genItemId = () => {
-    let maxId = 0;
-    itemsList.forEach((item) => {
-      if (item.id > maxId) maxId = item.id;
-    });
-    return maxId + 1;
-  };
+  const { randomGuest, genId } = useGuests();
 
   const handleNewItem = (data) => {
-    const itemId = genItemId();
-    const item = { ...data, itemId };
+    const id = genId(itemsList);
+    const item = { ...data, id };
     setItemsList([...itemsList, item]);
   };
 
   const handleEditItem = (itemId, key, newValue) => {
     if (!!newValue !== false) {
       const item = itemsList.find(({ id }) => id === itemId);
-      return (item[key] = newValue);
-                    //  ^ funciona com state?
+      item[key] = newValue;
+      setItemsList([...itemsList]);
     }
   };
 
@@ -31,9 +25,24 @@ export const ItemsListProvider = ({ children }) => {
     setItemsList(itemsList.filter(({ id }) => id !== itemId));
   };
 
+  const handleLetsMake = () => {
+    const unifiedList = itemsList.map((item) => ({
+      ...item,
+      whoTakes: randomGuest(),
+    }));
+    setItemsList([...unifiedList]);
+  };
+
   return (
     <ItemsListContext.Provider
-      value={{ itemsList, handleNewItem, handleDeleteItem, handleEditItem }}
+      value={{
+        itemsList,
+        setItemsList,
+        handleNewItem,
+        handleDeleteItem,
+        handleEditItem,
+        handleLetsMake,
+      }}
     >
       {children}
     </ItemsListContext.Provider>

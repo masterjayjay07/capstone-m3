@@ -1,25 +1,19 @@
-// import { useItemsList } from "../../provider/ItemsList";
 import NewItemButton from "../newItemButton";
+import { useItemsList } from "../../provider/ItemsList";
 
 const ProductList = ({ handleOpen }) => {
-  // const { itemsList } = useItemsList();
-  // mock array
-  const mockItemsList = [
-    { name: "Carne", price: 60.42, quantity: 3 },
-    { name: "Cerveja", price: 35.99, quantity: 7 },
-    { name: "Gelo", price: 10, quantity: 3 },
-    { name: "Amendoins", price: 10.99, quantity: 4 },
-    { name: "Refrigerante", price: 8.9, quantity: 2 },
-    { name: "Carvão", price: 3.5, quantity: 3 },
-  ];
-  const treatNumbers = (num) => num.toFixed(2).toString().replace(".", ",");
+  const { itemsList } = useItemsList();
+  const treatNumbers = (num) => Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(num);
 
   const totalPrice = (itemsArray) => {
     const totalSum = itemsArray.reduce(
       (sum, currentItem) => (sum += currentItem.price * currentItem.quantity),
       0
     );
-
+  
     return treatNumbers(totalSum);
   };
 
@@ -27,14 +21,14 @@ const ProductList = ({ handleOpen }) => {
     <>
       <div>
         <p>Total Produtos</p>
-        <span>R$ {totalPrice(mockItemsList)}</span>
+        <span>{totalPrice(itemsList)}</span>
         <NewItemButton onClick={() => handleOpen()} />
       </div>
       <ul>
-        {mockItemsList.map((item, idx) => (
-          <li key={idx} info={item} onClick={() => console.log(item)}>
-            <p>{item.name}</p>
-            <span>R$ {treatNumbers(item.price * item.quantity)}</span>
+        {itemsList.map((item) => (
+          <li key={item.id} info={item} onClick={() => console.log(item)}>
+            <p>{item.itemName}</p>
+            <span>{treatNumbers(item.price * item.quantity)}</span>
           </li>
         ))}
       </ul>
