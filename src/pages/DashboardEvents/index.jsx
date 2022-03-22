@@ -5,6 +5,7 @@ import {
   EventTitle,
   Content,
   MainButton,
+  DivTitle,
 } from "./styles";
 
 import { FaClipboardList, FaUserFriends } from "react-icons/fa";
@@ -17,6 +18,7 @@ import Modal from "@mui/material/Modal";
 import FormAddItem from "../../components/formAddItem";
 import FormAddGuest from "../../components/formAddGuest";
 import ModalConfirmEvent from "../../components/modalConfirmEvent";
+import ModalInformation from "../../components/modalInformation";
 import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useEvents } from "../../provider/Events";
 import { useItemsList } from "../../provider/ItemsList";
@@ -38,10 +40,13 @@ const DashboardEvents = () => {
   const [openEditForm, setOpenEditForm] = useState(false);
   const handleOpenEditForm = () => setOpenEditForm(true);
   const handleCloseEditForm = () => setOpenEditForm(false);
+  const [openInfos, setOpenInfos] = useState(true);
+  const handleOpenInfos = () => setOpenInfos(true);
+  const handleCloseInfos = () => setOpenInfos(false);
   const { activeEvent } = useEvents();
   const { handleLetsMake, itemsList } = useItemsList();
   const { guests } = useGuests();
-  const [itemID, setItemID] = useState(0)
+  const [itemID, setItemID] = useState(0);
 
   const handleClickLetsMake = () => {
     if (itemsList.length > 0 && guests.length > 0) {
@@ -73,7 +78,10 @@ const DashboardEvents = () => {
             </p>
           </TabButton>
         </ContainerHeader>
-        <EventTitle children={activeEvent.name} />
+        <DivTitle>
+          <EventTitle children={activeEvent.name} />
+          <p onClick={handleOpenInfos}>?</p>
+        </DivTitle>
         <Content
           children={
             productsTab ? (
@@ -112,7 +120,12 @@ const DashboardEvents = () => {
         </Modal>
         <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>
           <>
-            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID}/>
+            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID} />
+          </>
+        </Modal>
+        <Modal open={openInfos} onClose={handleCloseInfos} sx={style}>
+          <>
+            <ModalInformation handleCloseInfos={handleCloseInfos} />
           </>
         </Modal>
       </Container>

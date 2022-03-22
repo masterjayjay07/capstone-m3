@@ -23,7 +23,7 @@ export const TabButton = styled.button`
   height: 43px;
   border: 2px solid var(--color-middleBluePurple);
   border-bottom: none;
-  ${props => {
+  ${(props) => {
     return props.active
       ? css`
           background-color: var(--color-middleBluePurple);
@@ -44,7 +44,7 @@ export const TabButton = styled.button`
     margin: auto;
     height: 100%;
     transition: 300ms all ease-in;
-    border-bottom: ${props =>
+    border-bottom: ${(props) =>
       props.active && "2px solid var(--color-darkPurple)"};
   }
 
@@ -64,9 +64,19 @@ export const TabButton = styled.button`
   }
 `;
 
-export const EventTitle = styled.h2`
-  line-height: 52px;
+export const DivTitle = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    border: 1px solid var(--color-darkPurple);
+    padding: 0 7px;
+    cursor: pointer;
+  }
+`;
+
+export const EventTitle = styled.h2`
   height: 52px;
   text-align: center;
   white-space: nowrap;
