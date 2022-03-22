@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import boraMarcarApi from "../../services/api";
 import { useAuth } from "../Auth";
 
@@ -26,6 +27,8 @@ export const EventProvider = ({ children }) => {
       })
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
+        toast.success('Evento criado!')
+
       });
   };
 
@@ -37,6 +40,7 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
         setActiveEvent({ ...data });
+        toast.success('Evento alterado!')
       })
       .catch((error) => console.log(error));
   };

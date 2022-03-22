@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import boraMarcarApi from "../../services/api";
 import { useAuth } from "../Auth";
 
@@ -23,6 +24,7 @@ export const UserProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then(({ data }) => setUser(data))
+      toast.success('Dados alterados!')
       .catch((error) => console.log(error));
   };
 
