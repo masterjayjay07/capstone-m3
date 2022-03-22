@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 import boraMarcarApi from "../../services/api";
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -32,6 +31,7 @@ export const AuthProvider = ({ children }) => {
         );
         setUserId(data.user.id);
         setUserToken(data.accessToken);
+        toast.success("Bem vindo ao Bora Marcar!");
         history.push("/dashboard");
       })
       .catch(() => toast.error("Email ou senha incorretos!"));
@@ -41,6 +41,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.clear();
     setUserToken("");
     setUserId(0);
+    toast.success("Até logo!");
+
   };
 
   return (
