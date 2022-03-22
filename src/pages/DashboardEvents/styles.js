@@ -64,9 +64,19 @@ export const TabButton = styled.button`
   }
 `;
 
-export const EventTitle = styled.h2`
-  line-height: 52px;
+export const DivTitle = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    border: 1px solid var(--color-darkPurple);
+    padding: 0 7px;
+    cursor: pointer;
+  }
+`;
+
+export const EventTitle = styled.h2`
   height: 52px;
   text-align: center;
   white-space: nowrap;
