@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
   Button {
     margin: 5px;
-    :hover{
+    :hover {
       border: 1px solid var(--color-middleBluePurple);
     }
   }
@@ -26,19 +26,14 @@ export const Header = styled.div`
   width: 85%;
   height: 50px;
   background-color: var(--color-middleBluePurple);
-  
 
-span{
-  cursor: pointer;
-  transition: 0.5s;
-  :hover{
-    color: var(--color-linen);
+  span {
+    cursor: pointer;
+    transition: 0.5s;
+    :hover {
+      color: var(--color-linen);
+    }
   }
-}
-
-.userName{
-  color: var(#9F96E9);
-}
 `;
 
 export const SlotCard = styled.div`
@@ -52,7 +47,7 @@ export const SlotCard = styled.div`
   overflow-y: auto;
   justify-content: flex-start;
   text-align: center;
-  
+
   > span {
     border-bottom: 1.5px solid var(--color-darkPurple);
     font-family: "Nunito";
@@ -68,14 +63,14 @@ export const CardsDiv = styled.div`
   overflow-y: auto;
   margin-top: 20px;
   background-color: var(--color-middleBluePurple);
-  
+
   span {
     border-bottom: 1.5px solid var(--color-lavenderGray);
     font-family: "Nunito";
     font-size: 18px;
     margin: 10px;
   }
-  @media screen and (max-width: 580px){
-    justify-content: center
+  @media screen and (max-width: 580px) {
+    justify-content: center;
   }
 `;
