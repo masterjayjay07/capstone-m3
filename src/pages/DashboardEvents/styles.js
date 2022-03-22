@@ -23,7 +23,7 @@ export const TabButton = styled.button`
   height: 43px;
   border: 2px solid var(--color-middleBluePurple);
   border-bottom: none;
-  ${props => {
+  ${(props) => {
     return props.active
       ? css`
           background-color: var(--color-middleBluePurple);
@@ -44,7 +44,7 @@ export const TabButton = styled.button`
     margin: auto;
     height: 100%;
     transition: 300ms all ease-in;
-    border-bottom: ${props =>
+    border-bottom: ${(props) =>
       props.active && "2px solid var(--color-darkPurple)"};
   }
 
@@ -128,6 +128,20 @@ export const Content = styled.div`
       p,
       span {
         padding: 0 4px 0;
+      }
+      button {
+        background: transparent;
+        border: none;
+
+        svg {
+          font-size: 18px;
+          color: var(--color-darkPurple);
+          transition: 0.3s;
+
+          :hover {
+            color: var(--color-stateBlue);
+          }
+        }
       }
     }
   }

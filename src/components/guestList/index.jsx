@@ -1,8 +1,9 @@
 import { useGuests } from "../../provider/Guests";
 import NewItemButton from "../newItemButton";
+import { FaTrashAlt } from "react-icons/fa";
 
 const GuestList = ({ handleOpenFormGuest }) => {
-  const { guests } = useGuests();
+  const { guests, handleRemoveGuest } = useGuests();
 
   return (
     <>
@@ -15,6 +16,9 @@ const GuestList = ({ handleOpenFormGuest }) => {
         {guests.map((item, idx) => (
           <li key={idx} info={item} onClick={() => console.log(item)}>
             <p>{item.name}</p>
+            <button onClick={() => handleRemoveGuest(item.id)}>
+              <FaTrashAlt />
+            </button>
           </li>
         ))}
       </ul>
