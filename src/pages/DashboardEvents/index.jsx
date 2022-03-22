@@ -38,10 +38,10 @@ const DashboardEvents = () => {
   const [openEditForm, setOpenEditForm] = useState(false);
   const handleOpenEditForm = () => setOpenEditForm(true);
   const handleCloseEditForm = () => setOpenEditForm(false);
-  const { activeEvent } = useEvents();
-  const { handleLetsMake, itemsList } = useItemsList();
+  const { handleLetsMake, activeEvent } = useEvents();
+  const { itemsList } = useItemsList();
   const { guests } = useGuests();
-  const [itemID, setItemID] = useState(0)
+  const [itemID, setItemID] = useState(0);
 
   const handleClickLetsMake = () => {
     if (itemsList.length > 0 && guests.length > 0) {
@@ -112,7 +112,7 @@ const DashboardEvents = () => {
         </Modal>
         <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>
           <>
-            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID}/>
+            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID} />
           </>
         </Modal>
       </Container>
