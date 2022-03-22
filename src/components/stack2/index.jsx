@@ -1,7 +1,6 @@
 import Container from "./styles";
-import { AiFillWechat } from "react-icons/ai";
-import { GiMeat } from "react-icons/gi";
-import { FaRegMoneyBillAlt } from "react-icons/fa";
+import { BsListCheck } from "react-icons/bs";
+import { FaRegMoneyBillAlt, FaRegGrinWink } from "react-icons/fa";
 import { RiChatSmile3Line } from "react-icons/ri";
 
 const Stack2 = () => {
@@ -10,16 +9,15 @@ const Stack2 = () => {
       <h2>Veja as vantagens do nosso aplicativo.</h2>
       <div>
         <span>
-          <AiFillWechat /> Converse em tempo real com os integrantes do evento.
+          <FaRegGrinWink /> Evite discussões e poupe tempo para as decisões importantes.
         </span>
         <span>
-          <GiMeat /> Veja o que cada um irá levar através da nossa lista.
+          <BsListCheck /> Veja o que cada um irá levar através da nossa lista.
         </span>
         <span>
-          <FaRegMoneyBillAlt /> Todos os valores são exibidos publicamente.
+          <FaRegMoneyBillAlt /> Todos os valores são divididos e calculados de maneira justa.
         </span>
         <span>
-          {" "}
           <RiChatSmile3Line /> Organize seus eventos de forma prática e rápida.
         </span>
       </div>
