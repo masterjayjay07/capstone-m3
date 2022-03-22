@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
         );
         setUserId(data.user.id);
         setUserToken(data.accessToken);
+        toast.success("Bem vindo ao Bora Marcar!");
         history.push("/dashboard");
       })
       .catch(() => toast.error("Email ou senha incorretos!"));
@@ -40,6 +41,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.clear();
     setUserToken("");
     setUserId(0);
+    toast.success("Até logo!");
+
   };
 
   return (
