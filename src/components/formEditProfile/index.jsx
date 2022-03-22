@@ -12,7 +12,7 @@ const FormEditItem = ({ handleClose }) => {
 
   const Schema = yup.object().shape({
     name: yup.string(),
-    email: yup.string().email("E-mail inválido")
+    email: yup.string().email("E-mail inválido"),
   });
 
   const {
@@ -22,7 +22,13 @@ const FormEditItem = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditProfile(data);
+    const treatedData = Object.entries(data)
+      .filter((item) => item[1] !== "")
+      .reduce((acc, [key, value]) => {
+        acc[key] = value;
+        return acc;
+      }, {});
+    handleEditProfile(treatedData);
     handleClose();
   };
 
