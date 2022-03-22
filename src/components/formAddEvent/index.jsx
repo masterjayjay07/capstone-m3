@@ -29,6 +29,7 @@ const FormAddEvent = ({ handleClose }) => {
   };
 
   return (
+    
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Evento</h2>
       <Input

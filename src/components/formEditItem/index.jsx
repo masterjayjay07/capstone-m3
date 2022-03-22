@@ -32,7 +32,7 @@ const FormEditItem = ({ handleClose, itemID }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditItem(itemID, data);
+    handleEditItem(itemID, Object.keys(data) ,data);
     handleClose();
   };
 
