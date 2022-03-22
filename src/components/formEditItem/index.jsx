@@ -15,16 +15,14 @@ const FormEditItem = ({ handleClose, itemID }) => {
 
   const Schema = yup.object().shape({
     itemName: yup.string().required("Campo Obrigatório"),
-    quantity: yup.string().required("Obrigatório"),
-    // .matches(
-    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-    //   "Só números"
-    // ),
-    price: yup.string().required("Obrigatório"),
-    // .matches(
-    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-    //   "Só números"
-    // ),
+    quantity: yup
+      .string()
+      .required("Obrigatório")
+      .matches(/^[0-9]+$/, "Só números"),
+    price: yup
+      .string()
+      .required("Obrigatório")
+      .matches(/^[0-9]+$/, "Só números"),
   });
 
   const {
@@ -34,7 +32,7 @@ const FormEditItem = ({ handleClose, itemID }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditItem(itemID, data);
+    handleEditItem(itemID, Object.keys(data) ,data);
     handleClose();
   };
 

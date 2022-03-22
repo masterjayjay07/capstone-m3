@@ -7,7 +7,10 @@ const CardEvent = ({ event, ...rest }) => {
         <>
           <hr />
           <p>{event.name} </p>
-          <span>Quando? {event.date.split('-').reverse().join('/')}</span>
+          <span>
+            Quando?{" "}
+            {event.date ? event.date.split("-").reverse().join("/") : ""}
+          </span>
           <span>Onde? {event.location}</span>
         </>
       )}

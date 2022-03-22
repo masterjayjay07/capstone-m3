@@ -23,8 +23,8 @@ const FormRegister = () => {
       .matches(
         /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
         "Idade precisa ser maior que 18"
-      ),
-
+    ),
+    
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     confirmarEmail: yup
       .string()
