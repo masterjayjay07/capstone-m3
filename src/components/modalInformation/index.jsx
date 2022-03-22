@@ -8,8 +8,8 @@ const ModalInformation = ({ handleCloseInfos }) => {
     <Container>
       <Button onClick={handleCloseInfos} children="X" />
       <p>
-        Seja bem-vindo ao nosso gerenciador de eventos! Aqui vão algumas dicas
-        de como utilizá-lo:{" "}
+        <span>Seja bem-vindo ao nosso gerenciador de eventos!</span>
+        <span>Aqui vão algumas dicas de como utilizá-lo:</span>
         <p>
           Não conseguimos definir as variações de seus possíveis produtos, então
           defina bem cada item pensando no que precisa ser entregue ao evento,
@@ -23,14 +23,23 @@ const ModalInformation = ({ handleCloseInfos }) => {
           <p>CORRETO</p>
           <img alt="right" src={right} />
         </RightText>
-        Nossa lógica de divisão visa manter os custos de maneira justa, i.e
-        primeiro dividimos os produtos aleatoriamente para cada convidado,
-        depois vemos quem está pagando mais e selecionamos os que estão com
-        menos gastos para ressarcir essas pessoas para que ninguém saia no
-        prejuízo (sem mãos de vaca por aqui!). (printscreen do exemplo?) Caso a
-        divisão não tenha te agradado é só avisar que deu ruim! Geraremos uma
-        nova divisão para você ; Bom evento para você e obrigado por utilizar
-        nosso app! s2
+        <p>
+          Nossa lógica de divisão visa manter os custos de maneira justa,
+          primeiro dividimos os produtos aleatoriamente para cada convidado,
+          depois vemos quem está pagando mais e selecionamos os que estão com
+          menos gastos para ressarcir essas pessoas para que ninguém saia no
+          prejuízo (sem mãos de vaca por aqui!).
+        </p>
+        <RightText>
+          <img alt="Exemplo da lógica" src={right} />
+        </RightText>
+      </p>{" "}
+      <p>
+        Caso a divisão não tenha te agradado é só avisar que "Deu Ruim!".
+        Geraremos uma nova divisão para você!
+      </p>
+      <p>
+        <span>Bom evento para você e obrigado por utilizar nosso app! s2 </span>
       </p>
     </Container>
   );
