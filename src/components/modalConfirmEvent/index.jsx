@@ -20,11 +20,19 @@ const ModalConfirmEvent = () => {
     for (const guest in finalSolution.guests) {
       arrayLi.push(
         <li key={Math.random()}>
-          <p>{guest}</p>
           <div>
-            {finalSolution.guests[guest].productList.map(({ itemName }) => (
-              <p>{itemName}</p>
-            ))}
+            <p>{guest}</p>
+            <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
+          </div>
+          <div>
+            {finalSolution.guests[guest].productList.map(
+              ({ itemName, itemCost }) => (
+                <div>
+                  <p>{itemName}</p>
+                  <p>{treatNumbers(itemCost)}</p>
+                </div>
+              )
+            )}
           </div>
         </li>
       );

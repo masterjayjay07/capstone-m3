@@ -79,27 +79,36 @@ export const EventProvider = ({ children }) => {
   };
 
   const handleCostDivision = () => {
+    // Calcula e cria a propriedade itemCost para cada item contido no array productList
     for (const guest in finalSolution.guests) {
+      finalSolution.guests[guest].productList.forEach(
+        item => (item.itemCost = Number(item.price) * Number(item.quantity))
+      );
+
+      // Calcula e cria a propriedade totalCost para a soma dos custos de todos os
+      // produtos do convidade selecionado
       finalSolution.guests[guest].totalCost =
-        finalSolution.averagePrice -
         finalSolution.guests[guest].productList.reduce(
-          (sum, item) => (sum += Number(item.price) * Number(item.quantity)),
+          (sum, { itemCost }) => (sum += itemCost),
           0
-        );
+        ) - finalSolution.averagePrice;
     }
   };
 
   const handleLetsMake = () => {
-    // Calculamos o custo total do evento e a média para cada usuário
+    // Calculamos o custo total do evento
     finalSolution.totalPrice = itemsList.reduce(
       (sum, item) => (sum += Number(item.price) * Number(item.quantity)),
       0
     );
+
+    // Calculamos a média de custo por usuário com base no preço total e quantidade
+    // de convidades
     finalSolution.averagePrice = Number(
       (finalSolution.totalPrice / guests.length).toFixed(2)
     );
 
-    // Criamos em finalSolution uma chave para cada convidado
+    // Criamos em finalSolution uma chave para cada convidade
     guests.forEach(({ name }) => {
       finalSolution.guests[name] = {
         totalCost: 0,
@@ -107,7 +116,7 @@ export const EventProvider = ({ children }) => {
       };
     });
 
-    // Definimos as responsabilidades de cada convidado
+    // Definimos as responsabilidades de cada convidade
     handleWhoTakes();
     // Definimos o custo final para cada usuário, com relação ao produto que recebeu
     handleCostDivision();
