@@ -43,8 +43,8 @@ const DashboardEvents = () => {
   const [openInfos, setOpenInfos] = useState(true);
   const handleOpenInfos = () => setOpenInfos(true);
   const handleCloseInfos = () => setOpenInfos(false);
-  const { activeEvent } = useEvents();
-  const { handleLetsMake, itemsList } = useItemsList();
+  const { handleLetsMake, activeEvent } = useEvents();
+  const { itemsList } = useItemsList();
   const { guests } = useGuests();
   const [itemID, setItemID] = useState(0);
 
