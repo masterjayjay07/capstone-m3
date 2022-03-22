@@ -13,8 +13,8 @@ const FormRegister = () => {
     name: yup
       .string()
       .required("Nome obrigatório")
-      .min(3)
-      .max(50)
+      .min(3, 'Nome mínimo com três letras')
+      .max(50, 'Nome máximo com 50 letras')
       .matches("^[ a-zA-Z áãàâ]*$", "Nome apenas com letras"),
 
     age: yup
