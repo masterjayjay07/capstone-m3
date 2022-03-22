@@ -54,7 +54,7 @@ export const ItemsListProvider = ({ children }) => {
     itemsList.forEach(item => {
       const priceDifference =
         Number(item.price) * Number(item.quantity) - averagePrice;
-
+      // unica chave para armazenar divisao de custo do convidade, caso negativo exibir em vermelho else verde
       if (priceDifference > 0) {
         item.whoTakes.pays = priceDifference;
       } else {
