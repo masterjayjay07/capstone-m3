@@ -1,4 +1,4 @@
-import { Container, Header, SlotCard, CardsDiv } from "./styles";
+import { Container, SubHeader, SlotCard, CardsDiv } from "./styles";
 import { useEvents } from "../../provider/Events";
 import Button from "../../components/button";
 import { buttonThemes } from "../../styles/themes";
@@ -10,8 +10,8 @@ import { useHistory } from "react-router-dom";
 import { useUser } from "../../provider/User";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
-import EditUser from "../../components/formEditProfile"
-import { useAuth } from "../../provider/Auth";
+import EditUser from "../../components/formEditProfile";
+import Header from "../../components/header";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -23,10 +23,9 @@ const Dashboard = () => {
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
 
-  const [openProfile, setOpenProfile] = useState(false) //state que controla se o modal está on/off
-  const handleEditProfileClose = () => setOpenProfile(false) //funcao que altera o modal de editar user para on
-  const handleEditProfileOpen = () => setOpenProfile(true) //funcao que altera o modal de editar user para on
-  
+  const [openProfile, setOpenProfile] = useState(false); //state que controla se o modal está on/off
+  const handleEditProfileClose = () => setOpenProfile(false); //funcao que altera o modal de editar user para on
+  const handleEditProfileOpen = () => setOpenProfile(true); //funcao que altera o modal de editar user para on
 
   const style = {
     display: "flex",
@@ -49,62 +48,58 @@ const Dashboard = () => {
   };
 
   return (
-    <Container>
-      <h2>Bem vindo, {user.name}!</h2>
-      <Header>
-        <Button  //botao de editar usuário
-          children={"Editar perfil"}
-          theme={buttonThemes.add}
-          onClick={() => {
-            handleEditProfileOpen()
-          }}
+    <>
+      <Header />
+      <Container>
+        <h2>Bem vindo, {user.name}!</h2>
+        <SubHeader>
+          <Button //botao de editar usuário
+            children={"Editar perfil"}
+            theme={buttonThemes.add}
+            onClick={() => {
+              handleEditProfileOpen();
+            }}
+          ></Button>
 
-        ></Button>
+          <Button
+            children={"Adicionar evento"}
+            theme={buttonThemes.add}
+            onClick={handleOpen}
+          />
+        </SubHeader>
 
-        <Button
-          children={"Adicionar evento"}
-          theme={buttonThemes.add}
-          onClick={handleOpen}
-        />
-      </Header>
+        <SlotCard>
+          <span>Meus eventos</span>
 
-      <SlotCard>
-        <span>Meus eventos</span>
+          <CardsDiv>
+            {userEvents.length === 0 ? (
+              <span>Você não possui eventos para visualizar</span>
+            ) : (
+              userEvents.map((item, index) => (
+                <CardEvent
+                  key={index}
+                  event={item}
+                  id={item.id}
+                  onClick={() => handleActiveEvent(item.id)}
+                />
+              ))
+            )}
+          </CardsDiv>
+        </SlotCard>
+        <Modal open={open} onClose={handleClose} sx={style}>
+          <>
+            <FormAddEvent handleClose={handleClose} />
+          </>
+        </Modal>
+        {/* modal de editar evento */}
 
-        <CardsDiv>
-          {userEvents.length === 0 ? (
-            <span>Você não possui eventos para visualizar</span>
-          ) : (
-            userEvents.map((item, index) => (
-              <CardEvent
-                key={index}
-                event={item}
-                id={item.id}
-                onClick={() => handleActiveEvent(item.id)}
-              />
-            ))
-          )}
-        </CardsDiv>
-      </SlotCard>
-      <Modal open={open} onClose={handleClose} sx={style}>
-        <>
-          <FormAddEvent handleClose={handleClose} />
-        </>
-      </Modal>
-              {/* modal de editar evento */}
-
-
-
-
-      <Modal open={openProfile} onClose={handleEditProfileClose} sx={style}>
-        <>
-          <EditUser handleClose={handleEditProfileClose} />
-        </>
-      </Modal>
-
-      
-
-    </Container>
+        <Modal open={openProfile} onClose={handleEditProfileClose} sx={style}>
+          <>
+            <EditUser handleClose={handleEditProfileClose} />
+          </>
+        </Modal>
+      </Container>
+    </>
   );
 };
 

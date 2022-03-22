@@ -22,6 +22,7 @@ import { useEvents } from "../../provider/Events";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
 import FormEditItem from "../../components/formEditItem";
+import Header from "../../components/header";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -41,7 +42,7 @@ const DashboardEvents = () => {
   const { activeEvent } = useEvents();
   const { handleLetsMake, itemsList } = useItemsList();
   const { guests } = useGuests();
-  const [itemID, setItemID] = useState(0)
+  const [itemID, setItemID] = useState(0);
 
   const handleClickLetsMake = () => {
     if (itemsList.length > 0 && guests.length > 0) {
@@ -60,6 +61,7 @@ const DashboardEvents = () => {
 
   return (
     <>
+      <Header />
       <Container>
         <ContainerHeader>
           <TabButton active={productsTab} onClick={() => switchTabs()}>
@@ -112,7 +114,7 @@ const DashboardEvents = () => {
         </Modal>
         <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>
           <>
-            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID}/>
+            <FormEditItem handleClose={handleCloseEditForm} itemID={itemID} />
           </>
         </Modal>
       </Container>

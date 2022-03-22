@@ -1,20 +1,23 @@
 import { Container } from "./styles";
 import FormRegister from "../../components/registerForm";
-import Logo from "../../assets/images/registerImg.png"
-import { Link } from "react-router-dom";
+import Logo from "../../assets/images/registerImg.png";
+import Header from "../../components/header";
 
 const Register = () => {
   return (
-    <Container>
-      <section>
-        <p>Insira os dados e crie a sua conta.</p>
-        <img src={Logo} alt="Logo" />
-      </section>
+    <>
+      <Header />
+      <Container>
+        <section>
+          <p>Insira os dados e crie a sua conta.</p>
+          <img src={Logo} alt="Logo" />
+        </section>
 
-      <div>
-        <FormRegister />
-      </div>
-    </Container>
+        <div>
+          <FormRegister />
+        </div>
+      </Container>
+    </>
   );
 };
 

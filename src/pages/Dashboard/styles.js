@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.div`
+export const SubHeader = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;

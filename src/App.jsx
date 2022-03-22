@@ -8,7 +8,6 @@ const App = () => {
     <>
       <GlobalStyle />
       <Toaster position="top-right" reverseOrder={false} />
-      <Header />
       <Routes />
     </>
   );
