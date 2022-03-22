@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 import boraMarcarApi from "../../services/api";
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
