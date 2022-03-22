@@ -12,7 +12,7 @@ export const EventProvider = ({ children }) => {
   const { guests } = useGuests();
   const { itemsList } = useItemsList();
 
-  const [finalSolution] = useState({
+  const [finalSolution, setFinalSolution] = useState({
     totalPrice: 0,
     averagePrice: 0,
     guests: {},
@@ -123,7 +123,8 @@ export const EventProvider = ({ children }) => {
     handleWhoTakes();
     // Definimos o custo final para cada usuário, com relação ao produto que recebeu
     handleCostDivision();
-    console.log(finalSolution);
+    setActiveEvent({...activeEvent, eventResolution: finalSolution})
+
   };
 
   useEffect(() => {
@@ -142,6 +143,7 @@ export const EventProvider = ({ children }) => {
         handleEditEvent,
         handleLetsMake,
         finalSolution,
+        setFinalSolution
       }}
     >
       {children}

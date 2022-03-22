@@ -115,7 +115,7 @@ const DashboardEvents = () => {
           sx={style}
         >
           <>
-            <ModalConfirmEvent />
+            <ModalConfirmEvent handleClose={handleCloseModalConfirm}/>
           </>
         </Modal>
         <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>

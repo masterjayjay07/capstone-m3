@@ -8,16 +8,23 @@ import DeskNav from "../deskNav";
 import LogoHeader from "../../assets/Logos/Logo-Header.svg";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
+import { useEvents } from "../../provider/Events"
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const { userToken, handleLogout } = useAuth();
+  const { setFinalSolution } = useEvents();
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
   const history = useHistory();
   const handleBack = () => {
     setItemsList([]);
     setGuests([]);
+    setFinalSolution({
+      totalPrice: 0,
+      averagePrice: 0,
+      guests: {},
+    })
     history.push("/dashboard");
   };
   const location = useLocation();

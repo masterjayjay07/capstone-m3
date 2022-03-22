@@ -6,8 +6,8 @@ import { useEvents } from "../../provider/Events";
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 
-const ModalConfirmEvent = () => {
-  const { finalSolution } = useEvents();
+const ModalConfirmEvent = ({handleClose}) => {
+  const { finalSolution, activeEvent, handleEditEvent } = useEvents();
 
   const treatNumbers = num =>
     Intl.NumberFormat("pt-BR", {
@@ -50,7 +50,7 @@ const ModalConfirmEvent = () => {
       <ul>{createList()}</ul>
       <ContainerButtons>
         <Button children="Deu Ruim!" theme={buttonThemes.decline} />
-        <Button children="Bora Marcar!" theme={buttonThemes.add} />
+        <Button children="Bora Marcar!" theme={buttonThemes.add}  onClick={()=> {handleEditEvent(activeEvent); handleClose()}} />
       </ContainerButtons>
     </Container>
   );
