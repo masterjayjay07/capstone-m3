@@ -1,47 +1,45 @@
 import { Container, ContainerButtons } from "./styles";
 
 import { useItemsList } from "../../provider/ItemsList";
+import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = () => {
-  const { itemsList } = useItemsList();
+  const { finalSolution } = useEvents();
+
   const treatNumbers = num =>
     Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
     }).format(num);
 
-  const totalPrice = itemsArray => {
-    console.log(itemsArray);
-    const totalSum = itemsArray.reduce(
-      (sum, currentItem) => (sum += currentItem.price * currentItem.quantity),
-      0
-    );
+  const createList = () => {
+    const arrayLi = [];
+    for (const guest in finalSolution.guests) {
+      arrayLi.push(
+        <li key={Math.random()}>
+          <p>{guest}</p>
+          <div>
+            {finalSolution.guests[guest].productList.map(({ itemName }) => (
+              <p>{itemName}</p>
+            ))}
+          </div>
+        </li>
+      );
+    }
 
-    return treatNumbers(totalSum);
+    return arrayLi;
   };
 
   return (
     <Container>
       <div>
         <p>Total Produtos</p>
-        <span>{totalPrice(itemsList)}</span>
+        <span>{treatNumbers(finalSolution.totalPrice)}</span>
       </div>
-      <ul>
-        {itemsList
-          .sort((a, b) => a.whoTakes.id - b.whoTakes.id)
-          .map(item => (
-            <li key={item.id} info={item}>
-              <p>{item.whoTakes.name}</p>
-              <div>
-                <p>{item.itemName}</p>
-                <span>{treatNumbers(item.price * item.quantity)}</span>
-              </div>
-            </li>
-          ))}
-      </ul>
+      <ul>{createList()}</ul>
       <ContainerButtons>
         <Button children="Deu Ruim!" theme={buttonThemes.decline} />
         <Button children="Bora Marcar!" theme={buttonThemes.add} />
