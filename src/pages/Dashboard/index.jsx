@@ -23,9 +23,9 @@ const Dashboard = () => {
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
 
-  const [openProfile, setOpenProfile] = useState(false) //state que controla se o modal está on/off
-  const handleEditProfileClose = () => setOpenProfile(false) //funcao que altera o modal de editar user para on
-  const handleEditProfileOpen = () => setOpenProfile(true) //funcao que altera o modal de editar user para on
+  const [openProfile, setOpenProfile] = useState(false) 
+  const handleEditProfileClose = () => setOpenProfile(false) 
+  const handleEditProfileOpen = () => setOpenProfile(true) 
   
 
   const style = {
@@ -52,7 +52,7 @@ const Dashboard = () => {
     <Container>
       <h2>Bem vindo, {user.name}!</h2>
       <Header>
-        <Button  //botao de editar usuário
+        <Button 
           children={"Editar perfil"}
           theme={buttonThemes.add}
           onClick={() => {
@@ -91,16 +91,12 @@ const Dashboard = () => {
           <FormAddEvent handleClose={handleClose} />
         </>
       </Modal>
-              {/* modal de editar evento */}
-
-
-
-
       <Modal open={openProfile} onClose={handleEditProfileClose} sx={style}>
         <>
           <EditUser handleClose={handleEditProfileClose} />
         </>
       </Modal>
+      {/* modal de editar evento */}
 
       
 

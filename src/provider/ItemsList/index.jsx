@@ -7,21 +7,21 @@ export const ItemsListProvider = ({ children }) => {
   const [itemsList, setItemsList] = useState([]);
   const { guests, genId } = useGuests();
 
-  const handleNewItem = data => {
+  const handleNewItem = (data) => {
     const id = genId(itemsList);
     const item = { ...data, id };
     setItemsList([...itemsList, item]);
   };
 
-  const handleEditItem = (itemId, key, newValue) => {
-    if (!!newValue !== false) {
-      const item = itemsList.find(({ id }) => id === itemId);
-      item[key] = newValue;
-      setItemsList([...itemsList]);
-    }
+  const handleEditItem = (itemId, keys) => {
+    const item = itemsList.find(({ id }) => id === itemId);
+    keys.forEach(([key, value]) => {
+      if (!!value !== false) item[key] = value;
+    });
+    setItemsList([...itemsList]);
   };
 
-  const handleDeleteItem = itemId => {
+  const handleDeleteItem = (itemId) => {
     setItemsList(itemsList.filter(({ id }) => id !== itemId));
   };
 
@@ -33,7 +33,7 @@ export const ItemsListProvider = ({ children }) => {
     for (let i = 0; i < itemsList.length; i++) {
       const whoTakes = workArray[Math.floor(Math.random() * workArray.length)];
 
-      workArray = workArray.filter(guest => guest.id !== whoTakes.id);
+      workArray = workArray.filter((guest) => guest.id !== whoTakes.id);
 
       itemsList[i] = { ...itemsList[i], whoTakes };
 
@@ -51,7 +51,7 @@ export const ItemsListProvider = ({ children }) => {
 
     const averagePrice = totalPrice / guests.length;
 
-    itemsList.forEach(item => {
+    itemsList.forEach((item) => {
       const priceDifference =
         Number(item.price) * Number(item.quantity) - averagePrice;
       // unica chave para armazenar divisao de custo do convidade, caso negativo exibir em vermelho else verde
@@ -85,4 +85,3 @@ export const ItemsListProvider = ({ children }) => {
 };
 
 export const useItemsList = () => useContext(ItemsListContext);
-

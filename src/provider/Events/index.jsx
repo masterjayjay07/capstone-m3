@@ -40,7 +40,6 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
         setActiveEvent({ ...data });
-        toast.success('Evento alterado!')
       })
       .catch((error) => console.log(error));
   };

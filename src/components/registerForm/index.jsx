@@ -30,10 +30,11 @@ const FormRegister = () => {
       .string()
       .required("Confirmação de e-mail obrigatória")
       .oneOf([yup.ref("email")], "E-mails precisam coincidir"),
-    password: yup.string().required("Senha obrigatória"),
+    password: yup.string().required("Senha obrigatória").min(6, "No mínimo 6 caracteres"),
     confirmPassword: yup
       .string()
       .required("Confirmação de senha obrigatória")
+      .min(6, "No mínimo 6 caracteres")
       .oneOf([yup.ref("password")], "Senhas precisam coincidir"),
   });
 
