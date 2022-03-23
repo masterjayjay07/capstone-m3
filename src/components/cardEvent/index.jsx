@@ -14,6 +14,7 @@ const CardEvent = ({ event, ...rest }) => {
           <span>
             Onde? {event.location ? event.location : "Local não informado"}
           </span>
+          {event.confirmed && <span>confirmado</span>}
         </>
       )}
     </Container>

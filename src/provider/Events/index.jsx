@@ -26,23 +26,28 @@ export const EventProvider = ({ children }) => {
     boraMarcarApi
       .get(`/events?userId=${userId}`)
       .then(({ data }) => setUserEvents(data))
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
-  const handleCreateEvent = data => {
-    const newEvent = { ...data, itemsList: [], guests: [], userId };
+  const handleCreateEvent = (data) => {
+    const newEvent = {
+      ...data,
+      itemsList: [],
+      guests: [],
+      confirmed: false,
+      userId,
+    };
     boraMarcarApi
       .post("/events", newEvent, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
-        toast.success('Evento criado!')
-
+        toast.success("Evento criado!");
       });
   };
 
-  const handleEditEvent = data => {
+  const handleEditEvent = (data) => {
     boraMarcarApi
       .patch(`/events/${activeEvent.id}`, data, {
         headers: { Authorization: `Bearer ${userToken}` },
@@ -50,9 +55,9 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
         setActiveEvent({ ...data });
-        toast.success("Evento marcado!")
+        toast.success("Evento marcado!");
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   const handleWhoTakes = () => {
@@ -79,7 +84,7 @@ export const EventProvider = ({ children }) => {
   const handleCostDivision = () => {
     for (const guest in finalSolution.guests) {
       finalSolution.guests[guest].productList.forEach(
-        item => (item.itemCost = Number(item.price) * Number(item.quantity))
+        (item) => (item.itemCost = Number(item.price) * Number(item.quantity))
       );
 
       finalSolution.guests[guest].totalCost =
@@ -109,8 +114,13 @@ export const EventProvider = ({ children }) => {
 
     handleWhoTakes();
     handleCostDivision();
-    setActiveEvent({...activeEvent, eventResolution: finalSolution, guests, itemsList})
-
+    setActiveEvent({
+      ...activeEvent,
+      eventResolution: finalSolution,
+      guests,
+      itemsList,
+      confirmed: true,
+    });
   };
 
   useEffect(() => {
@@ -129,7 +139,8 @@ export const EventProvider = ({ children }) => {
         handleEditEvent,
         handleLetsMake,
         finalSolution,
-        setFinalSolution
+        setFinalSolution,
+        getUserEvents,
       }}
     >
       {children}
