@@ -7,8 +7,8 @@ import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
 import { useAuth } from "../../provider/Auth";
 import { useHistory } from "react-router-dom";
-import Logo from "../../assets/images/registerImg.png"
-import toast from "react-hot-toast";
+import Logo from "../../assets/images/registerImg.png";
+import Header from "../../components/header";
 
 const Login = () => {
   const history = useHistory();
@@ -28,43 +28,46 @@ const Login = () => {
 
   const { handleLogin } = useAuth();
 
-  const onSubmitFunction = data => {
+  const onSubmitFunction = (data) => {
     handleLogin(data);
   };
 
   return (
-    <Container>
-      <img src={Logo} alt="Brinde a criação do seu evento" />
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <h2>Login</h2>
-        <Input
-          label="Seu e-mail"
-          error={!!errors.email?.message}
-          helperText={errors.email?.message}
-          name={"email"}
-          register={register}
-        />
-        <Input
-          label="Sua senha"
-          error={!!errors.password?.message}
-          helperText={errors.password?.message}
-          name={"password"}
-          register={register}
-          type="password"
-        />
-        <Button type="submit" theme={buttonThemes.default}>
-          Entrar
-        </Button>
-        <p>Não possui uma conta?</p>
-        <Button
-          type="button"
-          theme={buttonThemes.header}
-          onClick={() => history.push("/register")}
-        >
-          Cadastre-se
-        </Button>
-      </form>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <img src={Logo} alt="Brinde a criação do seu evento" />
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <h2>Login</h2>
+          <Input
+            label="Seu e-mail"
+            error={!!errors.email?.message}
+            helperText={errors.email?.message}
+            name={"email"}
+            register={register}
+          />
+          <Input
+            label="Sua senha"
+            error={!!errors.password?.message}
+            helperText={errors.password?.message}
+            name={"password"}
+            register={register}
+            type="password"
+          />
+          <Button type="submit" theme={buttonThemes.default}>
+            Entrar
+          </Button>
+          <p>Não possui uma conta?</p>
+          <Button
+            type="button"
+            theme={buttonThemes.header}
+            onClick={() => history.push("/register")}
+          >
+            Cadastre-se
+          </Button>
+        </form>
+      </Container>
+    </>
   );
 };
 

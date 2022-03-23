@@ -15,10 +15,10 @@ export const Container = styled.div`
   > div {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
     width: 95%;
     padding: 30px;
     border-bottom: 2px solid var(--color-darkPurple);
+    text-align: center;
     span {
       margin: 0 18px 0 auto;
     }
@@ -76,6 +76,7 @@ export const ContainerButtons = styled.div`
     height: 40px;
     display: flex;
     color: var(--color-darkPurple);
+    margin: 10px;
   }
   button + button {
     color: var(--color-linen);

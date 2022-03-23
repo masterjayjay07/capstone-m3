@@ -6,7 +6,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 import { useHistory } from "react-router-dom";
-import toast from "react-hot-toast";
 
 export const MobileNav = () => {
   const [open, setOpen] = useState(false);
@@ -36,7 +35,6 @@ export const MobileNav = () => {
               onClick={() => {
                 history.push("/register");
                 setOpen(!open);
-                
               }}
             >
               Cadastrar-se

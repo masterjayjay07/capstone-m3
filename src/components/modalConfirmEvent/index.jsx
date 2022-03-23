@@ -1,5 +1,5 @@
 import { Container, ContainerButtons } from "./styles";
-
+import { useHistory } from "react-router-dom";
 import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
@@ -7,6 +7,7 @@ import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent } = useEvents();
+  const history = useHistory()
 
   const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
@@ -19,19 +20,9 @@ const ModalConfirmEvent = ({ handleClose }) => {
     for (const guest in finalSolution.guests) {
       arrayLi.push(
         <li key={Math.random()}>
-          <div>
-            <p>{guest} </p>
-            <p>
-              {finalSolution.guests[guest].totalCost > 0 ? (
-                <span>
-                  Receber: R$ {finalSolution.guests[guest].totalCost}
-                </span>
-              ) : (
-                <span>
-                  Pagar: R$ {finalSolution.guests[guest].totalCost * -1}
-                </span>
-              )}
-            </p>
+          <div key={Math.random()}>
+            <p>{guest}</p>
+            <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
           </div>
           <div>
             {finalSolution.guests[guest].productList.map(
@@ -53,8 +44,16 @@ const ModalConfirmEvent = ({ handleClose }) => {
   return (
     <Container>
       <div>
-        <p>Total Produtos</p>
+        <div>
+        <p>Preço total dos produtos: </p>
         <span>{treatNumbers(finalSolution.totalPrice)}</span>
+        </div>
+        <div>
+          <p>Média de preço do evento: </p>
+          <span> R$ {(finalSolution.averagePrice).toFixed(2)}
+
+          </span>
+        </div>
       </div>
       <ul>{createList()}</ul>
       <ContainerButtons>
@@ -73,9 +72,3 @@ const ModalConfirmEvent = ({ handleClose }) => {
 };
 
 export default ModalConfirmEvent;
-
-/* 
-            <p> {treatNumbers(finalSolution.guests[guest].totalCost)} 
-
-
-*/
