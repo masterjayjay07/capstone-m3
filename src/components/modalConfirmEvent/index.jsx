@@ -1,15 +1,14 @@
 import { Container, ContainerButtons } from "./styles";
 
-import { useItemsList } from "../../provider/ItemsList";
 import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 
-const ModalConfirmEvent = ({handleClose}) => {
+const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent } = useEvents();
 
-  const treatNumbers = num =>
+  const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -50,7 +49,14 @@ const ModalConfirmEvent = ({handleClose}) => {
       <ul>{createList()}</ul>
       <ContainerButtons>
         <Button children="Deu Ruim!" theme={buttonThemes.decline} />
-        <Button children="Bora Marcar!" theme={buttonThemes.add}  onClick={()=> {handleEditEvent(activeEvent); handleClose()}} />
+        <Button
+          children="Bora Marcar!"
+          theme={buttonThemes.add}
+          onClick={() => {
+            handleEditEvent(activeEvent);
+            handleClose();
+          }}
+        />
       </ContainerButtons>
     </Container>
   );

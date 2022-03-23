@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { useUser } from "../../provider/User";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
-import EditUser from "../../components/formEditProfile"
+import EditUser from "../../components/formEditProfile";
 import { useAuth } from "../../provider/Auth";
 
 const Dashboard = () => {
@@ -23,10 +23,9 @@ const Dashboard = () => {
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
 
-  const [openProfile, setOpenProfile] = useState(false) 
-  const handleEditProfileClose = () => setOpenProfile(false) 
-  const handleEditProfileOpen = () => setOpenProfile(true) 
-  
+  const [openProfile, setOpenProfile] = useState(false);
+  const handleEditProfileClose = () => setOpenProfile(false);
+  const handleEditProfileOpen = () => setOpenProfile(true);
 
   const style = {
     display: "flex",
@@ -52,13 +51,12 @@ const Dashboard = () => {
     <Container>
       <h2>Bem vindo, {user.name}!</h2>
       <Header>
-        <Button 
+        <Button
           children={"Editar perfil"}
           theme={buttonThemes.add}
           onClick={() => {
-            handleEditProfileOpen()
+            handleEditProfileOpen();
           }}
-
         ></Button>
 
         <Button
@@ -96,10 +94,6 @@ const Dashboard = () => {
           <EditUser handleClose={handleEditProfileClose} />
         </>
       </Modal>
-      {/* modal de editar evento */}
-
-      
-
     </Container>
   );
 };

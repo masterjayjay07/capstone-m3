@@ -7,9 +7,11 @@ const ModalInformation = ({ handleCloseInfos }) => {
   return (
     <Container>
       <Button onClick={handleCloseInfos} children="X" />
-      <p>
-        <span>Seja bem-vindo ao nosso gerenciador de eventos!</span>
-        <span>Aqui vão algumas dicas de como utilizá-lo:</span>
+      <div>
+        <span>
+          Seja bem-vindo ao nosso gerenciador de eventos! Aqui vão algumas dicas
+          de como utilizá-lo:
+        </span>
         <p>
           Não conseguimos definir as variações de seus possíveis produtos, então
           defina bem cada item pensando no que precisa ser entregue ao evento,
@@ -33,7 +35,7 @@ const ModalInformation = ({ handleCloseInfos }) => {
         <RightText>
           <img alt="Exemplo da lógica" src={right} />
         </RightText>
-      </p>{" "}
+      </div>{" "}
       <p>
         Caso a divisão não tenha te agradado é só avisar que "Deu Ruim!".
         Geraremos uma nova divisão para você!
