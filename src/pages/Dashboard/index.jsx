@@ -22,7 +22,6 @@ const Dashboard = () => {
   const history = useHistory();
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
-
   const [openProfile, setOpenProfile] = useState(false);
   const handleEditProfileClose = () => setOpenProfile(false);
   const handleEditProfileOpen = () => setOpenProfile(true);
