@@ -8,16 +8,35 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../provider/User";
 
 const FormEditItem = ({ handleClose }) => {
-  const { handleEditProfile } = useUser();
+  const { handleEditProfile, user } = useUser();
 
   const Schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
+    name: yup.string(),
     age: yup
       .string()
-      .required("Apenas números")
-      .matches(/^[0-9]/, "Apenas números"),
-    email: yup.string().required("Obrigatório").email("E-mail inválido"),
+      .matches(
+        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000. )*$/gm,
+        "Apenas números"
+      ),
+    email: yup.string().email("E-mail inválido"),
   });
+
+  /* 
+
+  name: yup.string().required("Campo Obrigatório"),
+    age: yup
+      .string()
+      .matches(/^[0-9] /, "Apenas números"),
+    email: yup.string().required("Obrigatório").email("E-mail inválido"),
+
+
+  name: yup.string(),
+    age: yup
+      .string()
+      .matches(/^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000. )*$/gm, "Apenas números"),
+    email: yup.string().email("E-mail inválido"),
+  
+  */
 
   const {
     register,
@@ -26,8 +45,17 @@ const FormEditItem = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditProfile(data);
-    handleClose();
+    const keys = Object.entries(data);
+
+    if (!!data.name)   user.name  = keys[0][1];
+    if (!!data.age)    user.age   = keys[1][1];
+    if (!!data.email)  user.email = keys[2][1];
+  
+    console.log(user)
+
+    handleEditProfile(user)
+    //testar após o victor atualizar a branch da nova função do handle edit
+
   };
 
   return (

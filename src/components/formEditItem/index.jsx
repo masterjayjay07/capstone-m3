@@ -34,7 +34,12 @@ const FormEditItem = ({ handleClose, itemID }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditItem(itemID, data);
+    handleEditItem(
+      itemID,
+      
+      data
+      );
+      console.log(data);
     handleClose();
   };
 
