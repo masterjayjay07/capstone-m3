@@ -8,6 +8,7 @@ import { buttonThemes } from "../../styles/themes";
 import { useAuth } from "../../provider/Auth";
 import { useHistory } from "react-router-dom";
 import Logo from "../../assets/images/registerImg.png"
+import toast from "react-hot-toast";
 
 const Login = () => {
   const history = useHistory();

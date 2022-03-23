@@ -38,7 +38,6 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
         toast.success('Evento criado!')
-
       });
   };
 
