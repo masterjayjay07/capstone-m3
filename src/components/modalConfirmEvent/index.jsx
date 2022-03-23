@@ -52,8 +52,16 @@ const ModalConfirmEvent = ({ handleClose }) => {
   return (
     <Container>
       <div>
-        <p>Total Produtos</p>
+        <div>
+        <p>Preço total: </p>
         <span>{treatNumbers(finalSolution.totalPrice)}</span>
+        </div>
+        <div>
+          <p>Média: </p>
+          <span>{treatNumbers((finalSolution.averagePrice))}
+
+          </span>
+        </div>
       </div>
       <ul>{createList()}</ul>
       <ContainerButtons>
