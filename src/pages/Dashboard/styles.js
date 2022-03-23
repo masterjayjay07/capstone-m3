@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@ export const Container = styled.div`
   margin-bottom: 10px;
   > h2 {
     color: var(--color-linen);
+   
   }
   Button {
     margin: 5px;
@@ -16,6 +18,9 @@ export const Container = styled.div`
       border: 1px solid var(--color-middleBluePurple);
     }
   }
+ 
+
+
 `;
 
 export const Header = styled.div`
