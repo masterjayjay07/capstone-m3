@@ -8,10 +8,8 @@ const ModalInformation = ({ handleCloseInfos }) => {
     <Container>
       <Button onClick={handleCloseInfos} children="X" />
       <div>
-        <span>
-          Seja bem-vindo ao nosso gerenciador de eventos! Aqui vão algumas dicas
-          de como utilizá-lo:
-        </span>
+        <h3>Seja bem-vindo ao nosso gerenciador de eventos!</h3>
+        <p>Aqui vão algumas dicas de como utilizá-lo:</p>
         <p>
           Não conseguimos definir as variações de seus possíveis produtos, então
           defina bem cada item pensando no que precisa ser entregue ao evento,

@@ -9,11 +9,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5px;
   ::-webkit-scrollbar {
     display: none;
-  }
-  span {
-    padding: 5px;
   }
   Button {
     padding: 4px 10px;
