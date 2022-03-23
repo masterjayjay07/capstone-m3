@@ -1,5 +1,5 @@
 import { Container, ContainerButtons } from "./styles";
-
+import { useHistory } from "react-router-dom";
 import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
@@ -7,6 +7,7 @@ import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent } = useEvents();
+  const history = useHistory()
 
   const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
@@ -19,7 +20,7 @@ const ModalConfirmEvent = ({ handleClose }) => {
     for (const guest in finalSolution.guests) {
       arrayLi.push(
         <li key={Math.random()}>
-          <div>
+          <div key={Math.random()}>
             <p>{guest}</p>
             <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
           </div>

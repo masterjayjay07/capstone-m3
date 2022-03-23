@@ -17,7 +17,6 @@ const ProductList = ({ handleOpen, handleOpenEditForm, setItemID }) => {
 
     return treatNumbers(totalSum);
   };
-
   return (
     <>
       <div>
