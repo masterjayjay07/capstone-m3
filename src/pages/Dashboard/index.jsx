@@ -58,7 +58,7 @@ const Dashboard = () => {
       <Container>
         <h2>Bem vindo, {user.name}!</h2>
         <SubHeader>
-          <Button //botao de editar usuário
+          <Button
             children={"Editar perfil"}
             theme={buttonThemes.add}
             onClick={() => {

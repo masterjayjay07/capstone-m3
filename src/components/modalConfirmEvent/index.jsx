@@ -32,10 +32,11 @@ const ModalConfirmEvent = ({ handleClose }) => {
               )}
             </p>
           </div>
+
           <div>
             {finalSolution.guests[guest].productList.map(
               ({ itemName, itemCost }) => (
-                <div>
+                <div className="itemList">
                   <p>{itemName}</p>
                   <p> {treatNumbers(itemCost)}</p>
                 </div>
