@@ -25,7 +25,12 @@ export const Container = styled.div`
   }
 
   button {
-    padding: 12px 64px;
+    padding: 12px 38px;
+  }
+  @media (min-width: 425px) {
+    button {
+      padding: 12px 64px;
+    }
   }
 
   @media (min-width: 768px) {

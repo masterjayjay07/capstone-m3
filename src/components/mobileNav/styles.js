@@ -33,6 +33,9 @@ export const Container = styled.nav`
     ul {
       display: none;
     }
+    button {
+      display: none;
+    }
   }
 `;
 
