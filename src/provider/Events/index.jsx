@@ -50,6 +50,7 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
         setActiveEvent({ ...data });
+        toast.success("Evento marcado!")
       })
       .catch(error => console.log(error));
   };
@@ -69,12 +70,12 @@ export const EventProvider = ({ children }) => {
 
       // Enquanto o array de convidados possuir nomes, vamos filtrando com base no id
       // Assim podemos garantir que todos os convidados vão receber ao menos um produto
-      // Quando não temos mais convidados disponíveis, mas ainda temos produtos para
-      // distribuir, o array de trabalho recebe novamente todos os convidados
       workGuestsArray = workGuestsArray.filter(guest => {
         return guest.id !== randomGuest.id;
       });
-
+      
+      // Quando não temos mais convidados disponíveis, mas ainda temos produtos para
+      // distribuir, o array de trabalho recebe novamente todos os convidados
       if (workGuestsArray.length === 0) {
         workGuestsArray = [...guests];
       }
@@ -123,7 +124,7 @@ export const EventProvider = ({ children }) => {
     handleWhoTakes();
     // Definimos o custo final para cada usuário, com relação ao produto que recebeu
     handleCostDivision();
-    setActiveEvent({...activeEvent, eventResolution: finalSolution})
+    setActiveEvent({...activeEvent, eventResolution: finalSolution, guests, itemsList})
 
   };
 

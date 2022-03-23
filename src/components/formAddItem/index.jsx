@@ -35,8 +35,8 @@ const FormAddItem = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    setActiveEvent({ ...activeEvent, itemsList: [...itemsList, data] });
     handleNewItem(data);
+    setActiveEvent({ ...activeEvent, itemsList: [...itemsList] });
     handleClose();
   };
 
