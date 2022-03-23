@@ -8,8 +8,8 @@ export const Container = styled.div`
   border: none;
   border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   text-align: center;
   margin: 5px;
   transition: 0.5s;
@@ -21,9 +21,13 @@ export const Container = styled.div`
     background-color: var(--color-stateBlue);
     border: 1px solid var(--color-darkPurple);
     border-radius: 50px;
+    margin: 10px;
+    align-self: center
   }
-
-  &:hover {
+  p{
+    align-self: center;
+  }
+  :hover {
     box-shadow: 3px 3px 3px black;
     padding-left: 5px;
     color: var(--color-middleBluePurple);
@@ -35,9 +39,10 @@ export const Container = styled.div`
     }
     p {
       color: var(--color-linen);
-      font-weight: 800;
-      opacity: 1;
-
+      font-weight: 600;
+    }
+    span{
+      color: var(--color-linen);
     }
   }
 
@@ -53,6 +58,7 @@ export const Container = styled.div`
   span{
     font-size: 0.8rem;
     border: none;
+    margin: 5px 0 0 18px;
   }
 
 `;
