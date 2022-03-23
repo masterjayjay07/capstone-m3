@@ -23,8 +23,10 @@ export const UserProvider = ({ children }) => {
       .patch(`/users/${userId}`, data, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
-      .then(({ data }) => setUser(data))
-      toast.success('Dados alterados!')
+      .then(({ data }) => {
+        setUser(data);
+        toast.success("Dados alterados com sucesso!");
+      })
       .catch((error) => console.log(error));
   };
 

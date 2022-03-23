@@ -25,10 +25,10 @@ const FormAddGuest = ({ handleCloseFormGuest }) => {
 
   const onSubmitFunction = (data) => {
     handleNewGuest(data);
-    setActiveEvent({ ...activeEvent, guests: [...guests] });
+    setActiveEvent({ ...activeEvent, guests: [...guests, data] });
     handleCloseFormGuest();
   };
-  
+
   return (
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Convidado</h2>

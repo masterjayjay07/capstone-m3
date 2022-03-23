@@ -14,17 +14,9 @@ const FormEditItem = ({ handleClose, itemID }) => {
   const { handleDeleteItem, handleEditItem } = useItemsList();
 
   const Schema = yup.object().shape({
-    itemName: yup.string().required("Campo Obrigatório"),
-    quantity: yup.string().required("Obrigatório"),
-    // .matches(
-    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-    //   "Só números"
-    // ),
-    price: yup.string().required("Obrigatório"),
-    // .matches(
-    //   /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-    //   "Só números"
-    // ),
+    itemName: yup.string(),
+    quantity: yup.string().matches(/^[0-9. ]*$/, "Só números"),
+    price: yup.string().matches(/^[0-9. ]*$/, "Só números"),
   });
 
   const {
@@ -34,12 +26,8 @@ const FormEditItem = ({ handleClose, itemID }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditItem(
-      itemID,
-      
-      data
-      );
-      console.log(data);
+    const keys = Object.entries(data).filter((item) => item[1] !== "");
+    handleEditItem(itemID, keys);
     handleClose();
   };
 

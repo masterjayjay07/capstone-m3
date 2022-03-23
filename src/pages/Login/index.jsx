@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -34,7 +33,7 @@ const Login = () => {
 
   return (
     <Container>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo} alt="Brinde a criação do seu evento" />
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h2>Login</h2>
         <Input
