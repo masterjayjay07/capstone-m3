@@ -5,7 +5,7 @@ import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = ({ handleClose }) => {
-  const { finalSolution, activeEvent, handleEditEvent } = useEvents();
+  const { finalSolution, activeEvent, handleEditEvent, handleLetsMake } = useEvents();
 
   const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
@@ -23,11 +23,11 @@ const ModalConfirmEvent = ({ handleClose }) => {
             <p>
               {finalSolution.guests[guest].totalCost > 0 ? (
                 <span>
-                  Receber: R$ {finalSolution.guests[guest].totalCost}
+                  Receber: {treatNumbers(finalSolution.guests[guest].totalCost)}
                 </span>
               ) : (
                 <span>
-                  Pagar: R$ {finalSolution.guests[guest].totalCost * -1}
+                  Pagar: {treatNumbers(finalSolution.guests[guest].totalCost * -1)}
                 </span>
               )}
             </p>
@@ -57,7 +57,7 @@ const ModalConfirmEvent = ({ handleClose }) => {
       </div>
       <ul>{createList()}</ul>
       <ContainerButtons>
-        <Button children="Deu Ruim!" theme={buttonThemes.decline} />
+        <Button children="Deu Ruim!" theme={buttonThemes.decline}  onClick={() => handleLetsMake()} />
         <Button
           children="Bora Marcar!"
           theme={buttonThemes.add}
