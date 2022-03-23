@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
       .catch((error) => console.log(error));
   };
 
-  const handleEditProfile = (data) => {
+  const  handleEditProfile = (data) => {
     boraMarcarApi
       .patch(`/users/${userId}`, data, {
         headers: { Authorization: `Bearer ${userToken}` },

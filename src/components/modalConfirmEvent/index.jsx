@@ -1,5 +1,4 @@
 import { Container, ContainerButtons } from "./styles";
-import { useHistory } from "react-router-dom";
 import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
@@ -7,7 +6,6 @@ import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent } = useEvents();
-  const history = useHistory()
 
   const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
@@ -19,17 +17,27 @@ const ModalConfirmEvent = ({ handleClose }) => {
     const arrayLi = [];
     for (const guest in finalSolution.guests) {
       arrayLi.push(
-        <li key={Math.random()}>
-          <div key={Math.random()}>
-            <p>{guest}</p>
-            <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
+        <li key={guest}>
+          <div>
+            <p>{guest} </p>
+            <p>
+              {finalSolution.guests[guest].totalCost > 0 ? (
+                <span>
+                  Receber: R$ {finalSolution.guests[guest].totalCost}
+                </span>
+              ) : (
+                <span>
+                  Pagar: R$ {finalSolution.guests[guest].totalCost * -1}
+                </span>
+              )}
+            </p>
           </div>
           <div>
             {finalSolution.guests[guest].productList.map(
               ({ itemName, itemCost }) => (
                 <div>
                   <p>{itemName}</p>
-                  <p>{treatNumbers(itemCost)}</p>
+                  <p> {treatNumbers(itemCost)}</p>
                 </div>
               )
             )}
