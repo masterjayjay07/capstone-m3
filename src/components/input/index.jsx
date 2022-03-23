@@ -15,7 +15,6 @@ const Input = ({ label, helperText, error, register, name, ...rest }) => {
     <ThemeProvider theme={theme}>
       <InputContainer>
         <TextField
-          focused
           color="primary"
           variant="outlined"
           label={label}
