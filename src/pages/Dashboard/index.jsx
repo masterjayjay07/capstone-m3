@@ -23,9 +23,9 @@ const Dashboard = () => {
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
 
-  const [openProfile, setOpenProfile] = useState(false); //state que controla se o modal está on/off
-  const handleEditProfileClose = () => setOpenProfile(false); //funcao que altera o modal de editar user para on
-  const handleEditProfileOpen = () => setOpenProfile(true); //funcao que altera o modal de editar user para on
+  const [openProfile, setOpenProfile] = useState(false);
+  const handleEditProfileClose = () => setOpenProfile(false);
+  const handleEditProfileOpen = () => setOpenProfile(true);
 
   const style = {
     display: "flex",

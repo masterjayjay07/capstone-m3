@@ -36,7 +36,7 @@ const Login = () => {
     <>
       <Header />
       <Container>
-        <img src={Logo} alt="Logo" />
+        <img src={Logo} alt="Brinde a criação do seu evento" />
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <h2>Login</h2>
           <Input

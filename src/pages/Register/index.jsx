@@ -9,8 +9,8 @@ const Register = () => {
       <Header />
       <Container>
         <section>
-          <p>Insira os dados e crie a sua conta.</p>
-          <img src={Logo} alt="Logo" />
+        <p>Treta na hora de decidir o rolê? Deixa que a gente resolve!</p>
+        <img src={Logo} alt="Brinde a criação da sua conta" />
         </section>
 
         <div>

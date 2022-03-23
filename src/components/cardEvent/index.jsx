@@ -11,7 +11,9 @@ const CardEvent = ({ event, ...rest }) => {
             Quando?{" "}
             {event.date ? event.date.split("-").reverse().join("/") : ""}
           </span>
-          <span>Onde? {event.location}</span>
+          <span>
+            Onde? {event.location ? event.location : "Local não informado"}
+          </span>
         </>
       )}
     </Container>

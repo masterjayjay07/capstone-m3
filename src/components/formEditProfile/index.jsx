@@ -11,15 +11,8 @@ const FormEditItem = ({ handleClose }) => {
   const { handleEditProfile } = useUser();
 
   const Schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
-    age: yup
-      .string()
-      .required("Apenas números")
-      .matches(
-        /^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000)$/gm,
-        "Idade precisa ser maior que 18"
-      ),
-    email: yup.string().required("Obrigatório").email("E-mail inválido"),
+    name: yup.string(),
+    email: yup.string().email("E-mail inválido"),
   });
 
   const {
@@ -29,7 +22,13 @@ const FormEditItem = ({ handleClose }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const onSubmitFunction = (data) => {
-    handleEditProfile(data);
+    const treatedData = Object.entries(data)
+      .filter((item) => item[1] !== "")
+      .reduce((acc, [key, value]) => {
+        acc[key] = value;
+        return acc;
+      }, {});
+    handleEditProfile(treatedData);
     handleClose();
   };
 
@@ -44,19 +43,10 @@ const FormEditItem = ({ handleClose }) => {
         helperText={errors.name?.message}
       />
       <Input
-        label="Idade"
-        register={register}
-        name="age"
-        type="text"
-        error={!!errors.age?.message}
-        helperText={errors.age?.message}
-      />
-
-      <Input
-        label="E-mail"
+        label="Novo e-mail"
         register={register}
         name="email"
-        type="email"
+        type="text"
         error={!!errors.email?.message}
         helperText={errors.email?.message}
       />

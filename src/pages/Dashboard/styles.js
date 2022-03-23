@@ -58,7 +58,7 @@ export const SlotCard = styled.div`
 
 export const CardsDiv = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center ;
   flex-wrap: wrap;
   overflow-y: auto;
   margin-top: 20px;
