@@ -24,6 +24,7 @@ import { useEvents } from "../../provider/Events";
 import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
 import FormEditItem from "../../components/formEditItem";
+import Header from "../../components/header";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -65,6 +66,7 @@ const DashboardEvents = () => {
 
   return (
     <>
+      <Header />
       <Container>
         <ContainerHeader>
           <TabButton active={productsTab} onClick={() => switchTabs()}>
