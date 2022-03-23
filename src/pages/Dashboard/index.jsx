@@ -96,8 +96,6 @@ const Dashboard = () => {
             <FormAddEvent handleClose={handleClose} />
           </>
         </Modal>
-        {/* modal de editar evento */}
-
         <Modal open={openProfile} onClose={handleEditProfileClose} sx={style}>
           <>
             <EditUser handleClose={handleEditProfileClose} />
