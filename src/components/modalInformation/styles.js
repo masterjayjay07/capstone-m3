@@ -13,6 +13,10 @@ export const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+  h3{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+  }
   Button {
     padding: 4px 10px;
     font-size: var(--span-font-size);

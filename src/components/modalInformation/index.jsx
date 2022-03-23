@@ -2,6 +2,7 @@ import { Container, WrongText, RightText } from "./styles";
 import Button from "../../components/button";
 import right from "../../assets/images/right.jpeg";
 import wrong from "../../assets/images/wrong.jpeg";
+import DivisionExample from "../../assets/images/modalConfirmacao.png"
 
 const ModalInformation = ({ handleCloseInfos }) => {
   return (
@@ -12,8 +13,8 @@ const ModalInformation = ({ handleCloseInfos }) => {
         <p>Aqui vão algumas dicas de como utilizá-lo:</p>
         <p>
           Não conseguimos definir as variações de seus possíveis produtos, então
-          defina bem cada item pensando no que precisa ser entregue ao evento,
-          ex:
+          defina bem cada item pensando no que precisa ser entregue ao evento.
+          Ex:
         </p>{" "}
         <WrongText>
           <p>ERRADO</p>
@@ -28,10 +29,10 @@ const ModalInformation = ({ handleCloseInfos }) => {
           primeiro dividimos os produtos aleatoriamente para cada convidado,
           depois vemos quem está pagando mais e selecionamos os que estão com
           menos gastos para ressarcir essas pessoas para que ninguém saia no
-          prejuízo (sem mãos de vaca por aqui!).
+          prejuízo (sem mãos de vaca por aqui!). Ex:
         </p>
         <RightText>
-          <img alt="Exemplo da lógica" src={right} />
+          <img alt="Exemplo da lógica" src={DivisionExample} />
         </RightText>
       </div>{" "}
       <p>

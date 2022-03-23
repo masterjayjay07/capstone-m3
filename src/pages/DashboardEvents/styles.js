@@ -73,6 +73,10 @@ export const DivTitle = styled.div`
     border: 1px solid var(--color-darkPurple);
     padding: 0 7px;
     cursor: pointer;
+    :hover{
+      background-color: var(--color-darkPurple);
+      color: var(--color-linen);
+    }
   }
 `;
 
