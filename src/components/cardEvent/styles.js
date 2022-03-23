@@ -48,20 +48,11 @@ export const Container = styled.div`
     max-width: 240px;
     max-height: 240px;
     white-space: nowrap;
-    animation: tremer 2s linear;
-    animation-iteration-count: infinite;
   }
 
   span{
     font-size: 0.8rem;
     border: none;
   }
- @keyframes tremer {
-    0% {margin-left: 0;}
-    25% {margin-left: -10px;}
-    50% {margin-left: 0;}
-    75% {margin-left: 10px;}
-    100% {margin-left: 0;}
-}
 
 `;

@@ -14,15 +14,19 @@ export const Container = styled.div`
   border: 3px solid var(--color-darkPurple);
   > div {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     width: 95%;
     padding: 30px;
     border-bottom: 2px solid var(--color-darkPurple);
     text-align: center;
+    flex-direction: column;
+
     span {
       margin: 0 18px 0 auto;
     }
   }
+
+  
   ul {
     flex: 1;
     list-style: none;
@@ -30,7 +34,7 @@ export const Container = styled.div`
     max-height: 310px;
     padding: 0 15px;
     margin-bottom: 15px;
-    overflow: auto;
+    overflow-y: auto;
 
     ::-webkit-scrollbar {
       width: 8px;
@@ -50,14 +54,21 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-bottom: 10px;
-      height: 45px;
+      margin: 10px 0;
+      height: 75px;
       border-bottom: 1px solid var(--color-darkPurple);
       background: var(--color-light-purple);
       color: var(--color-darkPurple);
       border-radius: 4px 4px 0 0;
+      
+      overflow-x: auto;
+      ::-webkit-scrollbar{
+        display: none;
+      }
+
       p {
         padding: 0 5px;
+        white-space: nowrap
       }
       div {
         display: flex;
@@ -66,6 +77,9 @@ export const Container = styled.div`
       }
     }
   }
+
+
+
 `;
 
 export const ContainerButtons = styled.div`
@@ -82,3 +96,9 @@ export const ContainerButtons = styled.div`
     color: var(--color-linen);
   }
 `;
+
+
+export const ListItem = styled.div`
+
+
+`

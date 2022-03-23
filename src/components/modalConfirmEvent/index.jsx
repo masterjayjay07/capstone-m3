@@ -20,14 +20,15 @@ const ModalConfirmEvent = ({ handleClose }) => {
     for (const guest in finalSolution.guests) {
       arrayLi.push(
         <li key={Math.random()}>
-          <div key={Math.random()}>
-            <p>{guest}</p>
+          <div key={Math.random()}> 
+            <p>  <strong> {guest} </strong> </p>
             <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
           </div>
+
           <div>
             {finalSolution.guests[guest].productList.map(
               ({ itemName, itemCost }) => (
-                <div>
+                <div className="itemList">
                   <p>{itemName}</p>
                   <p> {treatNumbers(itemCost)}</p>
                 </div>
@@ -45,11 +46,11 @@ const ModalConfirmEvent = ({ handleClose }) => {
     <Container>
       <div>
         <div>
-        <p>Preço total dos produtos: </p>
+        <p> <strong> Preço total dos produtos:</strong> </p>
         <span>{treatNumbers(finalSolution.totalPrice)}</span>
         </div>
         <div>
-          <p>Média de preço do evento: </p>
+          <p> <strong> Média de preço por participante: </strong></p>
           <span> R$ {(finalSolution.averagePrice).toFixed(2)}
 
           </span>
