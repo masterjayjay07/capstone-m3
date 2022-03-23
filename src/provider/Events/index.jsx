@@ -26,23 +26,28 @@ export const EventProvider = ({ children }) => {
     boraMarcarApi
       .get(`/events?userId=${userId}`)
       .then(({ data }) => setUserEvents(data))
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
-  const handleCreateEvent = data => {
-    const newEvent = { ...data, itemsList: [], guests: [], userId };
+  const handleCreateEvent = (data) => {
+    const newEvent = {
+      ...data,
+      itemsList: [],
+      guests: [],
+      confirmed: false,
+      userId,
+    };
     boraMarcarApi
       .post("/events", newEvent, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then(({ data }) => {
         setUserEvents([...userEvents, data]);
-        toast.success('Evento criado!')
-
+        toast.success("Evento criado!");
       });
   };
 
-  const handleEditEvent = data => {
+  const handleEditEvent = (data) => {
     boraMarcarApi
       .patch(`/events/${activeEvent.id}`, data, {
         headers: { Authorization: `Bearer ${userToken}` },
@@ -50,9 +55,9 @@ export const EventProvider = ({ children }) => {
       .then(({ data }) => {
         localStorage.setItem("@BoraMarcar:activeEvent", JSON.stringify(data));
         setActiveEvent({ ...data });
-        toast.success("Evento marcado!")
+        toast.success("Evento marcado!");
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   const handleWhoTakes = () => {
@@ -70,10 +75,10 @@ export const EventProvider = ({ children }) => {
 
       // Enquanto o array de convidados possuir nomes, vamos filtrando com base no id
       // Assim podemos garantir que todos os convidados vão receber ao menos um produto
-      workGuestsArray = workGuestsArray.filter(guest => {
+      workGuestsArray = workGuestsArray.filter((guest) => {
         return guest.id !== randomGuest.id;
       });
-      
+
       // Quando não temos mais convidados disponíveis, mas ainda temos produtos para
       // distribuir, o array de trabalho recebe novamente todos os convidados
       if (workGuestsArray.length === 0) {
@@ -86,7 +91,7 @@ export const EventProvider = ({ children }) => {
     // Calcula e cria a propriedade itemCost para cada item contido no array productList
     for (const guest in finalSolution.guests) {
       finalSolution.guests[guest].productList.forEach(
-        item => (item.itemCost = Number(item.price) * Number(item.quantity))
+        (item) => (item.itemCost = Number(item.price) * Number(item.quantity))
       );
 
       // Calcula e cria a propriedade totalCost para a soma dos custos de todos os
@@ -124,8 +129,13 @@ export const EventProvider = ({ children }) => {
     handleWhoTakes();
     // Definimos o custo final para cada usuário, com relação ao produto que recebeu
     handleCostDivision();
-    setActiveEvent({...activeEvent, eventResolution: finalSolution, guests, itemsList})
-
+    setActiveEvent({
+      ...activeEvent,
+      eventResolution: finalSolution,
+      guests,
+      itemsList,
+      confirmed: true,
+    });
   };
 
   useEffect(() => {
@@ -144,7 +154,8 @@ export const EventProvider = ({ children }) => {
         handleEditEvent,
         handleLetsMake,
         finalSolution,
-        setFinalSolution
+        setFinalSolution,
+        getUserEvents,
       }}
     >
       {children}
