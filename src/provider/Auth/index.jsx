@@ -11,8 +11,10 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@BoraMarcar:userToken")) || ""
   );
 
+
   const handleRegister = (data) => {
-    boraMarcarApi
+    
+   boraMarcarApi
       .post("/register", data)
       .then(() => {
         toast.success("Conta criada com sucesso!");
@@ -29,6 +31,7 @@ export const AuthProvider = ({ children }) => {
           "@BoraMarcar:userToken",
           JSON.stringify(data.accessToken)
         );
+        toast.success('Bem vindo ao Bora Marcar!')
         setUserId(data.user.id);
         setUserToken(data.accessToken);
         history.push("/dashboard");
