@@ -7,6 +7,7 @@ export const Container = styled.button`
   color: ${(props) => props.theme.color};
   transition: 0.3s;
   padding: ${(props) => props.theme.padding};
+  min-width: ${(props) => props.theme.minWidth};
   border-radius: 4px;
   font-weight: bold;
 

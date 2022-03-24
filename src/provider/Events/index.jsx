@@ -64,8 +64,9 @@ export const EventProvider = ({ children }) => {
   };
 
   const handleEditEvent = (data) => {
+    const treatedData = { ...data, confirmed: true };
     boraMarcarApi
-      .patch(`/events/${activeEvent.id}`, data, {
+      .patch(`/events/${activeEvent.id}`, treatedData, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then(({ data }) => {
@@ -153,7 +154,6 @@ export const EventProvider = ({ children }) => {
       eventResolution: finalSolution,
       guests,
       itemsList,
-      confirmed: true,
     });
   };
 

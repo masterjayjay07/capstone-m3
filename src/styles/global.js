@@ -23,6 +23,8 @@ export default createGlobalStyle`
     --p-font-size: 12px;
     --span-font-size: 10px;
     --button-font-size: 14px;
+
+    padding: 5px;
 }
 
 body {
@@ -33,10 +35,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 font-family: 'Dancing Script', cursive;
-}
-
-div {
-    padding:5px;
 }
 
 a{

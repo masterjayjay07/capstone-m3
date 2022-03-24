@@ -1,6 +1,6 @@
 import { BurguerButton, Container } from "./styles";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../button";
@@ -38,6 +38,14 @@ export const MobileNav = () => {
             {open ? <AiOutlineClose /> : <FiMenu />}
           </BurguerButton>
           {open && (
+            <motion.div
+            initial={{ scale: 0 }}
+            animate={{ rotate: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 20
+             }}>
             <ul>
               <li>
                 <Button
@@ -62,6 +70,7 @@ export const MobileNav = () => {
                 </Button>
               </li>
             </ul>
+            </motion.div>
           )}
         </>
       )}

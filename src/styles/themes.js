@@ -66,7 +66,7 @@ const mobileButton = {
   border: "1px solid transparent",
   padding: "8px 1px",
   color: "var(--color-linen)",
-
+  minWidth: "95px",
   hover: {
     background: "transparent",
     border: "1px solid var(--color-lavenderGray)",

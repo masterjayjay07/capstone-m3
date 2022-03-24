@@ -9,7 +9,7 @@ export const Container = styled.div`
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   text-align: center;
   margin: 5px;
   transition: 0.5s;
@@ -61,6 +61,9 @@ export const FirstContainer = styled.div`
     justify-content: center;
     color: var(--color-stateBlue);
     font-weight: bold;
+    :hover{
+      color: var(--color-linen)
+    }
   }
 `;
 

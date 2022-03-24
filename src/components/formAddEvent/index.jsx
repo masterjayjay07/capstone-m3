@@ -44,7 +44,7 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.date?.message}
         helperText={errors.date?.message}
         type="date"
-        label="Data do Evento"
+        label="Quando?"
         InputLabelProps={{
           shrink: true
           }}
