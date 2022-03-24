@@ -16,10 +16,6 @@ export const Container = styled.div`
     max-width: 500px;
     flex-wrap: wrap;
     text-align: center;
-    p {
-      color: var(--color-lavenderGray);
-      font-size: 40px;
-    }
     img {
       height: 220px;
       width: 220px;
@@ -31,10 +27,15 @@ export const Container = styled.div`
     img {
       display: none;
     }
-    p {
-      display: none;
-    }
     span {
     }
+  }
+`;
+
+export const Description = styled.p`
+  color: var(--color-lavenderGray);
+  font-size: 40px;
+  @media screen and (max-width: 580px) {
+    display: none;
   }
 `;

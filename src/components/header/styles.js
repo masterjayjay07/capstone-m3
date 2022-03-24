@@ -13,7 +13,7 @@ export const Container = styled.header`
   img {
     transition: 1.5s;
     :hover {
-      transform: scale(1.3);
+      transform: scale(1.1);
     }
   }
 
