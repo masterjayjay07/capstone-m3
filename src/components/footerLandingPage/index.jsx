@@ -29,15 +29,15 @@ const Footer = () => {
       name: "Marcelo Teixeira",
       role: "Q.A",
       img: "https://ca.slack-edge.com/TQZR39SET-U02FGSVKD0R-d10ed6e4b277-512",
-      insta: "",
-      linkedin: "",
+      insta: "https://www.instagram.com/modestimarceloteixeira/",
+      linkedin: "https://www.linkedin.com/in/marcelo-teixeira-modesti-2960751b5/",
     },
     {
       name: "Yorran Rigatti",
       role: "Q.A.",
       img: "https://ca.slack-edge.com/TQZR39SET-U02FF0WK5QS-ef659f201956-512",
       insta: "",
-      linkedin: "https://www.linkedin.com/in/yorranrigatti/",
+      linkedin: "",
     },
   ]);
 

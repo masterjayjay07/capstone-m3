@@ -12,6 +12,7 @@ import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
 import EditUser from "../../components/formEditProfile";
 import Header from "../../components/header";
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,6 @@ const Dashboard = () => {
   const history = useHistory();
   const { setItemsList } = useItemsList();
   const { setGuests } = useGuests();
-
   const [openProfile, setOpenProfile] = useState(false);
   const handleEditProfileClose = () => setOpenProfile(false);
   const handleEditProfileOpen = () => setOpenProfile(true);
@@ -48,12 +48,17 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Header />
       <Container>
         <h2>Bem vindo, {user.name}!</h2>
         <SubHeader>
-          <Button //botao de editar usuário
+          <Button
             children={"Editar perfil"}
             theme={buttonThemes.add}
             onClick={() => {
@@ -91,15 +96,13 @@ const Dashboard = () => {
             <FormAddEvent handleClose={handleClose} />
           </>
         </Modal>
-        {/* modal de editar evento */}
-
         <Modal open={openProfile} onClose={handleEditProfileClose} sx={style}>
           <>
             <EditUser handleClose={handleEditProfileClose} />
           </>
         </Modal>
       </Container>
-    </>
+    </motion.div>
   );
 };
 

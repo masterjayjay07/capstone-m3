@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }) => {
           "@BoraMarcar:userToken",
           JSON.stringify(data.accessToken)
         );
-        toast.success('Bem vindo ao Bora Marcar!')
         setUserId(data.user.id);
         setUserToken(data.accessToken);
         history.push("/dashboard");
@@ -47,7 +46,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ userToken, userId, handleLogin, handleLogout, handleRegister }}
+      value={{
+        userToken,
+        userId,
+        handleLogin,
+        handleLogout,
+        handleRegister,
+        setUserId,
+      }}
     >
       {children}
     </AuthContext.Provider>

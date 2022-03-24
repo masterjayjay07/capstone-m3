@@ -1,15 +1,22 @@
-import { Container, ContainerButtons } from "./styles";
-import { useHistory } from "react-router-dom";
+import {
+  Container,
+  ContainerButtons,
+  ContainerHeader,
+  ContainerUl,
+  ListItem,
+  Guest,
+  Products,
+} from "./styles";
 import { useEvents } from "../../provider/Events";
 
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 
 const ModalConfirmEvent = ({ handleClose }) => {
-  const { finalSolution, activeEvent, handleEditEvent } = useEvents();
-  const history = useHistory()
+  const { finalSolution, activeEvent, handleEditEvent, handleLetsMake } =
+    useEvents();
 
-  const treatNumbers = (num) =>
+  const treatNumbers = num =>
     Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -19,13 +26,23 @@ const ModalConfirmEvent = ({ handleClose }) => {
     const arrayLi = [];
     for (const guest in finalSolution.guests) {
       arrayLi.push(
-        <li key={Math.random()}>
-          <div key={Math.random()}> 
-            <p>  <strong> {guest} </strong> </p>
-            <p>{treatNumbers(finalSolution.guests[guest].totalCost)}</p>
-          </div>
-
-          <div>
+        <ListItem key={guest}>
+          <Guest>
+            <p>{guest}</p>
+            <p>
+              {finalSolution.guests[guest].totalCost >= 0 ? (
+                <span isTrue={true}>
+                  Receber: {treatNumbers(finalSolution.guests[guest].totalCost)}
+                </span>
+              ) : (
+                <span isTrue={false}>
+                  Pagar:{" "}
+                  {treatNumbers(finalSolution.guests[guest].totalCost * -1)}
+                </span>
+              )}
+            </p>
+          </Guest>
+          <Products>
             {finalSolution.guests[guest].productList.map(
               ({ itemName, itemCost }) => (
                 <div className="itemList">
@@ -34,8 +51,8 @@ const ModalConfirmEvent = ({ handleClose }) => {
                 </div>
               )
             )}
-          </div>
-        </li>
+          </Products>
+        </ListItem>
       );
     }
 
@@ -44,21 +61,23 @@ const ModalConfirmEvent = ({ handleClose }) => {
 
   return (
     <Container>
-      <div>
+      <ContainerHeader>
         <div>
-        <p> <strong> Preço total dos produtos:</strong> </p>
-        <span>{treatNumbers(finalSolution.totalPrice)}</span>
+          <p>Preço total: </p>
+          <span>{treatNumbers(finalSolution.totalPrice)}</span>
         </div>
         <div>
-          <p> <strong> Média de preço por participante: </strong></p>
-          <span> R$ {(finalSolution.averagePrice).toFixed(2)}
-
-          </span>
+          <p>Média: </p>
+          <span>{treatNumbers(finalSolution.averagePrice)}</span>
         </div>
-      </div>
-      <ul>{createList()}</ul>
+      </ContainerHeader>
+      <ContainerUl>{createList()}</ContainerUl>
       <ContainerButtons>
-        <Button children="Deu Ruim!" theme={buttonThemes.decline} />
+        <Button
+          children="Deu Ruim!"
+          theme={buttonThemes.decline}
+          onClick={() => handleLetsMake()}
+        />
         <Button
           children="Bora Marcar!"
           theme={buttonThemes.add}

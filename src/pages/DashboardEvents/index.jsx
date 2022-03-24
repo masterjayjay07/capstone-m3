@@ -25,6 +25,7 @@ import { useItemsList } from "../../provider/ItemsList";
 import { useGuests } from "../../provider/Guests";
 import FormEditItem from "../../components/formEditItem";
 import Header from "../../components/header";
+import { motion } from "framer-motion";
 
 const DashboardEvents = () => {
   const [productsTab, setProductsTab] = useState(true);
@@ -65,7 +66,12 @@ const DashboardEvents = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Header />
       <Container>
         <ContainerHeader>
@@ -131,7 +137,7 @@ const DashboardEvents = () => {
           </>
         </Modal>
       </Container>
-    </>
+    </motion.div>
   );
 };
 

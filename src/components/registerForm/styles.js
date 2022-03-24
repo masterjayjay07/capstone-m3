@@ -9,6 +9,7 @@ export const Form = styled.form`
   align-items: center;
   background: var(--color-middleBluePurple);
   padding: 20px 10px;
+
   button {
     margin: 5px 0;
   }

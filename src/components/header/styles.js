@@ -7,6 +7,7 @@ export const Container = styled.header`
   height: 50px;
   width: 100%;
   padding: 15px 0 0 0;
+  z-index: 20;
   a {
     margin: 15px;
   }

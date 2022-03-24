@@ -7,6 +7,7 @@ export const Container = styled.main`
   justify-content: space-around;
   padding: 30px;
   height: 90vh;
+<<<<<<< HEAD
   background: linear-gradient(90deg, #24203b, #24203a, #24202e, #725ac1);
   background-size: 200% 200%;
   animation: colors 6s  infinite;
@@ -25,6 +26,8 @@ export const Container = styled.main`
       background-position: 0% 0%;
     }
   }
+=======
+>>>>>>> a70be46e1b2e1e49973b0ed2f757b2c550356c85
   img {
     width: 270px;
     height: 270px;
