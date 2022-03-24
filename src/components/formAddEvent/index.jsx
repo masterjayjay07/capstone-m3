@@ -23,7 +23,7 @@ const FormAddEvent = ({ handleClose }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = data => {
+  const onSubmitFunction = (data) => {
     handleCreateEvent(data);
     handleClose();
   };

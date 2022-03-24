@@ -9,16 +9,18 @@ const Stack2 = () => {
       <h2>Veja as vantagens do nosso aplicativo.</h2>
       <div>
         <span>
-          <FaRegGrinWink /> Evite discussões e poupe tempo para as decisões importantes.
+          <RiChatSmile3Line /> Evite discussões e poupe tempo para as decisões
+          importantes.
         </span>
         <span>
           <BsListCheck /> Veja o que cada um irá levar através da nossa lista.
         </span>
         <span>
-          <FaRegMoneyBillAlt /> Todos os valores são divididos e calculados de maneira justa.
+          <FaRegMoneyBillAlt /> Todos os valores são divididos e calculados de
+          maneira justa.
         </span>
         <span>
-          <RiChatSmile3Line /> Organize seus eventos de forma prática e rápida.
+          <FaRegGrinWink /> Organize seus eventos de forma prática e rápida.
         </span>
       </div>
     </Container>

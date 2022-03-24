@@ -26,13 +26,13 @@ export const EventProvider = ({ children }) => {
     boraMarcarApi
       .get(`/events?userId=${userId}`)
       .then(({ data }) => setUserEvents(data))
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         toast.error("Ops! Algo deu errado!");
       });
   };
 
-  const handleCreateEvent = data => {
+  const handleCreateEvent = (data) => {
     const newEvent = {
       ...data,
       itemsList: [],
@@ -50,7 +50,20 @@ export const EventProvider = ({ children }) => {
       });
   };
 
-  const handleEditEvent = data => {
+  const handleDeleteEvent = (id) => {
+    const currentEvent = userEvents.find((element) => element.id === id);
+    const newEvents = userEvents.filter((element) => element.id !== id);
+    boraMarcarApi
+      .delete(`/events/${currentEvent.id}`, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      })
+      .then((res) => {
+        setUserEvents(newEvents);
+        toast.success("Evento removido");
+      });
+  };
+
+  const handleEditEvent = (data) => {
     boraMarcarApi
       .patch(`/events/${activeEvent.id}`, data, {
         headers: { Authorization: `Bearer ${userToken}` },
@@ -60,7 +73,7 @@ export const EventProvider = ({ children }) => {
         setActiveEvent({ ...data });
         toast.success("Evento marcado!");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         toast.error("Ops! Algo deu errado!");
       });
@@ -81,7 +94,7 @@ export const EventProvider = ({ children }) => {
 
       // Enquanto o array de convidados possuir nomes, vamos filtrando com base no id
       // Assim podemos garantir que todos os convidados vão receber ao menos um produto
-      workGuestsArray = workGuestsArray.filter(guest => {
+      workGuestsArray = workGuestsArray.filter((guest) => {
         return guest.id !== randomGuest.id;
       });
 
@@ -97,7 +110,7 @@ export const EventProvider = ({ children }) => {
     // Calcula e cria a propriedade itemCost para cada item contido no array productList
     for (const guest in finalSolution.guests) {
       finalSolution.guests[guest].productList.forEach(
-        item => (item.itemCost = Number(item.price) * Number(item.quantity))
+        (item) => (item.itemCost = Number(item.price) * Number(item.quantity))
       );
 
       // Calcula e cria a propriedade totalCost para a soma dos custos de todos os
@@ -157,6 +170,7 @@ export const EventProvider = ({ children }) => {
         activeEvent,
         setActiveEvent,
         handleCreateEvent,
+        handleDeleteEvent,
         handleEditEvent,
         handleLetsMake,
         finalSolution,
