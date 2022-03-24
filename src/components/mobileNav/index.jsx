@@ -6,41 +6,64 @@ import { AiOutlineClose } from "react-icons/ai";
 import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const MobileNav = () => {
+  const location = useLocation();
+  const currentLocation = location.pathname;
   const [open, setOpen] = useState(false);
 
   const history = useHistory();
   return (
     <Container>
-      <BurguerButton open={open} onClick={() => setOpen(!open)}>
-        {open ? <AiOutlineClose /> : <FiMenu />}
-      </BurguerButton>
-      {open && (
-        <ul>
-          <li>
-            <Button
-              theme={buttonThemes.header}
-              onClick={() => {
-                history.push("/login");
-                setOpen(!open);
-              }}
-            >
-              Entrar
-            </Button>
-          </li>
-          <li>
-            <Button
-              theme={buttonThemes.header}
-              onClick={() => {
-                history.push("/register");
-                setOpen(!open);
-              }}
-            >
-              Cadastrar-se
-            </Button>
-          </li>
-        </ul>
+      {currentLocation === "/register" && (
+        <Button
+          theme={buttonThemes.mobile}
+          onClick={() => history.push("/login")}
+        >
+          Entrar
+        </Button>
+      )}
+      {currentLocation === "/login" && (
+        <Button
+          theme={buttonThemes.mobile}
+          onClick={() => history.push("/register")}
+        >
+          Cadastrar-se
+        </Button>
+      )}
+      {currentLocation === "/" && (
+        <>
+          <BurguerButton open={open} onClick={() => setOpen(!open)}>
+            {open ? <AiOutlineClose /> : <FiMenu />}
+          </BurguerButton>
+          {open && (
+            <ul>
+              <li>
+                <Button
+                  theme={buttonThemes.header}
+                  onClick={() => {
+                    history.push("/login");
+                    setOpen(!open);
+                  }}
+                >
+                  Entrar
+                </Button>
+              </li>
+              <li>
+                <Button
+                  theme={buttonThemes.header}
+                  onClick={() => {
+                    history.push("/register");
+                    setOpen(!open);
+                  }}
+                >
+                  Cadastrar-se
+                </Button>
+              </li>
+            </ul>
+          )}
+        </>
       )}
     </Container>
   );
