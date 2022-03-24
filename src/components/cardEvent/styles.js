@@ -22,9 +22,9 @@ export const Container = styled.div`
     border: 1px solid var(--color-darkPurple);
     border-radius: 50px;
     margin: 10px;
-    align-self: center
+    align-self: center;
   }
-  p{
+  p {
     align-self: center;
   }
   :hover {
@@ -41,8 +41,8 @@ export const Container = styled.div`
       color: var(--color-linen);
       font-weight: 600;
     }
-    span{
-      color: var(--color-linen);      
+    span {
+      color: var(--color-linen);
     }
   }
 
@@ -55,11 +55,13 @@ export const Container = styled.div`
     white-space: nowrap;
   }
 
-  span{
+  span {
     font-size: 0.8rem;
     border: none;
     margin: 5px 0 0 18px;
-    
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-
 `;
