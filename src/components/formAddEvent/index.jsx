@@ -44,7 +44,11 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.date?.message}
         helperText={errors.date?.message}
         type="date"
-        sx={{ width: "235px" }}
+        label="Data do Evento"
+        InputLabelProps={{
+          shrink: true
+          }}
+          sx={{width: '224px'}}
       />
       <Input
         label="Onde?"

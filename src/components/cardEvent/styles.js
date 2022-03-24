@@ -38,9 +38,6 @@ export const Container = styled.div`
       color: var(--color-linen);
       font-weight: 600;
     }
-    span {
-      color: var(--color-linen);
-    }
   }
 `;
 
@@ -88,5 +85,9 @@ export const SecondContainer = styled.div`
     margin: 5px 0 0 18px;
     align-self: flex-start;
     text-align: start;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;

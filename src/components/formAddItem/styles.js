@@ -21,6 +21,7 @@ export const Container = styled.form`
   > div {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     width: 80%;
     gap: 8px;
