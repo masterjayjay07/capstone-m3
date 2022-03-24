@@ -6,12 +6,16 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 420px;
-  height: 540px;
+  height: 460px;
   margin: auto;
   padding: 12px 24px;
   border-radius: 4px;
   background-color: var(--color-middleBluePurple);
   border: 3px solid var(--color-darkPurple);
+
+  @media screen and (min-width: 720px) {
+    height: 540px;
+  }
 `;
 
 export const ContainerHeader = styled.div`
