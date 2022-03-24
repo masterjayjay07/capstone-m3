@@ -7,17 +7,31 @@ import Button from "../button";
 import { buttonThemes } from "../../styles/themes";
 import { useHistory } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 export const MobileNav = () => {
   const [open, setOpen] = useState(false);
 
   const history = useHistory();
   return (
     <Container>
+
       <BurguerButton open={open} onClick={() => setOpen(!open)}>
         {open ? <AiOutlineClose /> : <FiMenu />}
       </BurguerButton>
+
       {open && (
-        <ul>
+       
+       <motion.div
+       initial={{ scale: 0 }}
+       animate={{ rotate: 0, scale: 1 }}
+       transition={{
+         type: "spring",
+         stiffness: 120,
+         damping: 20
+        }}>
+       
+       <ul>
           <li>
             <Button
               theme={buttonThemes.header}
@@ -41,6 +55,37 @@ export const MobileNav = () => {
             </Button>
           </li>
         </ul>
+       
+          </motion.div>
+       
+       /* 
+       <ul>
+          <li>
+            <Button
+              theme={buttonThemes.header}
+              onClick={() => {
+                history.push("/login");
+                setOpen(!open);
+              }}
+            >
+              Entrar
+            </Button>
+          </li>
+          <li>
+            <Button
+              theme={buttonThemes.header}
+              onClick={() => {
+                history.push("/register");
+                setOpen(!open);
+              }}
+            >
+              Cadastrar-se
+            </Button>
+          </li>
+        </ul>
+       
+       */
+       
       )}
     </Container>
   );

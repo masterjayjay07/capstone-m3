@@ -3,6 +3,7 @@ import { Container } from "./styles";
 const CardEvent = ({ event, ...rest }) => {
   return (
     <Container {...rest}>
+
       {event && (
         <>
           <hr />

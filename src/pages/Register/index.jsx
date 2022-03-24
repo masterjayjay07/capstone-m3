@@ -5,6 +5,7 @@ import Header from "../../components/header";
 import { motion } from "framer-motion";
 
 
+
 const Register = () => {
   return (
     <motion.div

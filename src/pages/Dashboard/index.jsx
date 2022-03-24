@@ -54,6 +54,7 @@ const Dashboard = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
+   
       <Header />
       <Container>
         <h2>Bem vindo, {user.name}!</h2>
@@ -74,11 +75,11 @@ const Dashboard = () => {
         </SubHeader>
 
         <SlotCard>
-          <span>Meus eventos</span>
+          <span className="container">Meus eventos</span>
 
           <CardsDiv>
             {userEvents.length === 0 ? (
-              <span>Você não possui eventos para visualizar</span>
+              <span >Você não possui eventos para visualizar</span>
             ) : (
               userEvents.map((item, index) => (
                 <CardEvent

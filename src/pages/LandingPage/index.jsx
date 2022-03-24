@@ -4,6 +4,7 @@ import LpStack1 from "../../components/lpstack1";
 import Stack2 from "../../components/stack2";
 import { motion } from "framer-motion";
 
+import ScrollAnimation from "react-animate-on-scroll";
 
 const LandingPage = () => {
   return (

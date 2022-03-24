@@ -4,6 +4,8 @@ import { buttonThemes } from "../../styles/themes";
 import Button from "../button";
 import { Container } from "./styles";
 
+
+
 const LpStack1 = () => {
   const history = useHistory();
 
@@ -16,8 +18,8 @@ const LpStack1 = () => {
 
   return (
     <Container>
-      <p>
-        Facilite os encontros da galera, <span>Bora Marcar!</span>
+      <p>Facilite os encontros da galera, <span      
+        >Bora Marcar!</span>
       </p>
       <Button
         theme={buttonThemes.default}
