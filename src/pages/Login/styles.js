@@ -17,19 +17,13 @@ export const Container = styled.main`
     }
     50%{
       background-position: 50% 50%;
-
     }
     75%{
       background-position: 100% 100%;
-
     }
-
     100%{
       background-position: 0% 0%;
-
     }
-  
-    
   }
   img {
     width: 270px;
