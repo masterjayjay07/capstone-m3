@@ -22,7 +22,8 @@ const Input = ({ label, helperText, error, register, name, ...rest }) => {
           error={error}
           {...rest}
           size="small"
-          {...register(name)}
+          {...register(name)} 
+          
         />
       </InputContainer>
     </ThemeProvider>

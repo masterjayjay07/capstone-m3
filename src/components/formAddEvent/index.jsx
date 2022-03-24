@@ -8,6 +8,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEvents } from "../../provider/Events";
 
+
+
 const FormAddEvent = ({ handleClose }) => {
   const { handleCreateEvent } = useEvents();
 
@@ -44,8 +46,15 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.date?.message}
         helperText={errors.date?.message}
         type="date"
-        sx={{ width: "235px" }}
-      />
+        label={'Data do Evento'}
+        InputLabelProps={{
+          shrink: true
+          }}
+          sx={{width: '224px'}}
+      /> 
+
+
+      
       <Input
         label="Onde?"
         register={register}

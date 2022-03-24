@@ -24,6 +24,7 @@ export const Container = styled.form`
     align-items: center;
     width: 80%;
     gap: 8px;
+    flex-direction: column;
   }
   button {
     width: 80%;
