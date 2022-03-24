@@ -73,7 +73,7 @@ export const DivTitle = styled.div`
     border: 1px solid var(--color-darkPurple);
     padding: 0 7px;
     cursor: pointer;
-    :hover{
+    :hover {
       background-color: var(--color-darkPurple);
       color: var(--color-linen);
     }
@@ -138,7 +138,15 @@ export const Content = styled.div`
         background-color: rgba(255, 255, 255, 0.1);
         cursor: pointer;
       }
-
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 130px;
+        @media screen and (min-width: 580px){
+          max-width: 240px;
+        }
+      }
       p,
       span {
         padding: 0 4px 0;

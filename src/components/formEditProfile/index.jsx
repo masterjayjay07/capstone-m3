@@ -8,29 +8,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../provider/User";
 
 const FormEditItem = ({ handleClose }) => {
-  const { handleEditProfile, user } = useUser();
+  const { handleEditProfile } = useUser();
 
   const Schema = yup.object().shape({
     name: yup.string(),
     email: yup.string().email("E-mail inválido"),
   });
-
-  /* 
-
-  name: yup.string().required("Campo Obrigatório"),
-    age: yup
-      .string()
-      .matches(/^[0-9] /, "Apenas números"),
-    email: yup.string().required("Obrigatório").email("E-mail inválido"),
-
-
-  name: yup.string(),
-    age: yup
-      .string()
-      .matches(/^(?:1[8-9]|[2-9][0-9]|[1-9][0-9]{2,5}|1000000. )*$/gm, "Apenas números"),
-    email: yup.string().email("E-mail inválido"),
-  
-  */
 
   const {
     register,
@@ -45,6 +28,8 @@ const FormEditItem = ({ handleClose }) => {
         acc[key] = value;
         return acc;
       }, {});
+    handleEditProfile(treatedData);
+    handleClose();
   };
 
   return (

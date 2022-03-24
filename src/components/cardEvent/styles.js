@@ -4,7 +4,7 @@ export const Container = styled.div`
   background-color: var(--color-darkPurple);
   color: var(--color-linen);
   width: 250px;
-  height: 150px;
+  height: 190px;
   border: none;
   border-radius: 10px;
   display: flex;
@@ -22,9 +22,10 @@ export const Container = styled.div`
     border: 1px solid var(--color-darkPurple);
     border-radius: 50px;
     margin: 10px;
-    align-self: center
+    align-self: center;
   }
-  p{
+
+  p {
     align-self: center;
   }
   :hover {
@@ -33,19 +34,45 @@ export const Container = styled.div`
     color: var(--color-middleBluePurple);
     border: 1px solid var(--color-darkPurple);
     opacity: 0.9;
-
-    hr {
-      border: none;
-    }
     p {
       color: var(--color-linen);
       font-weight: 600;
     }
-    span{
+    span {
       color: var(--color-linen);
     }
   }
+`;
 
+export const FirstContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  hr {
+    border: none;
+    flex: 1;
+  }
+  span {
+    width: 20px;
+    height: 20px;
+    padding: 6px;
+    border-bottom: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-stateBlue);
+    font-weight: bold;
+  }
+`;
+
+export const SecondContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   p {
     font-size: 1.3rem;
     overflow: hidden;
@@ -55,10 +82,11 @@ export const Container = styled.div`
     white-space: nowrap;
   }
 
-  span{
+  span {
     font-size: 0.8rem;
     border: none;
     margin: 5px 0 0 18px;
+    align-self: flex-start;
+    text-align: start;
   }
-
 `;

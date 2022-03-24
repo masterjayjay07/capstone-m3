@@ -42,20 +42,6 @@ export const ContainerUl = styled.ul`
   max-height: 310px;
   list-style: none;
   overflow-y: auto;
-
-  /* ::-webkit-scrollbar {
-    width: 8px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: var(--color-stateBlue);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-darkPurple);
-  } */
 `;
 
 export const ContainerButtons = styled.div`
@@ -105,6 +91,10 @@ export const Guest = styled.div`
   p:first-of-type {
     font-weight: bold;
     text-transform: capitalize;
+    text-align: start;
+  }
+  p{
+    text-align: end;
   }
 `;
 

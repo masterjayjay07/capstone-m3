@@ -29,7 +29,7 @@ const Stack2 = () => {
           }}
         >
           <span>
-            <FaRegGrinWink /> Evite discussões e poupe tempo para as decisões
+            <RiChatSmile3Line  /> Evite discussões e poupe tempo para as decisões
             importantes.
           </span>
         </ScrollAnimation>
@@ -73,7 +73,7 @@ const Stack2 = () => {
           }}
         >
           <span>
-            <RiChatSmile3Line /> Organize seus eventos de forma prática e
+            <FaRegGrinWink /> Organize seus eventos de forma prática e
             rápida.
           </span>
         </ScrollAnimation>

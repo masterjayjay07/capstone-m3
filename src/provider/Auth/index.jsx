@@ -6,15 +6,15 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const history = useHistory();
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState(
+    JSON.parse(localStorage.getItem("@BoraMarcar:userId")) || 0
+  );
   const [userToken, setUserToken] = useState(
     JSON.parse(localStorage.getItem("@BoraMarcar:userToken")) || ""
   );
 
-
   const handleRegister = (data) => {
-    
-   boraMarcarApi
+    boraMarcarApi
       .post("/register", data)
       .then(() => {
         toast.success("Conta criada com sucesso!");
@@ -30,6 +30,10 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem(
           "@BoraMarcar:userToken",
           JSON.stringify(data.accessToken)
+        );
+        localStorage.setItem(
+          "@BoraMarcar:userId",
+          JSON.stringify(data.user.id)
         );
         setUserId(data.user.id);
         setUserToken(data.accessToken);

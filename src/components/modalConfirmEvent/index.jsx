@@ -16,7 +16,7 @@ const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent, handleLetsMake } =
     useEvents();
 
-  const treatNumbers = num =>
+  const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -30,7 +30,7 @@ const ModalConfirmEvent = ({ handleClose }) => {
           <Guest>
             <p>{guest}</p>
             <p>
-              {finalSolution.guests[guest].totalCost > 0 ? (
+              {finalSolution.guests[guest].totalCost >= 0 ? (
                 <span isTrue={true}>
                   Receber: {treatNumbers(finalSolution.guests[guest].totalCost)}
                 </span>
