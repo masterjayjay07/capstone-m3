@@ -6,12 +6,16 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 420px;
-  height: 540px;
+  height: 460px;
   margin: auto;
   padding: 12px 24px;
   border-radius: 4px;
   background-color: var(--color-middleBluePurple);
   border: 3px solid var(--color-darkPurple);
+
+  @media screen and (min-width: 720px) {
+    height: 540px;
+  }
 `;
 
 export const ContainerHeader = styled.div`
@@ -38,20 +42,6 @@ export const ContainerUl = styled.ul`
   max-height: 310px;
   list-style: none;
   overflow-y: auto;
-
-  /* ::-webkit-scrollbar {
-    width: 8px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: var(--color-stateBlue);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-darkPurple);
-  } */
 `;
 
 export const ContainerButtons = styled.div`
@@ -101,6 +91,10 @@ export const Guest = styled.div`
   p:first-of-type {
     font-weight: bold;
     text-transform: capitalize;
+    text-align: start;
+  }
+  p{
+    text-align: end;
   }
 `;
 

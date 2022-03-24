@@ -45,14 +45,18 @@ const DashboardEvents = () => {
   const [openInfos, setOpenInfos] = useState(true);
   const handleOpenInfos = () => setOpenInfos(true);
   const handleCloseInfos = () => setOpenInfos(false);
-  const { handleLetsMake, activeEvent } = useEvents();
+  const { handleLetsMake, activeEvent, setFinalSolution } = useEvents();
   const { itemsList } = useItemsList();
   const { guests } = useGuests();
   const [itemID, setItemID] = useState(0);
 
   const handleClickLetsMake = () => {
     if (itemsList.length > 0 && guests.length > 0) {
-      handleLetsMake();
+      if (!activeEvent.confirmed) {
+        handleLetsMake();
+      } else {
+        setFinalSolution(activeEvent.eventResolution);
+      }
       handleOpenModalConfirm();
     }
   };
@@ -123,7 +127,7 @@ const DashboardEvents = () => {
           sx={style}
         >
           <>
-            <ModalConfirmEvent handleClose={handleCloseModalConfirm}/>
+            <ModalConfirmEvent handleClose={handleCloseModalConfirm} />
           </>
         </Modal>
         <Modal open={openEditForm} onClose={handleCloseEditForm} sx={style}>

@@ -7,11 +7,12 @@ export const Container = styled.nav`
   flex-direction: column;
   align-items: flex-end;
   ul {
-    width: 110px;
+    width: 120px;
     position: absolute;
-    top: 40px;
     right: -5px;
     background-color: var(--color-darkPurple);
+    border-radius: 4px;
+    border: 1px solid var(--color-stateBlue);
     li {
       width: 100%;
       border-bottom: 1px solid var(--color-stateBlue);
@@ -31,6 +32,9 @@ export const Container = styled.nav`
   }
   @media (min-width: 425px) {
     ul {
+      display: none;
+    }
+    button {
       display: none;
     }
   }

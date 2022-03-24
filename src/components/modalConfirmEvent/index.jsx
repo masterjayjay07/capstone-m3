@@ -15,8 +15,7 @@ import { buttonThemes } from "../../styles/themes";
 const ModalConfirmEvent = ({ handleClose }) => {
   const { finalSolution, activeEvent, handleEditEvent, handleLetsMake } =
     useEvents();
-
-  const treatNumbers = num =>
+  const treatNumbers = (num) =>
     Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -30,12 +29,12 @@ const ModalConfirmEvent = ({ handleClose }) => {
           <Guest>
             <p>{guest}</p>
             <p>
-              {finalSolution.guests[guest].totalCost > 0 ? (
-                <span isTrue={true}>
+              {finalSolution.guests[guest].totalCost >= 0 ? (
+                <span>
                   Receber: {treatNumbers(finalSolution.guests[guest].totalCost)}
                 </span>
               ) : (
-                <span isTrue={false}>
+                <span>
                   Pagar:{" "}
                   {treatNumbers(finalSolution.guests[guest].totalCost * -1)}
                 </span>

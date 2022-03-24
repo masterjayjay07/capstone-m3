@@ -33,7 +33,7 @@ const Container = styled.div`
       color: var(--color-darkPurple);
       margin: 5px;
       font-size: 1rem;
-      width: 45%;
+      width: 100%;
       text-align: start;
       align-items: center;
       font-weight: 800;

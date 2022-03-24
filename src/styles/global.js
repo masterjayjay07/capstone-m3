@@ -23,6 +23,8 @@ export default createGlobalStyle`
     --p-font-size: 12px;
     --span-font-size: 10px;
     --button-font-size: 14px;
+
+    padding: 5px;
 }
 
 body {

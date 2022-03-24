@@ -32,15 +32,16 @@ Sempre quando vamos organizar ou participar de um evento enfrentamos o problema 
 - React Router Dom
 - React Hot Toast
 - React Icons
+- Animate.css
 - Framer Motion
 
 ### _Linha para instalar bibliotecas_
 
-`yarn add styled-components @mui/material @emotion/react @emotion/styled axios yup @hookform/resolvers react-hook-form react-hot-toast react-icons framer-motion`
+`yarn add styled-components @mui/material @emotion/react @emotion/styled axios yup @hookform/resolvers react-hook-form react-hot-toast react-icons framer-motion animate.css`
 
 ### <em>ou</em>
 
-`npm install styled-components @mui/material @emotion/react @emotion/styled axios yup @hookform/resolvers react-hook-form react-hot-toast react-icons framer-motion`
+`npm install styled-components @mui/material @emotion/react @emotion/styled axios yup @hookform/resolvers react-hook-form react-hot-toast react-icons framer-motion animate.css --save`
 
 ## Equipe
 

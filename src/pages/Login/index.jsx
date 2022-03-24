@@ -7,10 +7,9 @@ import { Container } from "./styles";
 import { buttonThemes } from "../../styles/themes";
 import { useAuth } from "../../provider/Auth";
 import { useHistory } from "react-router-dom";
-import Logo from "../../assets/images/registerImg.png";
+import LoginImg from "../../assets/images/registerImg.png";
 import Header from "../../components/header";
 import { motion } from "framer-motion";
-
 
 const Login = () => {
   const history = useHistory();
@@ -43,7 +42,15 @@ const Login = () => {
     >
       <Header />
       <Container>
-        <img src={Logo} alt="Brinde a criação do seu evento" />
+        <motion.div
+          whileTap={{
+            scale: 1.3,
+            rotate: 360,
+            borderRadius: "100%",
+          }}
+        >
+          <img src={LoginImg} alt="Brinde a criação do seu evento" />
+        </motion.div>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <h2>Login</h2>
           <Input

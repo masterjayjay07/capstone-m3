@@ -23,7 +23,7 @@ const FormAddEvent = ({ handleClose }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = data => {
+  const onSubmitFunction = (data) => {
     handleCreateEvent(data);
     handleClose();
   };
@@ -44,7 +44,11 @@ const FormAddEvent = ({ handleClose }) => {
         error={!!errors.date?.message}
         helperText={errors.date?.message}
         type="date"
-        sx={{ width: "235px" }}
+        label="Quando?"
+        InputLabelProps={{
+          shrink: true
+          }}
+          sx={{width: '224px'}}
       />
       <Input
         label="Onde?"
