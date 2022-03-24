@@ -5,79 +5,113 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 320px;
-  max-width: 420px;
+  width: 420px;
   height: 540px;
   margin: auto;
+  padding: 12px 24px;
   border-radius: 4px;
   background-color: var(--color-middleBluePurple);
   border: 3px solid var(--color-darkPurple);
-  > div {
+`;
+
+export const ContainerHeader = styled.div`
+  font-weight: bold;
+  width: 100%;
+  padding: 12px;
+  border-bottom: 2px solid var(--color-darkPurple);
+
+  div {
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
     justify-content: space-between;
-    width: 95%;
-    padding: 30px;
-    border-bottom: 2px solid var(--color-darkPurple);
-    span {
-      margin: 0 18px 0 auto;
-    }
-  }
-  ul {
-    flex: 1;
-    list-style: none;
-    width: 90%;
-    max-height: 310px;
-    padding: 0 15px;
-    margin-bottom: 15px;
-    overflow: auto;
-
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      border-radius: 4px;
-      background: var(--color-stateBlue);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--color-darkPurple);
-    }
-
-    li {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      height: 45px;
-      border-bottom: 1px solid var(--color-darkPurple);
-      background: var(--color-light-purple);
-      color: var(--color-darkPurple);
-      border-radius: 4px 4px 0 0;
-      p {
-        padding: 0 5px;
-      }
-      div {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 5px;
-      }
-    }
+    width: 100%;
+    padding: 0 4px 2px;
+    border-bottom: 1px solid var(--color-linen);
+    margin-bottom: 12px;
   }
 `;
 
+export const ContainerUl = styled.ul`
+  width: 100%;
+  margin: 15px 0;
+  padding: 0 8px;
+  max-height: 310px;
+  list-style: none;
+  overflow-y: auto;
+
+  /* ::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--color-stateBlue);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-darkPurple);
+  } */
+`;
+
 export const ContainerButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
   button {
     font-family: "Dancing Script", cursive;
     font-size: 18px;
-    width: 48%;
-    height: 40px;
-    display: flex;
+    text-align: center;
+    padding: 16px;
+    width: 100%;
     color: var(--color-darkPurple);
+    border-radius: 4px 0 0 4px;
   }
-  button + button {
+
+  button:last-of-type {
     color: var(--color-linen);
+    border-radius: 0 4px 4px 0;
+  }
+`;
+
+export const ListItem = styled.li`
+  padding: 8px;
+  color: var(--color-darkPurple);
+  border: 1px solid var(--color-darkPurple);
+  border-left: none;
+  border-right: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 2px;
+
+  overflow-x: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const Guest = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px;
+
+  p:first-of-type {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+`;
+
+export const Products = styled.div`
+  padding: 4px 12px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2px;
+    border-bottom: 1px dashed var(--color-stateBlue);
   }
 `;

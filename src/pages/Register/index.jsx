@@ -2,10 +2,17 @@ import { Container, Description } from "./styles";
 import FormRegister from "../../components/registerForm";
 import Logo from "../../assets/images/registerImg.png";
 import Header from "../../components/header";
+import { motion } from "framer-motion";
+
 
 const Register = () => {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Header />
       <Container>
         <section>
@@ -17,7 +24,7 @@ const Register = () => {
           <FormRegister />
         </div>
       </Container>
-    </>
+    </motion.div>
   );
 };
 

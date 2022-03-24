@@ -1,35 +1,31 @@
 import TextField from "@mui/material/TextField";
 import { InputContainer } from "./styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const Input = ({
-  label,
-  helperText,
-  error,
-  register,
-  bgcolor,
-  color,
-  name,
-  backGround,
-  ...rest
-}) => {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#24203b",
+    },
+  },
+});
+
+const Input = ({ label, helperText, error, register, name, ...rest }) => {
   return (
-    <InputContainer>
-      <TextField
-        sx={{ input: { color: `${color}` } }}
-        style={{
-          backgroundColor: `${bgcolor}`,
-          borderRadius: "80px",
-          fontSize: "80px",
-        }}
-        variant="outlined"
-        label={label}
-        helperText={helperText}
-        error={error}
-        {...rest}
-        size="small"
-        {...register(name)}
-      />
-    </InputContainer>
+    <ThemeProvider theme={theme}>
+      <InputContainer>
+        <TextField
+          color="primary"
+          variant="outlined"
+          label={label}
+          helperText={helperText}
+          error={error}
+          {...rest}
+          size="small"
+          {...register(name)}
+        />
+      </InputContainer>
+    </ThemeProvider>
   );
 };
 

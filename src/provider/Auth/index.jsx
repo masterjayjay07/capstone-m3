@@ -11,8 +11,10 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@BoraMarcar:userToken")) || ""
   );
 
+
   const handleRegister = (data) => {
-    boraMarcarApi
+    
+   boraMarcarApi
       .post("/register", data)
       .then(() => {
         toast.success("Conta criada com sucesso!");
@@ -44,7 +46,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ userToken, userId, handleLogin, handleLogout, handleRegister }}
+      value={{
+        userToken,
+        userId,
+        handleLogin,
+        handleLogout,
+        handleRegister,
+        setUserId,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -23,13 +23,12 @@ const FormAddEvent = ({ handleClose }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const onSubmitFunction = (data) => {
+  const onSubmitFunction = data => {
     handleCreateEvent(data);
     handleClose();
   };
 
   return (
-    
     <Container onSubmit={handleSubmit(onSubmitFunction)}>
       <h2>Novo Evento</h2>
       <Input

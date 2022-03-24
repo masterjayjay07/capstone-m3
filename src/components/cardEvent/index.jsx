@@ -9,11 +9,12 @@ const CardEvent = ({ event, ...rest }) => {
           <p>{event.name} </p>
           <span>
             Quando?{" "}
-            {event.date ? event.date.split("-").reverse().join("/") : ""}
+            {event.date ? event.date.split("-").reverse().join("/") : "Deus quiser!"}
           </span>
           <span>
             Onde? {event.location ? event.location : "Local não informado"}
           </span>
+          {event.confirmed ? <span>Evento confirmado!</span> : <span>Evento não confirmado!</span>}
         </>
       )}
     </Container>

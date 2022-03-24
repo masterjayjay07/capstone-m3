@@ -9,6 +9,8 @@ import { useAuth } from "../../provider/Auth";
 import { useHistory } from "react-router-dom";
 import Logo from "../../assets/images/registerImg.png";
 import Header from "../../components/header";
+import { motion } from "framer-motion";
+
 
 const Login = () => {
   const history = useHistory();
@@ -33,7 +35,12 @@ const Login = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Header />
       <Container>
         <img src={Logo} alt="Brinde a criação do seu evento" />
@@ -67,7 +74,7 @@ const Login = () => {
           </Button>
         </form>
       </Container>
-    </>
+    </motion.div>
   );
 };
 
